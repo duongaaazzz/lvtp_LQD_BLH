@@ -7,43 +7,44 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, View, StatusBar} from 'react-native';
+import {requestPermissions} from './src/actions/app';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {connect, Provider} from 'react-redux'
+import store from './src/redux/store'
 
-type Props = {};
-export default class App extends Component<Props> {
+import {AppNavigator} from './src/navigation/AppNavigator';
+import NavigationServices from './src/navigation/NavigationServices';
+
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    Platform.OS === 'android' && requestPermissions()
+
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+    return <View style={{flex: 1}}>
+      <StatusBar
+        backgroundColor="#37A8FF"
+        barStyle="light-content"
+        hidden={true}
+      />
+      <AppNavigator ref={navigatorRef => {
+        NavigationServices.setTopLevelNavigator(navigatorRef)
+      }}/>
+    </View>
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+const ConnectedApp = connect(state => ({}), dispatch => ({}))(App)
+
+
+export default function provider() {
+  return <Provider store={store}>
+    <ConnectedApp/>
+  </Provider>
+}
