@@ -55,7 +55,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BBC6905533FD4F28B8ED5C02 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B340476DFBAB488E9D4B40A8 /* Octicons.ttf */; };
 		D4A62AF54E30465E8BB3613C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 227ABF6BD0E246719F6A427E /* SimpleLineIcons.ttf */; };
-		F2B3A40C2171E81A00659378 /* seguisbi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2B3A3E62171E81A00659378 /* seguisbi.ttf */; };
+		F24F5D2A21762FD10022358F /* SegoeUIBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F24F5D2921762FD10022358F /* SegoeUIBold.ttf */; };
 		F2B3A40E2171EA3100659378 /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2B3A40D2171EA3100659378 /* SegoeUI.ttf */; };
 /* End PBXBuildFile section */
 
@@ -394,7 +394,7 @@
 		EF61996C297F47D481CCCE81 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		EFBB8B78CD5345B5950EEEC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		F04DA2AD18A5423A8E222D0F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		F2B3A3E62171E81A00659378 /* seguisbi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisbi.ttf; sourceTree = "<group>"; };
+		F24F5D2921762FD10022358F /* SegoeUIBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUIBold.ttf; sourceTree = "<group>"; };
 		F2B3A40D2171EA3100659378 /* SegoeUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUI.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -628,8 +628,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F24F5D2921762FD10022358F /* SegoeUIBold.ttf */,
 				F2B3A40D2171EA3100659378 /* SegoeUI.ttf */,
-				F2B3A3E62171E81A00659378 /* seguisbi.ttf */,
 				13B07FAE1A68108700A75B9A /* client */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* clientTests */,
@@ -1165,8 +1165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F24F5D2A21762FD10022358F /* SegoeUIBold.ttf in Resources */,
 				F2B3A40E2171EA3100659378 /* SegoeUI.ttf in Resources */,
-				F2B3A40C2171E81A00659378 /* seguisbi.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				7162AFF862A74E50A53C5889 /* AntDesign.ttf in Resources */,
