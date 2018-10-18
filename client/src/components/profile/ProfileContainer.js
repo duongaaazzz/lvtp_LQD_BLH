@@ -5,11 +5,12 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 import {blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import ItemEventProfile from './ItemEventProfile'
 
 const tabSelectName = {
   signed: 'Signed',
@@ -116,15 +117,26 @@ class ProfileContainer extends React.Component {
         </TouchableOpacity>
 
       </View>
-
     </View>
 
+    const renderBodyProfile = () => <View style={{flex: 1}}>
+      <ScrollView style={{ borderRadius: 10}}>
+
+        <View style={styles.bodyContent}>
+          <FlatList
+            data={this.state.dataSearch}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item, index}) => <ItemEventProfile/>}
+          />
+        </View>
+      </ScrollView>
+    </View>
 
     return (
       <View style={{flex: 1}}>
 
         {renderHeaderProfile()}
-
+        {renderBodyProfile()}
       </View>
     )
   }
@@ -149,5 +161,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
 
-  }
+  },
+  bodyContent: {
+    alignItems: 'center',
+    width: '100%',
+    borderRadius: 10,
+    marginBottom: 10,
+    paddingBottom: 5,
+    backgroundColor: '#ffff'
+  },
 })
