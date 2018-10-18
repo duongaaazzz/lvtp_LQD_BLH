@@ -14,7 +14,7 @@ export default class MainTabContainer extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{height: 25, backgroundColor: '#37A8FF'}}/>
+        <View style={{height: 22, backgroundColor: '#37A8FF'}}/>
         <MainTab ref={navigatorRef => {
           NavigationServices.setTopLevelNavigatorMainTab(navigatorRef)
         }}/>

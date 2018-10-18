@@ -18,7 +18,7 @@ export default class ItemEventProfile extends React.Component {
 
   render() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile)}>
         <View style={{
           marginTop: 10,
           backgroundColor: whiteColor,
@@ -41,7 +41,7 @@ export default class ItemEventProfile extends React.Component {
                 GALA - Vui Hội Trăng Rằm Tương Lai Xanh Cần Thơ
               </Text>
 
-              <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10,color:grayColor}]}>
+              <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10, color: grayColor}]}>
                 Oct 20, Monday
               </Text>
 

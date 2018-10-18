@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Dimensions, Image} from 'react-native'
 import {
   blackColor,
   blueColor,
@@ -22,6 +22,8 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import ItemEventProfile from './ItemEventProfile'
 
+
+const {width, height} = Dimensions.get('window')
 const tabSelectName = {
   signed: 'Signed',
   manage: 'Manage'
@@ -34,19 +36,37 @@ class ProfileContainer extends React.Component {
 
     this.state = {
       tabSelect: tabSelectName.signed,
-      dataSearch: [1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      eventData: [1, 2, 2, 2]
     }
 
   }
 
 
-  changeTabEvent(tabSelectName) {
+  changeTabEvent(tabName) {
+
+    let eventData = []
+
+    if (tabName === tabSelectName.signed) {
+      eventData = [1, 1]
+    } else {
+      eventData = [1, 2, 2,]
+    }
+
 
     //change color
-    if (tabSelectName !== this.state.tabSelect) {
-      this.setState({tabSelect: tabSelectName})
+    if (tabName !== this.state.tabSelect) {
+      this.setState({
+        tabSelect: tabName,
+        eventData: eventData
+      })
+    } else {
+      this.setState({
+        eventData: eventData
+      })
     }
+
   }
+
 
   render() {
 
@@ -136,8 +156,10 @@ class ProfileContainer extends React.Component {
 
       if (this.state.tabSelect === tabSelectName.signed) {
         colorLinearGradient = [violetColor, pinkColor]
+
       } else {
-        colorLinearGradient = [violetColor,skyColor]
+        colorLinearGradient = [violetColor, skyColor]
+
       }
 
 
@@ -148,10 +170,34 @@ class ProfileContainer extends React.Component {
 
           <View style={styles.bodyContent}>
             <FlatList
-              data={this.state.dataSearch}
+              data={this.state.eventData}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item, index}) => <ItemEventProfile/>}
             />
+
+            {
+              this.state.tabSelect === tabSelectName.manage && <TouchableOpacity>
+                <View style={{
+                  marginTop: 10,
+                  backgroundColor: whiteColor,
+                  width: width * 0.8,
+                  height: 94,
+                  borderRadius: 6,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                }}>
+                  <MaterialCommunityIcons name={'plus'} size={50}
+                                          color={grayColor}/>
+
+                  <Text
+                    style={[styles.textStyle, {fontSize: 24, marginTop: -7, color: grayColor, fontWeight: 'bold'}]}>
+                    Tạo Event
+                  </Text>
+
+                </View>
+              </TouchableOpacity>
+            }
           </View>
         </ScrollView>
 
@@ -175,7 +221,6 @@ export default connect(state => ({}), dispatch => ({}))(ProfileContainer);
 const styles = StyleSheet.create({
   textStyle: {
     fontFamily: 'SegoeUI',
-
     color: blackColor
   },
   btnEvent: {

@@ -9,6 +9,7 @@ let appNavigator;
 let homeNavigator;
 let mainNavigator;
 let homeSwitchNavigator;
+let profileSwitchNavigator;
 
 function setTopLevelNavigator(navigatorRef) {
   appNavigator = navigatorRef;
@@ -24,6 +25,10 @@ function setTopLevelNavigatorMainTab(navigatorRef) {
 
 function setTopLevelNavigatorHomeSwitch(navigatorRef) {
   homeSwitchNavigator = navigatorRef;
+}
+
+function setTopLevelNavigatorProfileSwitch(navigatorRef) {
+  profileSwitchNavigator = navigatorRef;
 }
 
 
@@ -67,6 +72,17 @@ function homeSwitchNavigate(routeName, params) {
 }
 
 
+function profileSwitchNavigate(routeName, params) {
+  profileSwitchNavigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params,
+    })
+  )
+
+}
+
+
 function resetToLogin() {
   appNavigator.dispatch(
     NavigationActions.navigate({
@@ -87,6 +103,8 @@ function resetToHomeSwitch() {
 }
 
 export default {
+  setTopLevelNavigatorProfileSwitch,
+  profileSwitchNavigate,
   resetToHomeSwitch,
   homeSwitchNavigate,
   setTopLevelNavigatorHomeSwitch,
