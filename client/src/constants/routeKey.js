@@ -7,6 +7,7 @@ export default {
   HomeScreen: 'HomeScreen',
   NotifyScreen: 'NotifyScreen',
   ProfileScreen: 'ProfileScreen',
+  DetailsEventProfile: 'DetailsEventProfile',
   SearchScreen: 'SearchScreen',
   NearByScreen: 'NearByScreen',
   NowScreen: 'NowScreen',

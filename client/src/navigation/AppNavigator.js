@@ -18,11 +18,14 @@ import NearByContainer from '../components/home/nearby/NearByContainer'
 import TypeContainer from '../components/home/type/TypeContainer'
 import DetailsCardEvent from '../components/home/DetailsCardEvent'
 import AuthenticationContainer from '../components/authentication/AuthenticationContainer'
+import DetailsEventProfile from '../components/profile/DetailsCardEvent'
 
 import MainTabContainer from './MainTabContainer'
 
 import CustomHomeTab from './CustomHomeTab'
 import CustomMainTab from './CustomMainTab'
+import ProfileSwitchContainer from './ProfileSwitchContainer'
+
 
 export const HomeSwitch = createSwitchNavigator({
   HomeTab: {
@@ -30,6 +33,15 @@ export const HomeSwitch = createSwitchNavigator({
   },
   [RouteKey.DetailsCardEvent]: {
     screen: DetailsCardEvent
+  }
+})
+
+export const ProfileSwitch = createSwitchNavigator({
+  [RouteKey.ProfileScreen]: {
+    screen: ProfileContainer
+  },
+  [RouteKey.DetailsEventProfile]: {
+    screen: DetailsEventProfile
   }
 })
 
@@ -85,7 +97,7 @@ export const MainTab = createBottomTabNavigator({
     screen: NotifyContainer
   },
   [RouteKey.ProfileScreen]: {
-    screen: ProfileContainer
+    screen: ProfileSwitchContainer
   },
 }, {
   tabBarComponent: props => <CustomMainTab {...props}/>,
