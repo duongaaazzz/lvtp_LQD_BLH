@@ -6,9 +6,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList} from 'react-native'
-import {blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
+import {
+  blackColor,
+  blueColor,
+  grayColor,
+  pinkColor,
+  redColor,
+  skyColor,
+  violetColor,
+  whiteColor
+} from '../../constants/color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient';
 
 import ItemEventProfile from './ItemEventProfile'
 
@@ -23,7 +33,8 @@ class ProfileContainer extends React.Component {
     super();
 
     this.state = {
-      tabSelect: tabSelectName.signed
+      tabSelect: tabSelectName.signed,
+      dataSearch: [1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     }
 
   }
@@ -119,18 +130,34 @@ class ProfileContainer extends React.Component {
       </View>
     </View>
 
-    const renderBodyProfile = () => <View style={{flex: 1}}>
-      <ScrollView style={{ borderRadius: 10}}>
+    const renderBodyProfile = () => {
 
-        <View style={styles.bodyContent}>
-          <FlatList
-            data={this.state.dataSearch}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item, index}) => <ItemEventProfile/>}
-          />
-        </View>
-      </ScrollView>
-    </View>
+      let colorLinearGradient = []
+
+      if (this.state.tabSelect === tabSelectName.signed) {
+        colorLinearGradient = [violetColor, pinkColor]
+      } else {
+        colorLinearGradient = [violetColor,skyColor]
+      }
+
+
+      return <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+                             colors={colorLinearGradient} style={{flex: 1}}>
+
+        <ScrollView style={{backgroundColor: 'transparent'}}>
+
+          <View style={styles.bodyContent}>
+            <FlatList
+              data={this.state.dataSearch}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({item, index}) => <ItemEventProfile/>}
+            />
+          </View>
+        </ScrollView>
+
+      </LinearGradient>
+    }
+
 
     return (
       <View style={{flex: 1}}>
@@ -164,10 +191,9 @@ const styles = StyleSheet.create({
   },
   bodyContent: {
     alignItems: 'center',
+    justifyContent: 'center',
     width: '100%',
-    borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 5,
     paddingBottom: 5,
-    backgroundColor: '#ffff'
   },
 })

@@ -9,7 +9,7 @@ import {View, Text, TouchableOpacity, Dimensions, Image, StyleSheet} from 'react
 import NavigationServices from '../../navigation/NavigationServices'
 
 import RouteKey from '../../constants/routeKey'
-import {blackColor, grayColor} from '../../constants/color';
+import {blackColor, grayColor, whiteColor} from '../../constants/color';
 
 const {width, height} = Dimensions.get('window')
 
@@ -20,45 +20,42 @@ export default class ItemEventProfile extends React.Component {
     return (
       <TouchableOpacity>
         <View style={{
+          marginTop: 10,
+          backgroundColor: whiteColor,
           width: width * 0.8,
-          height: 50,
-          marginTop: 30,
-          marginHorizontal: 20,
+          height: 94,
+          borderRadius: 6,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor:'red'
         }}>
 
           <View style={{
             flexDirection: 'row',
           }}>
-            <Image
-              style={{
-                width: 50, height: 50, borderRadius: 25
-              }}
-              source={require('../../assets/image/background.png')}
-              resizeMode={'cover'}/>
 
             <View style={{flex: 1, marginHorizontal: 20}}>
               <Text
                 style={[styles.textStyle, {fontSize: 17}]}
-                numberOfLines={1}
+                numberOfLines={2}
               >
                 GALA - Vui Hội Trăng Rằm Tương Lai Xanh Cần Thơ
               </Text>
 
-              <View style={{flexDirection: 'row', width: '100%', height: 20, alignItems: 'center',marginTop:5}}>
-                <View style={{width: 10, height: 10, borderRadius: 5, backgroundColor: grayColor}}/>
-                <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 14, marginLeft: 5,}]}>
-                  1km away
-                </Text>
-              </View>
+              <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10,color:grayColor}]}>
+                Oct 20, Monday
+              </Text>
 
             </View>
+
+            <Image
+              style={{
+                width: 66, height: 66, borderRadius: 33,
+                marginHorizontal: 20
+              }}
+              source={require('../../assets/image/background.png')}
+              resizeMode={'cover'}/>
+
           </View>
-
-          <View style={{borderBottomWidth: 1, borderBottomColor: grayColor, width: '100%', marginTop: 15}}/>
-
 
         </View>
       </TouchableOpacity>
