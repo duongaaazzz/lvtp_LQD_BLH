@@ -30,7 +30,6 @@ class App extends Component {
       <StatusBar
         backgroundColor="#37A8FF"
         barStyle="light-content"
-        hidden={true}
       />
       <AppNavigator ref={navigatorRef => {
         NavigationServices.setTopLevelNavigator(navigatorRef)
