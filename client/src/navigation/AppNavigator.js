@@ -7,6 +7,7 @@ import {createSwitchNavigator, createBottomTabNavigator, createMaterialTopTabNav
 import RouteKey from '../constants/routeKey';
 
 import LoginContainer from '../components/login/LoginContainer'
+import RegisterUserScreen from '../components/registerUser/RegisterUserContainer'
 import VerificationContainer from '../components/verification/VerificationContainer'
 import HomeContainer from '../components/home/HomeContainer'
 import HomeTabContainer from './HomeTabContainer'
@@ -110,16 +111,19 @@ export const AppNavigator = createSwitchNavigator({
   // [RouteKey.DetailsCardEvent]: {
   //   screen: DetailsCardEvent
   // },
-  // [RouteKey.Authentication]: {
-  //   screen: AuthenticationContainer
-  // },
-  // [RouteKey.LoginScreen]: {
-  //   screen: LoginContainer
-  //   //screen: MainTabContainer
-  // },
-  // [RouteKey.VerificationContainer]: {
-  //   screen: VerificationContainer
-  // },
+  [RouteKey.Authentication]: {
+    screen: AuthenticationContainer
+  },
+  [RouteKey.LoginScreen]: {
+    screen: LoginContainer
+    //screen: MainTabContainer
+  },
+  [RouteKey.RegisterUserScreen]: {
+    screen: RegisterUserScreen
+  },
+  [RouteKey.VerificationContainer]: {
+    screen: VerificationContainer
+  },
   MainTab: {
     screen: MainTabContainer
   }

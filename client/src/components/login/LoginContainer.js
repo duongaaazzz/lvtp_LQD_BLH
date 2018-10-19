@@ -56,7 +56,7 @@ class LoginContainer extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.root}>
+      <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
         <View style={styles.titileWrapper}>
           <Text style={styles.text}>Login App</Text>
         </View>

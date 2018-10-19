@@ -4,6 +4,7 @@
 
 export default {
   LoginScreen: 'LoginScreen',
+  RegisterUserScreen: 'RegisterUserScreen',
   HomeScreen: 'HomeScreen',
   NotifyScreen: 'NotifyScreen',
   ProfileScreen: 'ProfileScreen',

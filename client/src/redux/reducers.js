@@ -9,5 +9,5 @@ import userReducer from '../reducers/user';
 
 export default combineReducers({
   app: appReducer,
-  user: userReducer,
+  userInfo: userReducer,
 });

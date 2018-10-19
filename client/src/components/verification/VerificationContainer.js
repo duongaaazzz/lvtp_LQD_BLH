@@ -64,7 +64,7 @@ class VerificationContainer extends React.Component {
   render() {
     return (
 
-      <KeyboardAvoidingView style={styles.root}>
+      <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
 
 
         <View style={styles.titileWrapper}>

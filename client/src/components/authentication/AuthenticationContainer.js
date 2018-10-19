@@ -10,7 +10,8 @@ import NavigationServices from '../../navigation/NavigationServices'
 
 import RouteKey from '../../constants/routeKey'
 import {grayColor} from '../../constants/color';
-import {sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import {getUserInfoWithPhone, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import {GET_USER_INFO} from '../../actions/user';
 
 class AuthenticationContainer extends React.Component {
 
@@ -33,9 +34,19 @@ class AuthenticationContainer extends React.Component {
     } else {
       //check token available
 
-      setTimeout(() => {
-        NavigationServices.navigate(RouteKey.LoginScreen)
-      }, 5000)
+      getUserInfoWithPhone('907359631').then(ress => {
+        if (!!ress) {
+          this.props.getUserInfo(ress)
+
+          NavigationServices.navigate('MainTab')
+        } else {
+          NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: '907359631'})
+        }
+      });
+
+      // setTimeout(() => {
+      //   NavigationServices.navigate(RouteKey.LoginScreen)
+      // }, 500)
     }
   }
 
@@ -60,4 +71,6 @@ class AuthenticationContainer extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(AuthenticationContainer);
+export default connect(state => ({}), dispatch => ({
+  getUserInfo: (userInfo) => dispatch({type: GET_USER_INFO, userInfo})
+}))(AuthenticationContainer);

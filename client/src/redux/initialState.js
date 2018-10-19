@@ -3,10 +3,6 @@
  */
 
 export default {
-  app:{
-
-  },
-  user:{
-
-  }
+  app: {},
+  userInfo: {}
 }

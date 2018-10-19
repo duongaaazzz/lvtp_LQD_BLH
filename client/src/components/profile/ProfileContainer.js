@@ -41,6 +41,10 @@ class ProfileContainer extends React.Component {
 
   }
 
+  componentDidMount() {
+    console.log('aaa', this.props.userInfo)
+  }
+
 
   changeTabEvent(tabName) {
 
@@ -84,11 +88,14 @@ class ProfileContainer extends React.Component {
 
         <View/>
 
-        <View style={{width: 62, height: 62, backgroundColor: 'gray', borderRadius: 31}}/>
+        <Image
+          resizeMode='cover'
+          source={{uri: this.props.userInfo.avatar}}
+          style={{width: 62, height: 62, borderRadius: 31}}/>
 
-        <View>
-          <Text style={[styles.textStyle, {fontSize: 21, fontWeight: 'bold',}]}>Bui Thi Khanh Nhu</Text>
-          <Text style={[styles.textStyle, {fontSize: 16, fontWeight: '400',}]}>@biuthikhanhnhu</Text>
+        <View style={{width: '50%'}}>
+          <Text style={[styles.textStyle, {fontSize: 21, fontWeight: 'bold',}]}>{this.props.userInfo.fullname}</Text>
+          <Text style={[styles.textStyle, {fontSize: 16, fontWeight: '400',}]}>@{this.props.userInfo.username}</Text>
         </View>
 
         <TouchableOpacity>
@@ -215,7 +222,9 @@ class ProfileContainer extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(ProfileContainer);
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({}))(ProfileContainer);
 
 
 const styles = StyleSheet.create({

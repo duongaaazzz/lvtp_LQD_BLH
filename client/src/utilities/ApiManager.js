@@ -65,3 +65,42 @@ export function getEvent() {
     })
   })
 }
+
+
+/**
+ * Get user info with number phone
+ * @param {string} numberPhone
+ * @return {Promise<any>}
+ */
+export function getUserInfoWithPhone(numberPhone) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}api/users/checkPhonenumber/${numberPhone}`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.data[0])
+      } else resolve(false)
+    })
+  })
+}
+
+
+export function postUserInfo(username, numberPhone, fullName, email, avatar) {
+
+  const header = {
+    'Content-Type': 'multipart/form-data'
+  };
+
+  let formData = new FormData();
+  formData.append('username', username);
+  formData.append('password', '123');
+  formData.append('phone', numberPhone);
+  formData.append('fullname', fullName);
+  formData.append('avatar', avatar);
+
+  console.log(formData)
+
+  return new Promise(resolve => {
+    postWithTimeout(`${urlServer}api/users`, header, formData).then(response => {
+
+    })
+  })
+}
