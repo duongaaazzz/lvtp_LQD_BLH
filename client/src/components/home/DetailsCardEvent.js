@@ -36,10 +36,10 @@ class DetailsCardEvent extends React.Component {
           <View style={{ width: '100%', height: 210 }}>
             <ImageBackground
               style={{
-                flex: 1
+                flex: 1,
               }}
               source={{ uri: data.avatar }}
-              resizeMode={'contain'} />
+              resizeMode={'cover'} />
           </View>
 
           <View style={{

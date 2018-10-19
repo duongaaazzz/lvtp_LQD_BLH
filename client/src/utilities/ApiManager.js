@@ -2,7 +2,7 @@
  * Created by Duong Le on 9/15/18.
  */
 
-import {apiKeyTwilio, baseUrlVerificationTwilio} from '../constants/constant';
+import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
 import {getWithTimeout, postWithTimeout} from './networking';
 
 /**
@@ -47,6 +47,21 @@ export function validateVerificationCode(countryCode = '+84', phoneNumber, code)
       } else {
         resolve(response.message)
       }
+    })
+  })
+}
+
+
+/**
+ * Get add event form server
+ * @return {Promise<any>}
+ */
+export function getEvent() {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}api/events`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.data)
+      } else resolve(false)
     })
   })
 }

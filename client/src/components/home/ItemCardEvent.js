@@ -22,7 +22,7 @@ class ItemCardEvent extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={() => {
-        NavigationServices.homeTabNavigate('DetailsCardEvent',{data: this.props.data})
+        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent,{data: this.props.data})
       }}>
         <View style={{
           borderRadius: 10,
@@ -51,7 +51,7 @@ class ItemCardEvent extends React.Component {
                 style={[styles.textStyle, {
                   fontSize: 20,
                 }]}
-                numberOfline={2}
+                numberOfLines={2}
               >
                 {this.props.data.event_title}
               </Text>
