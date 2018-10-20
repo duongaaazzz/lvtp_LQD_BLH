@@ -24,7 +24,6 @@ class DetailsCardEvent extends React.Component {
     console.log('data in detail: ', data);
     return (<View style={{ flex: 1 }}>
 
-
       <ScrollView>
         <View style={{
           flex: 1,

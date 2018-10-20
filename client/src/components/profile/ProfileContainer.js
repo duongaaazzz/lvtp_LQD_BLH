@@ -21,6 +21,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import LinearGradient from 'react-native-linear-gradient';
 
 import ItemEventProfile from './ItemEventProfile'
+import NavigationServices from '../../navigation/NavigationServices';
+import RouteKey from '../../constants/routeKey';
 import { getUserEvents } from '../../utilities/ApiManager';
 
 
@@ -189,7 +191,8 @@ class ProfileContainer extends React.Component {
             />
 
             {
-              this.state.tabSelect === tabSelectName.manage && <TouchableOpacity>
+              this.state.tabSelect === tabSelectName.manage &&
+              <TouchableOpacity onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.CreateEvent)}>
                 <View style={{
                   marginTop: 10,
                   backgroundColor: whiteColor,

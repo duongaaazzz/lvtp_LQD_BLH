@@ -20,7 +20,7 @@ import TypeContainer from '../components/home/type/TypeContainer'
 import DetailsCardEvent from '../components/home/DetailsCardEvent'
 import AuthenticationContainer from '../components/authentication/AuthenticationContainer'
 import DetailsEventProfile from '../components/profile/DetailsCardEvent'
-
+import CreateEvent from '../components/profile/CreateEventContainer'
 import MainTabContainer from './MainTabContainer'
 
 import CustomHomeTab from './CustomHomeTab'
@@ -43,6 +43,9 @@ export const ProfileSwitch = createSwitchNavigator({
   },
   [RouteKey.DetailsEventProfile]: {
     screen: DetailsEventProfile
+  },
+  [RouteKey.CreateEvent]: {
+    screen: CreateEvent
   }
 })
 
