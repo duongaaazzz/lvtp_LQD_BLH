@@ -15,5 +15,6 @@ export default {
   TypeScreen: 'TypeScreen',
   DetailsCardEvent: 'DetailsCardEvent',
   Authentication: 'AuthenticationContainer',
-  VerificationContainer:'VerificationContainer'
+  VerificationContainer: 'VerificationContainer',
+  CreateEvent: 'CreateEvent',
 }
