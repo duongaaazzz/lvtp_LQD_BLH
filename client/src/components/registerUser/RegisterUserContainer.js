@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {
   View,
   Text,
@@ -18,8 +18,9 @@ import NavigationServices from '../../navigation/NavigationServices'
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import RouteKey from '../../constants/routeKey'
-import { blackColor, blueColor, grayColor } from '../../constants/color';
-import { postUserInfo, sendVerificationPhoneNumber } from '../../utilities/ApiManager';
+import {blackColor, blueColor, grayColor} from '../../constants/color';
+import {getUserInfoWithPhone, postUserInfo, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import {GET_USER_INFO} from '../../actions/user';
 
 
 class RegisterUserContainer extends React.Component {
@@ -30,7 +31,7 @@ class RegisterUserContainer extends React.Component {
       numberPhone: '',
       username: '',
       fullname: '',
-      email:'',
+      email: '',
       isLoading: false
     }
 
@@ -41,21 +42,31 @@ class RegisterUserContainer extends React.Component {
   }
 
   onChangeText = (type, text) => {
-    this.setState({ [type]: text });
+    this.setState({[type]: text});
   }
 
   onPressRegister() {
 
-    this.setState({ isLoading: true })
+    this.setState({isLoading: true})
 
-    postUserInfo(this.state.username,'AXbsnX', this.state.email, this.props.navigation.state.params.numberPhone, this.state.fullname).then(ress => {
+    postUserInfo(this.state.username, 'AXbsnX', this.state.email, this.props.navigation.state.params.numberPhone, this.state.fullname).then(resssssss => {
+      if (!!resssssss) {
 
+        getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
+          if (!!ress) {
+            this.props.getUserInfo(ress)
+            NavigationServices.navigate('MainTab')
+          } else {
+            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone })
+          }
+        });
+      }
     })
   }
 
   render() {
 
-    const { numberPhone } = this.props.navigation.state.params
+    const {numberPhone} = this.props.navigation.state.params
 
     return (
       <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
@@ -63,7 +74,7 @@ class RegisterUserContainer extends React.Component {
           <Text style={styles.text}>Tạo Tài Khoản Mới</Text>
         </View>
 
-        <View style={{ backgroundColor: grayColor, width: 55, height: 55, alignSelf: 'center', borderRadius: 6 }}>
+        <View style={{backgroundColor: grayColor, width: 55, height: 55, alignSelf: 'center', borderRadius: 6}}>
         </View>
         <View style={styles.inputWrapper}>
 
@@ -80,7 +91,7 @@ class RegisterUserContainer extends React.Component {
             ref={(input) => (this.username = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({ username: text })}
+            onChangeText={(text) => this.setState({username: text})}
           />
           <TextInput
             style={styles.textInput}
@@ -90,33 +101,32 @@ class RegisterUserContainer extends React.Component {
             ref={(input) => (this.fullname = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({ fullname: text })}
+            onChangeText={(text) => this.setState({fullname: text})}
           />
           <TextInput
             style={styles.textInput}
             keyboardType='email-address'
-            maxLength={11}
             placeholder="email"
             returnKeyType="done"
             ref={(input) => (this.email = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({ email: text })}
+            onChangeText={(text) => this.setState({email: text})}
           />
         </View>
 
 
         <TouchableOpacity style={styles.button}
-          onPress={() => this.onPressRegister()}
+                          onPress={() => this.onPressRegister()}
         >
           {
             !this.state.isLoading ? <Text style={styles.buttonLable}>Đăng ký</Text> :
-              <ActivityIndicator size={'small'} color='white' />
+              <ActivityIndicator size={'small'} color='white'/>
           }
 
         </TouchableOpacity>
 
-        <View style={{ flex: 0.1, alignItems: 'center', }} />
+        <View style={{flex: 0.1, alignItems: 'center',}}/>
 
       </KeyboardAvoidingView>
 
@@ -194,4 +204,6 @@ const styles = StyleSheet.create({
 })
 
 
-export default connect(state => ({}), dispatch => ({}))(RegisterUserContainer);
+export default connect(state => ({}), dispatch => ({
+  getUserInfo: (userInfo) => dispatch({type: GET_USER_INFO, userInfo})
+}))(RegisterUserContainer);

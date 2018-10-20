@@ -46,7 +46,7 @@ class ProfileContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('aaa', this.props.userInfo)
+    // console.log('aaa', this.props.userInfo)
     getUserEvents(this.props.userInfo.username).then(data => {
       //this.setState({eventData: data })
       this.dataEventM=data
@@ -98,7 +98,7 @@ class ProfileContainer extends React.Component {
 
         <Image
           resizeMode='cover'
-          source={{ uri: this.props.userInfo.avatar }}
+          source={{ uri: this.props.userInfo.avatar || 'https://znews-photo-td.zadn.vn/w820/Uploaded/spuocaw/2018_08_06/spiritedawaystill4.jpg' }}
           style={{ width: 62, height: 62, borderRadius: 31 }} />
 
         <View style={{ width: '50%' }}>

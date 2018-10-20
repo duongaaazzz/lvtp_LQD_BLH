@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import RouteKey from '../../constants/routeKey'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import Moment from 'moment';
+import {postCreateEvents} from '../../utilities/ApiManager';
 
 
 class CreateEventContainer extends React.Component {
@@ -22,7 +23,9 @@ class CreateEventContainer extends React.Component {
       isDateTimePickerVisible: false,
       dateTimePickerStart: '',
       dateTimePickerEnd: '',
-  
+      eventTittle: '',
+      description: '',
+      price: 0
     }
     this.isDateTimePickerEnd = false
   }
@@ -50,7 +53,7 @@ class CreateEventContainer extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
 
-    return (<View style={{flex: 1,backgroundColor:backgroundColor}}>
+    return (<View style={{flex: 1, backgroundColor: backgroundColor}}>
 
         <View style={{
           width: '100%',
@@ -80,7 +83,7 @@ class CreateEventContainer extends React.Component {
                   style={styles.textInput}
                   placeholderTextColor={grayColor}
                   underlineColorAndroid="transparent"
-                  onChangeText={(text) => this.setState({numberPhone: text})}
+                  onChangeText={(eventTittle) => this.setState({eventTittle: eventTittle})}
                 />
               </View>
             </View>
@@ -133,7 +136,7 @@ class CreateEventContainer extends React.Component {
                   placeholderTextColor={grayColor}
                   underlineColorAndroid="transparent"
                   keyboardType='numeric'
-                  onChangeText={(text) => this.setState({numberPhone: text})}
+                  onChangeText={(price) => this.setState({price: price})}
                 />
                 <Text>đồng</Text>
 
@@ -165,7 +168,7 @@ class CreateEventContainer extends React.Component {
                   multiline={true}
                   placeholderTextColor={grayColor}
                   underlineColorAndroid="transparent"
-                  onChangeText={(text) => this.setState({numberPhone: text})}
+                  onChangeText={(description) => this.setState({description: description})}
                 />
               </View>
             </View>
@@ -178,14 +181,28 @@ class CreateEventContainer extends React.Component {
             </View>
 
 
-            <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button} onPress={() => {
+                postCreateEvents(
+                  this.props.userInfo.username,
+                  this.state.eventTittle, this.state.description,
+                  this.state.price, 'a b c',
+                  this.state.dateTimePickerStart,
+                  this.state.dateTimePickerEnd,
+                  ''
+                ).then(resss=>{
+                  if(resss){
+                    navigate(RouteKey.ProfileScreen, {})
+                  }
+                })
+              }}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Lưu</Text>
 
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})} style={[styles.button,{width:100,backgroundColor:redColor}]}>
+              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+                                style={[styles.button, {width: 100, backgroundColor: redColor}]}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Huỷ</Text>
 
               </TouchableOpacity>
@@ -197,17 +214,17 @@ class CreateEventContainer extends React.Component {
         </ScrollView>
 
         {/*<View style={{*/}
-          {/*zIndex: 999,*/}
-          {/*position: 'absolute',*/}
-          {/*top: 20,*/}
-          {/*left: 5,*/}
+        {/*zIndex: 999,*/}
+        {/*position: 'absolute',*/}
+        {/*top: 20,*/}
+        {/*left: 5,*/}
         {/*}}>*/}
 
-          {/*<TouchableOpacity*/}
-            {/*style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}*/}
-            {/*onPress={() => navigate(RouteKey.ProfileScreen, {})}>*/}
-            {/*<Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>*/}
-          {/*</TouchableOpacity>*/}
+        {/*<TouchableOpacity*/}
+        {/*style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}*/}
+        {/*onPress={() => navigate(RouteKey.ProfileScreen, {})}>*/}
+        {/*<Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>*/}
+        {/*</TouchableOpacity>*/}
         {/*</View>*/}
 
       </View>
@@ -215,7 +232,9 @@ class CreateEventContainer extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(CreateEventContainer);
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({}))(CreateEventContainer);
 
 const styles = StyleSheet.create({
   textStyle: {

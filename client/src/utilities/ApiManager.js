@@ -114,7 +114,9 @@ console.log('formbody', formBody);
 
   return new Promise(resolve => {
     postWithTimeout(`${urlServer}api/users`, header, formBody).then(response => {
-
+      if (response.status === 'success') {
+        resolve(true)
+      } else resolve(false)
     })
   })
 }
@@ -144,7 +146,7 @@ export function getUserEvents(username) {
  * @param {date} date_end 
  * @param {string} avatar 
  */
-export function createEvents(username,event_title, description, price, location, date_start, date_end, avatar) {
+export function postCreateEvents(username,event_title, description, price, location, date_start, date_end, avatar) {
 
   let details = {
     'username': username,
@@ -170,8 +172,11 @@ console.log('formbody', formBody);
   };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}api/events`, header, formBody).then(response => {
-
+    postWithTimeout(`${urlServer}api/events/createEvent`, header, formBody).then(response => {
+      if (response.status === 'success') {
+        //console.log('data', data)
+        resolve(true)
+      } else resolve(false)
     })
   })
 }
