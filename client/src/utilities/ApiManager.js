@@ -82,24 +82,95 @@ export function getUserInfoWithPhone(numberPhone) {
   })
 }
 
+/**
+ * Create User
+ * @param {string} username 
+ * @param {string} password 
+ * @param {string} email 
+ * @param {numberic} numberPhone 
+ * @param {srting} fullName 
+ */
+export function postUserInfo(username,password, email, numberPhone, fullName) {
 
-export function postUserInfo(username, numberPhone, fullName, email, avatar) {
+  let details = {
+    'username': username,
+    'password': password,
+    'email': email,
+    'phone': numberPhone,
+    'fullname': fullName,
+};
 
+let formBody = [];
+for (var property in details) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(details[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+console.log('formbody', formBody);
   const header = {
-    'Content-Type': 'multipart/form-data'
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
 
-  let formData = new FormData();
-  formData.append('username', username);
-  formData.append('password', '123');
-  formData.append('phone', numberPhone);
-  formData.append('fullname', fullName);
-  formData.append('avatar', avatar);
+  return new Promise(resolve => {
+    postWithTimeout(`${urlServer}api/users`, header, formBody).then(response => {
 
-  console.log(formData)
+    })
+  })
+}
+/**
+ *Get User's Events
+ * @param {string} username 
+ */
+export function getUserEvents(username) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}api/events/${username}`, {}).then(response => {
+      if (response.status === 'success') {
+        //console.log('data', data)
+        resolve(response.data)
+      } else resolve(false)
+    })
+  })
+}
+
+/**
+ * 
+ * @param {string} username 
+ * @param {string} event_title 
+ * @param {string} description 
+ * @param {float} price 
+ * @param {string} location 
+ * @param {date} date_start 
+ * @param {date} date_end 
+ * @param {string} avatar 
+ */
+export function createEvents(username,event_title, description, price, location, date_start, date_end, avatar) {
+
+  let details = {
+    'username': username,
+    'event_title': event_title,
+    'description': description,
+    'price': price,
+    'location': location,
+    'date_start': date_start,
+    'date_end': date_end,
+    'avatar': avatar,
+};
+
+let formBody = [];
+for (var property in details) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(details[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+console.log('formbody', formBody);
+  const header = {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+  };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}api/users`, header, formData).then(response => {
+    postWithTimeout(`${urlServer}api/events`, header, formBody).then(response => {
 
     })
   })

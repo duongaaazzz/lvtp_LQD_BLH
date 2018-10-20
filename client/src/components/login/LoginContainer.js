@@ -58,28 +58,16 @@ class LoginContainer extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
         <View style={styles.titileWrapper}>
-          <Text style={styles.text}>Login App</Text>
+          <Text style={styles.title}>Yolo</Text>
         </View>
         <View style={styles.inputWrapper}>
-          {/*<TextInput*/}
-          {/*style={styles.textInput}*/}
-          {/*placeholder="Username"*/}
-          {/*autoCapitalize='none'*/}
-          {/*returnKeyType="next"*/}
-          {/*onSubmitEditing={() => this.passwordInput.focus()}*/}
-          {/*ref={(input) => (this.usernameInput = input)}*/}
-          {/*placeholderTextColor="gray"*/}
-          {/*underlineColorAndroid="transparent"*/}
-          {/*onChangeText={(text) => this.setState({ username: text })}*/}
-          {/*/>*/}
           <TextInput
             style={styles.textInput}
             keyboardType='numeric'
-            maxLength={11}  //setting limit of input
-            placeholder="Number phone"
+            maxLength={11}  
+            placeholder="Số điện thoại"
             returnKeyType="done"
             ref={(input) => (this.numberPhone = input)}
-            // onSubmitEditing={}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
             onChangeText={(text) => this.setState({numberPhone: text})}
@@ -88,9 +76,9 @@ class LoginContainer extends React.Component {
         <View style={styles.buttonsWrapper}>
           <View style={{alignItems: 'center'}}>
             <View style={{flexDirection: 'row'}}>
-              <Text style={styles.text}> Forgot your login details? </Text>
+              <Text style={styles.text}> Mất số điện thoại? </Text>
               <TouchableOpacity>
-                <Text style={styles.link}> Get help </Text>
+                <Text style={styles.link}> Trợ giúp </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -99,31 +87,14 @@ class LoginContainer extends React.Component {
                               onPress={() => this.authorization()}
             >
               {
-                !this.state.isLoading ? <Text style={styles.buttonLable}>Log in | Sign up</Text> :
+                !this.state.isLoading ? <Text style={styles.buttonLable}>Đăng Nhập</Text> :
                   <ActivityIndicator size={'small'} color='white'/>
               }
 
             </TouchableOpacity>
-            {/*<TouchableOpacity*/}
-            {/*style={styles.smallButton}*/}
-            {/*// onPress={}*/}
-            {/*>*/}
-            {/*<Entypo size={45} name="facebook-with-circle" color="#318DEE" />*/}
-            {/*</TouchableOpacity>*/}
-
           </View>
         </View>
         <View style={{flex: 0.1, alignItems: 'center',}}>
-
-          {/*<View style={{ flexDirection: 'row', top: 3 }}>*/}
-          {/*<Text style={styles.text}> Don't have an account? </Text>*/}
-          {/*<TouchableOpacity*/}
-          {/*underlayColor='#ffb951'*/}
-          {/*// onPress={}*/}
-          {/*>*/}
-          {/*<Text style={styles.link}> Sign Up ! </Text>*/}
-          {/*</TouchableOpacity>*/}
-          {/*</View>*/}
         </View>
       </KeyboardAvoidingView>
 
@@ -136,27 +107,22 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     justifyContent: 'space-between',
-    // backgroundColor: 'blue',
   },
   titileWrapper: {
     flex: 0.55,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'pink'
   },
   inputWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    //  backgroundColor: 'orange'
   },
   buttonsWrapper: {
     flex: 0.2,
     alignItems: 'center',
     justifyContent: 'center',
-    //  backgroundColor: 'cyan'
   },
   textInput: {
-    height:30,
     borderWidth: 1,
     backgroundColor: '#faf9f9',
     borderColor: '#e4e4e4',
@@ -167,6 +133,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 13,
+    fontWeight: 'bold',
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  title: {
+    fontSize: 60,
     fontWeight: 'bold',
     paddingTop: 10,
     paddingBottom: 10,

@@ -39,12 +39,20 @@ function getOne(req, res, next) {
 function getOnebyPhone(req, res, next){
     db.any("select * from users where phone ='"+req.params.phone+"'")
     .then(function (data) {
+        if(Object.keys(data).length === 0 )
+        res.status(404)
+        .json({
+            status: 'failed',
+            data: data,
+            message: 'user does not exist'
+        });
+        else
         res.status(200)
-            .json({
-                status: 'success',
-                data: data,
-                message: 'user exist'
-            });
+        .json({
+            status: 'success',
+            data: data,
+            message: 'user exist'
+        });
         
     })
     .catch(function (err) {
@@ -53,7 +61,7 @@ function getOnebyPhone(req, res, next){
 }
 
 function createUser(req, res, next) {
-    db.none("INSERT INTO users(username, password, email, phone) VALUES (${username}, ${password}, ${email}, ${phone})", req.body)
+    db.none("INSERT INTO users(username, password, email, phone, fullname) VALUES (${username}, ${password}, ${email}, ${phone}, ${fullname})", req.body)
         .then(function (data) {
             res.status(200)
                 .json({
@@ -96,8 +104,23 @@ function getEvents(req, res, next) {
         })
 }
 
+function getEventsbyUser(req, res, next) {
+    db.any("select * from events where username = '"+req.params.username+"'", req.body)
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved users events list'
+                });
+        })
+        .catch(function (err) {
+            return next(err);
+        })
+}
+
 function createEvent(req, res, next) {
-    db.none("INSERT INTO events(username, event_title, description, price, location, date_start, date_end, time_start, time_end, avatar) VALUES (${username}, ${event_title}, ${description}, ${price}, ${location}, ${date_start}, ${date_end}, ${time_start}, ${time_end}, ${avatar})", req.body)
+    db.none("INSERT INTO events(username, event_title, description, price, location, date_start, date_end, avatar) VALUES (${username}, ${event_title}, ${description}, ${price}, ${location}, ${date_start}, ${date_end},  ${avatar})", req.body)
         .then(function (data) {
             res.status(200)
                 .json({
@@ -119,5 +142,6 @@ module.exports = {
     createUser: createUser,
     getEvents: getEvents,
     createEvent: createEvent,
+    getEventsbyUser: getEventsbyUser,
 }
 

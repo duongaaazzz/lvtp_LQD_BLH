@@ -111,12 +111,11 @@ export const AppNavigator = createSwitchNavigator({
   // [RouteKey.DetailsCardEvent]: {
   //   screen: DetailsCardEvent
   // },
-  [RouteKey.Authentication]: {
-    screen: AuthenticationContainer
-  },
   [RouteKey.LoginScreen]: {
     screen: LoginContainer
-    //screen: MainTabContainer
+  },
+  [RouteKey.Authentication]: {
+    screen: AuthenticationContainer
   },
   [RouteKey.RegisterUserScreen]: {
     screen: RegisterUserScreen

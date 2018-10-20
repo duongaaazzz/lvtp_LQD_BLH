@@ -38,11 +38,11 @@ export default class ItemEventProfile extends React.Component {
                 style={[styles.textStyle, {fontSize: 17}]}
                 numberOfLines={2}
               >
-                GALA - Vui Hội Trăng Rằm Tương Lai Xanh Cần Thơ
+                {this.props.item.event_title}
               </Text>
 
               <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10, color: grayColor}]}>
-                Oct 20, Monday
+              {this.props.item.date_start}
               </Text>
 
             </View>
@@ -52,7 +52,7 @@ export default class ItemEventProfile extends React.Component {
                 width: 66, height: 66, borderRadius: 33,
                 marginHorizontal: 20
               }}
-              source={require('../../assets/image/background.png')}
+              source={{ uri: this.props.item.avatar}}
               resizeMode={'cover'}/>
 
           </View>

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import {
   View,
   Text,
@@ -18,8 +18,8 @@ import NavigationServices from '../../navigation/NavigationServices'
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import RouteKey from '../../constants/routeKey'
-import {blackColor, blueColor, grayColor} from '../../constants/color';
-import {postUserInfo, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import { blackColor, blueColor, grayColor } from '../../constants/color';
+import { postUserInfo, sendVerificationPhoneNumber } from '../../utilities/ApiManager';
 
 
 class RegisterUserContainer extends React.Component {
@@ -28,6 +28,9 @@ class RegisterUserContainer extends React.Component {
     super();
     this.state = {
       numberPhone: '',
+      username: '',
+      fullname: '',
+      email:'',
       isLoading: false
     }
 
@@ -38,29 +41,29 @@ class RegisterUserContainer extends React.Component {
   }
 
   onChangeText = (type, text) => {
-    this.setState({[type]: text});
+    this.setState({ [type]: text });
   }
 
   onPressRegister() {
 
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
 
-    postUserInfo('lqd', this.props.navigation.state.params.numberPhone, 'l q d', 'lqd@gmail.com', '').then(ress => {
+    postUserInfo(this.state.username,'AXbsnX', this.state.email, this.props.navigation.state.params.numberPhone, this.state.fullname).then(ress => {
 
     })
   }
 
   render() {
 
-    const {numberPhone} = this.props.navigation.state.params
+    const { numberPhone } = this.props.navigation.state.params
 
     return (
       <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
         <View style={styles.titileWrapper}>
-          <Text style={styles.text}>Register user</Text>
+          <Text style={styles.text}>Tạo Tài Khoản Mới</Text>
         </View>
 
-        <View style={{backgroundColor: grayColor, width: 55, height: 55, alignSelf: 'center', borderRadius: 6}}>
+        <View style={{ backgroundColor: grayColor, width: 55, height: 55, alignSelf: 'center', borderRadius: 6 }}>
         </View>
         <View style={styles.inputWrapper}>
 
@@ -71,52 +74,49 @@ class RegisterUserContainer extends React.Component {
 
           <TextInput
             style={styles.textInput}
-            maxLength={16}  //setting limit of input
+            maxLength={16}
             placeholder="username"
             returnKeyType="done"
-            ref={(input) => (this.numberPhone = input)}
-            // onSubmitEditing={}
+            ref={(input) => (this.username = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({numberPhone: text})}
+            onChangeText={(text) => this.setState({ username: text })}
           />
           <TextInput
             style={styles.textInput}
-            maxLength={32}  //setting limit of input
+            maxLength={32}
             placeholder="full name"
             returnKeyType="done"
-            ref={(input) => (this.numberPhone = input)}
-            // onSubmitEditing={}
+            ref={(input) => (this.fullname = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({numberPhone: text})}
+            onChangeText={(text) => this.setState({ fullname: text })}
           />
           <TextInput
             style={styles.textInput}
-            keyboardType='numeric'
-            maxLength={11}  //setting limit of input
+            keyboardType='email-address'
+            maxLength={11}
             placeholder="email"
             returnKeyType="done"
-            ref={(input) => (this.numberPhone = input)}
-            // onSubmitEditing={}
+            ref={(input) => (this.email = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({numberPhone: text})}
+            onChangeText={(text) => this.setState({ email: text })}
           />
         </View>
 
 
         <TouchableOpacity style={styles.button}
-                          onPress={() => this.onPressRegister()}
+          onPress={() => this.onPressRegister()}
         >
           {
-            !this.state.isLoading ? <Text style={styles.buttonLable}>Register</Text> :
-              <ActivityIndicator size={'small'} color='white'/>
+            !this.state.isLoading ? <Text style={styles.buttonLable}>Đăng ký</Text> :
+              <ActivityIndicator size={'small'} color='white' />
           }
 
         </TouchableOpacity>
 
-        <View style={{flex: 0.1, alignItems: 'center',}}/>
+        <View style={{ flex: 0.1, alignItems: 'center', }} />
 
       </KeyboardAvoidingView>
 
@@ -149,7 +149,6 @@ const styles = StyleSheet.create({
     //  backgroundColor: 'cyan'
   },
   textInput: {
-    height: 30,
     borderWidth: 1,
     backgroundColor: '#faf9f9',
     borderColor: '#e4e4e4',

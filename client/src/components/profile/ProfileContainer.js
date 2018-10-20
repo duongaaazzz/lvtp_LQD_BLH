@@ -4,8 +4,8 @@
 
 
 import React from 'react';
-import {connect} from 'react-redux';
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Dimensions, Image} from 'react-native'
+import { connect } from 'react-redux';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Dimensions, Image } from 'react-native'
 import {
   blackColor,
   blueColor,
@@ -21,9 +21,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import LinearGradient from 'react-native-linear-gradient';
 
 import ItemEventProfile from './ItemEventProfile'
+import { getUserEvents } from '../../utilities/ApiManager';
 
 
-const {width, height} = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 const tabSelectName = {
   signed: 'Signed',
   manage: 'Manage'
@@ -36,13 +37,18 @@ class ProfileContainer extends React.Component {
 
     this.state = {
       tabSelect: tabSelectName.signed,
-      eventData: [1, 2, 2, 2]
+      eventData: []
     }
-
+    this.dataEventS=[]
+    this.dataEventM=[]
   }
 
   componentDidMount() {
     console.log('aaa', this.props.userInfo)
+    getUserEvents(this.props.userInfo.username).then(data => {
+      //this.setState({eventData: data })
+      this.dataEventM=data
+    })
   }
 
 
@@ -51,9 +57,9 @@ class ProfileContainer extends React.Component {
     let eventData = []
 
     if (tabName === tabSelectName.signed) {
-      eventData = [1, 1]
+      eventData = this.dataEventS
     } else {
-      eventData = [1, 2, 2,]
+      eventData = this.dataEventM
     }
 
 
@@ -75,7 +81,7 @@ class ProfileContainer extends React.Component {
   render() {
 
 
-    const renderHeaderProfile = () => <View style={{width: '100%', backgroundColor: 'white'}}>
+    const renderHeaderProfile = () => <View style={{ width: '100%', backgroundColor: 'white' }}>
       <View
         style={{
           width: '100%',
@@ -86,23 +92,23 @@ class ProfileContainer extends React.Component {
           justifyContent: 'space-evenly'
         }}>
 
-        <View/>
+        <View />
 
         <Image
           resizeMode='cover'
-          source={{uri: this.props.userInfo.avatar}}
-          style={{width: 62, height: 62, borderRadius: 31}}/>
+          source={{ uri: this.props.userInfo.avatar }}
+          style={{ width: 62, height: 62, borderRadius: 31 }} />
 
-        <View style={{width: '50%'}}>
-          <Text style={[styles.textStyle, {fontSize: 21, fontWeight: 'bold',}]}>{this.props.userInfo.fullname}</Text>
-          <Text style={[styles.textStyle, {fontSize: 16, fontWeight: '400',}]}>@{this.props.userInfo.username}</Text>
+        <View style={{ width: '50%' }}>
+          <Text style={[styles.textStyle, { fontSize: 21, fontWeight: 'bold', }]}>{this.props.userInfo.fullname}</Text>
+          <Text style={[styles.textStyle, { fontSize: 16, fontWeight: '400', }]}>@{this.props.userInfo.username}</Text>
         </View>
 
         <TouchableOpacity>
-          <Ionicons name={'md-settings'} size={23} color={grayColor}/>
+          <Ionicons name={'md-settings'} size={23} color={grayColor} />
         </TouchableOpacity>
 
-        <View/>
+        <View />
 
 
       </View>
@@ -123,7 +129,7 @@ class ProfileContainer extends React.Component {
               backgroundColor: this.state.tabSelect === tabSelectName.signed ? redColor : whiteColor
             }]}>
             <MaterialCommunityIcons name={'fire'} size={23}
-                                    color={this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor}/>
+              color={this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor} />
             <Text style={[styles.textStyle, {
               fontSize: 15,
               color: this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor,
@@ -143,7 +149,7 @@ class ProfileContainer extends React.Component {
               backgroundColor: this.state.tabSelect === tabSelectName.manage ? blueColor : whiteColor
             }]}>
             <MaterialCommunityIcons name={'view-grid'} size={23}
-                                    color={this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor}/>
+              color={this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor} />
             <Text style={[styles.textStyle, {
               fontSize: 15,
               color: this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor,
@@ -170,16 +176,16 @@ class ProfileContainer extends React.Component {
       }
 
 
-      return <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}}
-                             colors={colorLinearGradient} style={{flex: 1}}>
+      return <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+        colors={colorLinearGradient} style={{ flex: 1 }}>
 
-        <ScrollView style={{backgroundColor: 'transparent'}}>
+        <ScrollView style={{ backgroundColor: 'transparent' }}>
 
           <View style={styles.bodyContent}>
             <FlatList
               data={this.state.eventData}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({item, index}) => <ItemEventProfile/>}
+              renderItem={({ item, index }) => <ItemEventProfile item={item}/>}
             />
 
             {
@@ -195,10 +201,10 @@ class ProfileContainer extends React.Component {
                   flexDirection: 'row',
                 }}>
                   <MaterialCommunityIcons name={'plus'} size={50}
-                                          color={grayColor}/>
+                    color={grayColor} />
 
                   <Text
-                    style={[styles.textStyle, {fontSize: 24, marginTop: -7, color: grayColor, fontWeight: 'bold'}]}>
+                    style={[styles.textStyle, { fontSize: 24, marginTop: -7, color: grayColor, fontWeight: 'bold' }]}>
                     Tạo Event
                   </Text>
 
@@ -213,7 +219,7 @@ class ProfileContainer extends React.Component {
 
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
 
         {renderHeaderProfile()}
         {renderBodyProfile()}

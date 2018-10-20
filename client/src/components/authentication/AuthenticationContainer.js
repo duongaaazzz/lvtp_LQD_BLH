@@ -20,29 +20,31 @@ class AuthenticationContainer extends React.Component {
     if (this.props.navigation.state !== undefined && this.props.navigation.state.params !== undefined) {
 
       if (this.props.navigation.state.params.success) {
+        
+        getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
+          console.log('check user exits, phone number: ',this.props.navigation.state.params.numberPhone );
+          if (!!ress) {
+            this.props.getUserInfo(ress)
+            NavigationServices.navigate('MainTab')
+          } else {
+            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone })
+          }
+        });
         // very xong r
 
-        setTimeout(() => {
-          NavigationServices.navigate('MainTab')
-        }, 1500)
+        // setTimeout(() => {
+        //   NavigationServices.navigate('MainTab')
+        // }, 15000)
 
       } else {
-        setTimeout(() => {
-          NavigationServices.navigate(RouteKey.LoginScreen)
-        }, 500)
+        // setTimeout(() => {
+        //   NavigationServices.navigate(RouteKey.LoginScreen)
+        // }, 500)
       }
     } else {
       //check token available
 
-      getUserInfoWithPhone('907359631').then(ress => {
-        if (!!ress) {
-          this.props.getUserInfo(ress)
-
-          NavigationServices.navigate('MainTab')
-        } else {
-          NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: '907359631'})
-        }
-      });
+      
 
       // setTimeout(() => {
       //   NavigationServices.navigate(RouteKey.LoginScreen)
@@ -64,7 +66,6 @@ class AuthenticationContainer extends React.Component {
 
         <ActivityIndicator size="small" color={grayColor}/>
 
-        {/*<Text></Text>*/}
 
       </View>
     )
