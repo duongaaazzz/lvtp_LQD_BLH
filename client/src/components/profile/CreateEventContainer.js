@@ -5,9 +5,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, StyleSheet} from 'react-native'
-import {backgroundColor, blackColor, blueColor, grayColor, whiteColor} from '../../constants/color';
+import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RouteKey from '../../constants/routeKey'
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import Moment from 'moment';
 
 
 class CreateEventContainer extends React.Component {
@@ -16,20 +18,39 @@ class CreateEventContainer extends React.Component {
     super();
 
     this.state = {
-      data: []
+      data: [],
+      isDateTimePickerVisible: false,
+      dateTimePickerStart: '',
+      dateTimePickerEnd: '',
+  
     }
+    this.isDateTimePickerEnd = false
   }
 
   componentWillMount() {
 
   }
 
-  open
+  _showDateTimePicker = () => this.setState({isDateTimePickerVisible: true});
+
+  _hideDateTimePicker = () => this.setState({isDateTimePickerVisible: false});
+
+  _handleDatePicked = (date) => {
+    console.log('A date has been picked: ', date);
+
+    if (!this.isDateTimePickerEnd) {
+      this.setState({dateTimePickerStart: Moment(date).format('DD-MM-YYYY')})
+    } else {
+      this.setState({dateTimePickerEnd: Moment(date).format('DD-MM-YYYY')})
+    }
+
+    this._hideDateTimePicker();
+  };
 
   render() {
     const {navigate} = this.props.navigation;
 
-    return (<View style={{flex: 1}}>
+    return (<View style={{flex: 1,backgroundColor:backgroundColor}}>
 
         <View style={{
           width: '100%',
@@ -63,11 +84,52 @@ class CreateEventContainer extends React.Component {
                 />
               </View>
             </View>
+
+            <View style={styles.wrapper}>
+              <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Thời gian bắt
+                đầu </Text>
+              <TouchableOpacity onPress={() => {
+                this.isDateTimePickerEnd = false
+                this._showDateTimePicker()
+              }}>
+                <View style={styles.inputWrapper}>
+                  <Text
+                    numberOfLines={1}
+                    style={styles.textInput}>
+                    {this.state.dateTimePickerStart}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.wrapper}>
+              <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>
+                Thời gian kết thúc </Text>
+              <TouchableOpacity onPress={() => {
+                this.isDateTimePickerEnd = true
+                this._showDateTimePicker()
+              }}>
+                <View style={styles.inputWrapper}>
+                  <Text
+                    numberOfLines={1}
+                    style={styles.textInput}>
+                    {this.state.dateTimePickerEnd}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <DateTimePicker
+              isVisible={this.state.isDateTimePickerVisible}
+              onConfirm={this._handleDatePicked}
+              onCancel={this._hideDateTimePicker}
+            />
+
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Giá </Text>
-              <View style={[styles.inputWrapper,{flexDirection:'row'}]}>
+              <View style={[styles.inputWrapper, {flexDirection: 'row'}]}>
                 <TextInput
-                  style={[styles.textInput,{width:'75%'}]}
+                  style={[styles.textInput, {width: '75%'}]}
                   placeholderTextColor={grayColor}
                   underlineColorAndroid="transparent"
                   keyboardType='numeric'
@@ -108,22 +170,45 @@ class CreateEventContainer extends React.Component {
               </View>
             </View>
 
+            <View style={styles.wrapper}>
+              <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Ảnh đại điện</Text>
+              <View style={[styles.inputWrapper, {height: 65}]}>
+
+              </View>
+            </View>
+
+
+            <View style={{flexDirection: 'row',justifyContent:'space-around'}}>
+
+              <TouchableOpacity style={styles.button}>
+                <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Lưu</Text>
+
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})} style={[styles.button,{width:100,backgroundColor:redColor}]}>
+                <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Huỷ</Text>
+
+              </TouchableOpacity>
+
+            </View>
+
+
           </View>
         </ScrollView>
 
-        <View style={{
-          zIndex: 999,
-          position: 'absolute',
-          top: 20,
-          left: 5,
-        }}>
+        {/*<View style={{*/}
+          {/*zIndex: 999,*/}
+          {/*position: 'absolute',*/}
+          {/*top: 20,*/}
+          {/*left: 5,*/}
+        {/*}}>*/}
 
-          <TouchableOpacity
-            style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigate(RouteKey.ProfileScreen, {})}>
-            <Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>
-          </TouchableOpacity>
-        </View>
+          {/*<TouchableOpacity*/}
+            {/*style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}*/}
+            {/*onPress={() => navigate(RouteKey.ProfileScreen, {})}>*/}
+            {/*<Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>*/}
+          {/*</TouchableOpacity>*/}
+        {/*</View>*/}
 
       </View>
     )
@@ -135,7 +220,7 @@ export default connect(state => ({}), dispatch => ({}))(CreateEventContainer);
 const styles = StyleSheet.create({
   textStyle: {
     fontFamily: 'SegoeUI',
-    color: blackColor
+    color: blackColor,
   },
   textInput: {
     width: '90%',
@@ -150,5 +235,19 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     width: '80%', marginVertical: 5
-  }
+  },
+  buttonLable: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  button: {
+    backgroundColor: blueColor,
+    padding: 10,
+    width: 190,
+    height: 40,
+    margin: 5,
+    borderRadius: 30,
+  },
 })
