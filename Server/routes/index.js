@@ -17,6 +17,6 @@ router.put('/api/users/:userID', db.editUserInfor);
 //events
 router.get('/api/events', db.getEvents);
 router.get('/api/events/:username', db.getEventsbyUser);
-router.post('/api/events', db.createEvent);
+router.post('/api/events/createEvent', db.createEvent);
 
 module.exports = router;
