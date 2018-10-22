@@ -155,6 +155,7 @@ function getEventsbyUser(req, res, next) {
 function createEvent(req, res, next) {
     db.none("INSERT INTO events(username, event_title, description, price, location, date_start, date_end, avatar) VALUES (${username}, ${event_title}, ${description}, ${price}, ${location}, ${date_start}, ${date_end},  ${avatar})", req.body)
         .then(function (data) {
+          console.log('data',data)
             res.status(200)
                 .json({
                     status: 'success',

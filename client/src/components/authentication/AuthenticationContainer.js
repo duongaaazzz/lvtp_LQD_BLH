@@ -44,7 +44,7 @@ class AuthenticationContainer extends React.Component {
     } else {
       //check token available
 
-      
+
 
       // setTimeout(() => {
       //   NavigationServices.navigate(RouteKey.LoginScreen)

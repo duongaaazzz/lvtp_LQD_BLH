@@ -190,7 +190,7 @@ class CreateEventContainer extends React.Component {
                   this.state.price, 'a b c',
                   this.state.dateTimePickerStart,
                   this.state.dateTimePickerEnd,
-                  ''
+                  'swsws'
                 ).then(resss=>{
                   if(resss){
                     navigate(RouteKey.ProfileScreen, {})
