@@ -4,7 +4,16 @@ var options = {
 }
 var pgp = require('pg-promise')(options)
 var connectString = 'postgres://postgres:1212@localhost:5432/yoloDatabase';
-var db = pgp(connectString);
+
+const cn = {
+  host: '35.221.110.118',
+  port: 5432,
+  database: 'yoloDatabase',
+  user: 'postgres',
+  password: '1212'
+};
+
+var db = pgp(cn);
 
 function getList(req, res, next) {
     db.any("select * from users")
