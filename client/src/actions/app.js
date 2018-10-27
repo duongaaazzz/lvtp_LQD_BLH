@@ -3,7 +3,6 @@
  */
 import {PermissionsAndroid} from 'react-native'
 
-
 export function requestPermissions() {
   try {
     return PermissionsAndroid.requestMultiple([
