@@ -2,13 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/app.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/constants/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/constants/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/color.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/loose-envify" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/cli.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/loose-envify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/replace.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-assign/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-assign/license" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-assign/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-assign/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/checkPropTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/factory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/factoryWithThrowingShims.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/factoryWithTypeCheckers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/lib/ReactPropTypesSecret.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/prop-types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/prop-types.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/createAnimatableComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/createAnimation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/attention-seekers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/bouncing-entrances.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/bouncing-exits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/fading-entrances.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/fading-exits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/flippers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/lightspeed.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/sliding-entrances.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/sliding-exits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/zooming-entrances.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/definitions/zooming-exits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/easing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/flattenStyle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/getDefaultStyleValue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/getStyleValues.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/registry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/typings/react-native-animatable.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-animatable/wrapStyleTransforms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/CustomDatePickerAndroid/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/CustomDatePickerIOS/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/CustomDatePickerIOS/index.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/src/animations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/src/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-modal/src/index.style.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,71 +107,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="constant.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateEventContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-              <folding>
-                <element signature="e#45#71#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="queries.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/queries.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthenticationContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.yaml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/app.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="118" column="4" selection-start-line="116" selection-start-column="2" selection-end-line="118" selection-end-column="4" />
+            <state relative-caret-position="75">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding>
                 <element signature="e#43#69#0" expanded="true" />
               </folding>
@@ -100,11 +119,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
+      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+            <state relative-caret-position="411">
+              <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+              <folding>
+                <element signature="e#45#71#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="color.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="181" column="35" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="35" />
+              <folding>
+                <element signature="e#44#70#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,28 +163,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#363636</find>
-      <find>dataSearch</find>
-      <find>ProfileContainer</find>
       <find>ItemCardEvent</find>
       <find>setTopLevelNavigatorHomeTab</find>
       <find>DidM</find>
       <find>user</find>
       <find>navigation</find>
       <find>TouchableOpacity</find>
-      <find>navigate</find>
       <find>Ionicons</find>
       <find>#F5F5F5</find>
       <find>flex-start</find>
       <find>flexD</find>
       <find>numberic</find>
-      <find>numberO</find>
       <find>GET_</find>
       <find>getUserInfoWithPhone</find>
       <find>30</find>
       <find>console.log</find>
       <find>userI</find>
       <find>getUserInfo</find>
+      <find>numberO</find>
+      <find>navigate.goBack</find>
+      <find>navigate</find>
+      <find>Mom</find>
+      <find>Moment</find>
+      <find>Dimensions</find>
+      <find>L</find>
+      <find>profileSwitchNavigate</find>
+      <find>#37A8FF</find>
+      <find>MaterialCommunityIcons</find>
+      <find>#FF6378</find>
+      <find>#5737FF</find>
+      <find>#466CC4</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
@@ -154,36 +205,38 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemEnventProfile.js" />
-        <option value="$PROJECT_DIR$/client/src/constants/color.js" />
         <option value="$PROJECT_DIR$/client/App.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/ProfileSwitchContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/NavigationServices.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/MainTabContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/HomeTabContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" />
-        <option value="$PROJECT_DIR$/client/src/actions/user.js" />
         <option value="$PROJECT_DIR$/client/src/redux/initialState.js" />
         <option value="$PROJECT_DIR$/client/src/redux/reducers.js" />
-        <option value="$PROJECT_DIR$/client/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/client/src/components/registerUser.js" />
         <option value="$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/createEvent/CreateEventContainer.js" />
         <option value="$PROJECT_DIR$/client/src/constants/routeKey.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/components/login/LoginContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/registerUser/RegisterUserContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
-        <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
+        <option value="$PROJECT_DIR$/Server/app.yaml" />
         <option value="$PROJECT_DIR$/Server/queries.js" />
+        <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
+        <option value="$PROJECT_DIR$/client/package.json" />
+        <option value="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" />
+        <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
         <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
-        <option value="$PROJECT_DIR$/Server/app.yaml" />
+        <option value="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" />
+        <option value="$PROJECT_DIR$/client/src/actions/app.js" />
+        <option value="$PROJECT_DIR$/client/src/actions/user.js" />
+        <option value="$PROJECT_DIR$/client/src/reducers/user.js" />
+        <option value="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/constants/color.js" />
+        <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
       </list>
     </option>
   </component>
@@ -212,13 +265,6 @@
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/Server/package.json" />
       <path value="$PROJECT_DIR$/client/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/js-tokens/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/loose-envify/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/object-assign/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/prop-types/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-native-animatable/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-native-modal/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
@@ -256,7 +302,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,17 +312,60 @@
             <path>
               <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
               <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;Pr&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Ma&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;app&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;HOme&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/HomeContainer.js&#10;Home&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/CustomHomeTab.js&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -329,12 +417,25 @@
       <workItem from="1539985756992" duration="49000" />
       <workItem from="1540002254205" duration="16230000" />
       <workItem from="1540175730561" duration="172000" />
-      <workItem from="1540218940007" duration="723000" />
+      <workItem from="1540218940007" duration="3145000" />
+      <workItem from="1540260745119" duration="404000" />
+      <workItem from="1540277824084" duration="464000" />
+      <workItem from="1540302772732" duration="4607000" />
+      <workItem from="1540346910411" duration="375000" />
+      <workItem from="1540391371183" duration="4842000" />
+      <workItem from="1540432676231" duration="70000" />
+      <workItem from="1540519835407" duration="607000" />
+      <workItem from="1540605704695" duration="3953000" />
+      <workItem from="1540620080336" duration="10000" />
+      <workItem from="1540621516043" duration="228000" />
+      <workItem from="1540627896604" duration="1485000" />
+      <workItem from="1540778391325" duration="918000" />
+      <workItem from="1540818499212" duration="6165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46017000" />
+    <option name="totallyTimeSpent" value="72567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -344,19 +445,20 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32893" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,54 +468,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3945">
-          <caret line="263" column="6" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="119" column="2" selection-start-line="112" selection-end-line="119" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3945">
-          <caret line="263" column="6" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="119" column="2" lean-forward="true" selection-start-line="112" selection-end-line="119" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/login/LoginContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
@@ -435,13 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="96" column="6" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/search/ItemSearch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -456,52 +503,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/navigation/HomeTabContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/MainTabContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/epic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -516,13 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -541,48 +539,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/registerUser.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/CustomHomeTab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="50" lean-forward="true" selection-start-line="3" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="137" column="19" selection-start-line="27" selection-start-column="6" selection-end-line="137" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="21" selection-start-line="21" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/NavigationServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" selection-start-line="12" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/login/LoginContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="590">
@@ -618,20 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-553">
-          <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/Components/TextInput/TextInput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -653,6 +595,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -660,61 +609,208 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
+    <entry file="file://$PROJECT_DIR$/client/src/navigation/CustomHomeTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-          <folding>
-            <element signature="e#45#71#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+        <state relative-caret-position="120">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/queries.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+        <state relative-caret-position="120">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/node_modules/bluebird/js/release/bluebird.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-modal-datetime-picker/src/index.d.ts" />
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native-datepicker/datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="475" column="2" selection-start-line="475" selection-start-column="2" selection-end-line="475" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="67" column="60" selection-start-line="67" selection-start-column="60" selection-end-line="67" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="126" column="38" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/navigation/MainTabContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="11" column="72" lean-forward="true" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/epic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="156" column="6" selection-start-line="156" selection-start-column="6" selection-end-line="156" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/navigation/NavigationServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="147" column="63" lean-forward="true" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="118" column="4" selection-start-line="116" selection-start-column="2" selection-end-line="118" selection-end-column="4" />
+        <state relative-caret-position="75">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
             <element signature="e#43#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="176">
+          <caret line="181" column="35" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="35" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#44#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/app.yaml">
+    <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+          <folding>
+            <element signature="e#45#71#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

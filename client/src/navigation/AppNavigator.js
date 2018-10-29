@@ -112,20 +112,20 @@ export const MainTab = createBottomTabNavigator({
 
 export const AppNavigator = createSwitchNavigator({
   // [RouteKey.DetailsCardEvent]: {
-  //   screen: DetailsCardEvent
+  //   screen: DetailsEventProfile
   // },
-  [RouteKey.LoginScreen]: {
-    screen: LoginContainer
-  },
+  // [RouteKey.LoginScreen]: {
+  //   screen: LoginContainer
+  // },
   [RouteKey.Authentication]: {
     screen: AuthenticationContainer
   },
-  [RouteKey.RegisterUserScreen]: {
-    screen: RegisterUserScreen
-  },
-  [RouteKey.VerificationContainer]: {
-    screen: VerificationContainer
-  },
+  // [RouteKey.RegisterUserScreen]: {
+  //   screen: RegisterUserScreen
+  // },
+  // [RouteKey.VerificationContainer]: {
+  //   screen: VerificationContainer
+  // },
   MainTab: {
     screen: MainTabContainer
   }

@@ -20,36 +20,43 @@ class AuthenticationContainer extends React.Component {
     if (this.props.navigation.state !== undefined && this.props.navigation.state.params !== undefined) {
 
       if (this.props.navigation.state.params.success) {
-        
+
+        // getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
-          console.log('check user exits, phone number: ',this.props.navigation.state.params.numberPhone );
+          console.log('check user exits, phone number: ', this.props.navigation.state.params.numberPhone);
           if (!!ress) {
             this.props.getUserInfo(ress)
             NavigationServices.navigate('MainTab')
           } else {
-            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone })
+            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone})
           }
         });
         // very xong r
 
-        // setTimeout(() => {
-        //   NavigationServices.navigate('MainTab')
-        // }, 15000)
 
       } else {
-        // setTimeout(() => {
-        //   NavigationServices.navigate(RouteKey.LoginScreen)
-        // }, 500)
+
       }
     } else {
       //check token available
-
 
 
       // setTimeout(() => {
       //   NavigationServices.navigate(RouteKey.LoginScreen)
       // }, 500)
     }
+
+    getUserInfoWithPhone('907359634').then(ress => {
+      // console.log('check user exits, phone number: ',this.props.navigation.state.params.numberPhone );
+      if (!!ress) {
+        this.props.getUserInfo(ress)
+        NavigationServices.navigate('MainTab')
+      } else {
+        NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: '907359634'})
+      }
+    });
+
+
   }
 
 

@@ -8,7 +8,7 @@ import {View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, 
 import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RouteKey from '../../constants/routeKey'
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import DatePicker from 'react-native-datepicker'
 import Moment from 'moment';
 import {postCreateEvents} from '../../utilities/ApiManager';
 
@@ -21,8 +21,8 @@ class CreateEventContainer extends React.Component {
     this.state = {
       data: [],
       isDateTimePickerVisible: false,
-      dateTimePickerStart: '',
-      dateTimePickerEnd: '',
+      dateTimePickerStart: Moment().format('DD-MM-YYYY'),
+      dateTimePickerEnd: Moment().format('DD-MM-YYYY'),
       eventTittle: '',
       description: '',
       price: 0
@@ -34,21 +34,6 @@ class CreateEventContainer extends React.Component {
 
   }
 
-  _showDateTimePicker = () => this.setState({isDateTimePickerVisible: true});
-
-  _hideDateTimePicker = () => this.setState({isDateTimePickerVisible: false});
-
-  _handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
-
-    if (!this.isDateTimePickerEnd) {
-      this.setState({dateTimePickerStart: Moment(date).format('DD-MM-YYYY')})
-    } else {
-      this.setState({dateTimePickerEnd: Moment(date).format('DD-MM-YYYY')})
-    }
-
-    this._hideDateTimePicker();
-  };
 
   render() {
     const {navigate} = this.props.navigation;
@@ -91,42 +76,54 @@ class CreateEventContainer extends React.Component {
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Thời gian bắt
                 đầu </Text>
-              <TouchableOpacity onPress={() => {
-                this.isDateTimePickerEnd = false
-                this._showDateTimePicker()
-              }}>
-                <View style={styles.inputWrapper}>
-                  <Text
-                    numberOfLines={1}
-                    style={styles.textInput}>
-                    {this.state.dateTimePickerStart}
-                  </Text>
-                </View>
-              </TouchableOpacity>
+
+              <DatePicker
+                style={{width: '100%', marginTop: 10}}
+                date={this.state.dateTimePickerStart}
+                mode="datetime"
+                placeholder="select date"
+                format="DD-MM-YYYY h:mm a"
+                minDate={Moment().format('DD-MM-YYYY')}
+                maxDate="01-01-2020"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                is24Hour={true}
+                customStyles={{
+                  dateInput: [styles.inputWrapper, {borderWidth: 0, marginRight: 10}]
+                }}
+                onDateChange={(date) => {
+                  console.log(date)
+                  this.setState({dateTimePickerStart: date})
+                }}
+              />
+
             </View>
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>
                 Thời gian kết thúc </Text>
-              <TouchableOpacity onPress={() => {
-                this.isDateTimePickerEnd = true
-                this._showDateTimePicker()
-              }}>
-                <View style={styles.inputWrapper}>
-                  <Text
-                    numberOfLines={1}
-                    style={styles.textInput}>
-                    {this.state.dateTimePickerEnd}
-                  </Text>
-                </View>
-              </TouchableOpacity>
+
+              <DatePicker
+                style={{width: '100%', marginTop: 10}}
+                date={this.state.dateTimePickerEnd}
+                mode="datetime"
+                placeholder="select date"
+                format="DD-MM-YYYY h:mm a"
+                minDate={Moment().format('DD-MM-YYYY')}
+                maxDate="01-01-2020"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                is24Hour={true}
+                customStyles={{
+                  dateInput: [styles.inputWrapper, {borderWidth: 0, marginRight: 10}]
+                }}
+                onDateChange={(date) => {
+                  this.setState({dateTimePickerEnd: date})
+                }}
+              />
+
             </View>
 
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleDatePicked}
-              onCancel={this._hideDateTimePicker}
-            />
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Giá </Text>
@@ -191,8 +188,8 @@ class CreateEventContainer extends React.Component {
                   this.state.dateTimePickerStart,
                   this.state.dateTimePickerEnd,
                   'swsws'
-                ).then(resss=>{
-                  if(resss){
+                ).then(resss => {
+                  if (resss) {
                     navigate(RouteKey.ProfileScreen, {})
                   }
                 })
