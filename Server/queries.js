@@ -3,8 +3,41 @@ var options = {
     promiseLib: promise
 }
 var pgp = require('pg-promise')(options)
-var connectString = 'postgres://postgres:1212@localhost:5432/yoloDatabase';
+var connectString = 'postgres://postgres:1212@35.221.110.118:5432/yoloDatabase';
 var db = pgp(connectString);
+const jwt = require('jsonwebtoken');
+
+//login
+function Login(req, res, next) {
+    db.any("select * from users where phone ='" + req.params.phone + "'")
+        .then(function (data) {
+            if (Object.keys(data).length === 0)
+                res.status(404)
+                    .json({
+                        status: 'failed',
+                        data: data,
+                        message: 'user does not exist'
+                    });
+            else
+                //create token
+                jwt.sign({ data }, 'secretkey', { expiresIn: '30m' }, (err, token) => {
+                    res.status(200)
+                        .json({
+                            status: 'success',
+                            token,
+                            message: 'token created'
+                        });
+                });
+
+        })
+        .catch(function (err) {
+            return next(err);
+        })
+
+
+}
+
+
 
 function getList(req, res, next) {
     db.any("select * from users")
@@ -22,7 +55,7 @@ function getList(req, res, next) {
 }
 
 function getOne(req, res, next) {
-    db.any("select * from users where user_id ='"+req.params.id+"'")
+    db.any("select * from users where user_id ='" + req.params.id + "'")
         .then(function (data) {
             res.status(200)
                 .json({
@@ -36,28 +69,28 @@ function getOne(req, res, next) {
         })
 }
 
-function getOnebyPhone(req, res, next){
-    db.any("select * from users where phone ='"+req.params.phone+"'")
-    .then(function (data) {
-        if(Object.keys(data).length === 0 )
-        res.status(404)
-        .json({
-            status: 'failed',
-            data: data,
-            message: 'user does not exist'
-        });
-        else
-        res.status(200)
-        .json({
-            status: 'success',
-            data: data,
-            message: 'user exist'
-        });
-        
-    })
-    .catch(function (err) {
-        return next(err);
-    })
+function getOnebyPhone(req, res, next) {
+    db.any("select * from users where phone ='" + req.params.phone + "'")
+        .then(function (data) {
+            if (Object.keys(data).length === 0)
+                res.status(404)
+                    .json({
+                        status: 'failed',
+                        data: data,
+                        message: 'user does not exist'
+                    });
+            else
+                res.status(200)
+                    .json({
+                        status: 'success',
+                        data: data,
+                        message: 'user exist'
+                    });
+
+        })
+        .catch(function (err) {
+            return next(err);
+        })
 }
 
 function createUser(req, res, next) {
@@ -74,7 +107,7 @@ function createUser(req, res, next) {
         })
 }
 function editUserInfor(req, res, next) {
-    db.none("UPDATE users SET username = ${username}, password = ${password}, email=${email}, phone=${phone}) where id = '"+req.params.id+"'", req.body)
+    db.none("UPDATE users SET username = ${username}, password = ${password}, email=${email}, phone=${phone}) where id = '" + req.params.id + "'", req.body)
         .then(function (data) {
             res.status(200)
                 .json({
@@ -85,7 +118,7 @@ function editUserInfor(req, res, next) {
         .catch(function (err) {
             return next(err);
         })
- }
+}
 
 function Delete(req, res, next) { }
 
@@ -105,7 +138,7 @@ function getEvents(req, res, next) {
 }
 
 function getEventsbyUser(req, res, next) {
-    db.any("select * from events where username = '"+req.params.username+"'", req.body)
+    db.any("select * from events where username = '" + req.params.username + "'", req.body)
         .then(function (data) {
             res.status(200)
                 .json({
@@ -143,5 +176,6 @@ module.exports = {
     getEvents: getEvents,
     createEvent: createEvent,
     getEventsbyUser: getEventsbyUser,
+    Login: Login,
 }
 
