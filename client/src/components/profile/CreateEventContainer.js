@@ -4,14 +4,15 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, StyleSheet} from 'react-native'
+import {View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, FlatList} from 'react-native'
 import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
-import Octicons from 'react-native-vector-icons/Octicons';
+import ImagePicker from 'react-native-image-crop-picker';
 import RouteKey from '../../constants/routeKey'
 import DatePicker from 'react-native-datepicker'
 import Moment from 'moment';
 import {postCreateEvents} from '../../utilities/ApiManager';
 
+import ItemImagePostEvent from './ItemImagePostEvent'
 
 class CreateEventContainer extends React.Component {
 
@@ -25,7 +26,8 @@ class CreateEventContainer extends React.Component {
       dateTimePickerEnd: Moment().format('DD-MM-YYYY'),
       eventTittle: '',
       description: '',
-      price: 0
+      price: 0,
+      listImagePostEvent: []
     }
     this.isDateTimePickerEnd = false
   }
@@ -179,11 +181,30 @@ class CreateEventContainer extends React.Component {
                 backgroundColor: 'white',
                 marginVertical: 5,
                 borderRadius: 5,
+                justifyContent: 'center'
               }}>
+
+                <FlatList
+                  horizontal={true}
+                  style={{flex: 1}}
+                  data={this.state.listImagePostEvent}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={({item, index}) => <ItemImagePostEvent item={item}/>}
+                />
+
 
               </View>
 
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {
+                ImagePicker.openPicker({
+                  multiple: true
+                }).then(images => {
+                  this.setState({
+                    listImagePostEvent: images
+                  })
+
+                });
+              }}>
                 <View style={[styles.inputWrapper, {height: 40, flexDirection: 'row'}]}>
 
                   <Text style={[styles.textStyle, {fontWeight: '500'}]}>Chọn ảnh từ bộ sưu tập</Text>

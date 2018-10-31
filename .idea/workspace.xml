@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-resources.sh" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-resources.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/client.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/client.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ios/client/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/client/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,14 +40,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateEventContainer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateEventContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
+            <state relative-caret-position="305">
+              <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
               <folding>
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemImagePostEvent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+              <folding>
+                <element signature="e#46#72#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
+              <folding>
+                <element signature="e#43#69#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-116">
+              <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+              <folding>
+                <element signature="e#44#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="438">
+              <caret line="167" column="19" lean-forward="true" selection-start-line="167" selection-end-line="168" />
             </state>
           </provider>
         </entry>
@@ -46,8 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setTopLevelNavigatorHomeTab</find>
-      <find>DidM</find>
       <find>user</find>
       <find>navigation</find>
       <find>TouchableOpacity</find>
@@ -76,6 +136,8 @@
       <find>#5737FF</find>
       <find>#466CC4</find>
       <find>plus</find>
+      <find>FlatList</find>
+      <find>wrap</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
@@ -108,7 +170,6 @@
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
-        <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
         <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" />
         <option value="$PROJECT_DIR$/client/src/actions/app.js" />
@@ -119,7 +180,9 @@
         <option value="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" />
         <option value="$PROJECT_DIR$/client/src/constants/color.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
+        <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" />
       </list>
     </option>
   </component>
@@ -231,6 +294,23 @@
               <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="now" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,7 +328,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;ser&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/NavigationServices.js&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;Pr&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Ma&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;app&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;HOme&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/HomeContainer.js&#10;Home&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/CustomHomeTab.js&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/DetailsCardEvent.js&#10;Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;Crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;ser&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/NavigationServices.js&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Pr&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Ma&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;app&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;HOme&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/HomeContainer.js&#10;Home&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/CustomHomeTab.js&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -321,7 +401,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75506000" />
+    <option name="totallyTimeSpent" value="78199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -331,6 +411,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -339,12 +420,21 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32893" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,20 +444,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="118" column="4" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lvtn/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/search/ItemSearch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -621,13 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -656,30 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="e#43#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="143" column="22" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="206" column="61" selection-start-line="205" selection-start-column="18" selection-end-line="206" selection-end-column="61" />
-          <folding>
-            <element signature="e#44#70#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,12 +739,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
+          <folding>
+            <element signature="e#43#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/now/NowContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" lean-forward="true" selection-start-line="4" selection-end-line="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+          <folding>
+            <element signature="e#44#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="167" column="19" lean-forward="true" selection-start-line="167" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
+        <state relative-caret-position="305">
+          <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
           <folding>
             <element signature="e#45#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#46#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
