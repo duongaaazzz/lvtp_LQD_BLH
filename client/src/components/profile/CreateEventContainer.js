@@ -6,7 +6,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, StyleSheet} from 'react-native'
 import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Octicons from 'react-native-vector-icons/Octicons';
 import RouteKey from '../../constants/routeKey'
 import DatePicker from 'react-native-datepicker'
 import Moment from 'moment';
@@ -172,9 +172,24 @@ class CreateEventContainer extends React.Component {
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Ảnh đại điện</Text>
-              <View style={[styles.inputWrapper, {height: 65}]}>
+
+              <View style={{
+                width: '100%',
+                height: 120,
+                backgroundColor: 'white',
+                marginVertical: 5,
+                borderRadius: 5,
+              }}>
 
               </View>
+
+              <TouchableOpacity>
+                <View style={[styles.inputWrapper, {height: 40, flexDirection: 'row'}]}>
+
+                  <Text style={[styles.textStyle, {fontWeight: '500'}]}>Chọn ảnh từ bộ sưu tập</Text>
+                </View>
+              </TouchableOpacity>
+
             </View>
 
 
@@ -247,7 +262,8 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: whiteColor
+    backgroundColor: whiteColor,
+
   },
   wrapper: {
     width: '80%', marginVertical: 5
