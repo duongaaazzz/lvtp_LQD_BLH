@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Manifest.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.markdown" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-acknowledgements.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-resources.sh" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client-resources.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-client/Pods-client.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/Pods/Target Support Files/Pods-clientTests/Pods-clientTests.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/client.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/client.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/ios/client/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/client/ios/client/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,8 +27,8 @@
       <file leaf-file-name="CreateEventContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
+            <state relative-caret-position="472">
+              <caret line="36" column="3" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="36" selection-end-column="3" />
               <folding>
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
@@ -55,8 +39,8 @@
       <file leaf-file-name="ItemImagePostEvent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="495">
+              <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
               <folding>
                 <element signature="e#46#72#0" expanded="true" />
               </folding>
@@ -67,7 +51,7 @@
       <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="1335">
               <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
               <folding>
                 <element signature="e#43#69#0" expanded="true" />
@@ -79,8 +63,8 @@
       <file leaf-file-name="ProfileContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-116">
-              <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+            <state relative-caret-position="2415">
+              <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
               <folding>
                 <element signature="e#44#70#0" expanded="true" />
               </folding>
@@ -91,8 +75,8 @@
       <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="167" column="19" lean-forward="true" selection-start-line="167" selection-end-line="168" />
+            <state relative-caret-position="2205">
+              <caret line="167" column="19" selection-start-line="167" selection-end-line="168" />
             </state>
           </provider>
         </entry>
@@ -108,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user</find>
       <find>navigation</find>
       <find>TouchableOpacity</find>
       <find>Ionicons</find>
@@ -138,6 +121,7 @@
       <find>plus</find>
       <find>FlatList</find>
       <find>wrap</find>
+      <find>comp</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
@@ -248,7 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -324,6 +307,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,11 +381,15 @@
       <workItem from="1540865671807" duration="647000" />
       <workItem from="1540951261598" duration="157000" />
       <workItem from="1540994495815" duration="641000" />
+      <workItem from="1541038233198" duration="306000" />
+      <workItem from="1541045476855" duration="537000" />
+      <workItem from="1541046577291" duration="1198000" />
+      <workItem from="1541079285637" duration="1048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78199000" />
+    <option name="totallyTimeSpent" value="81341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -420,21 +408,11 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32893" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="156" column="6" selection-start-line="156" selection-start-column="6" selection-end-line="156" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -741,7 +712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="1335">
           <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
           <folding>
             <element signature="e#43#69#0" expanded="true" />
@@ -753,16 +724,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="22" lean-forward="true" selection-start-line="4" selection-end-line="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+        <state relative-caret-position="2415">
+          <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
           <folding>
             <element signature="e#44#70#0" expanded="true" />
           </folding>
@@ -771,25 +739,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="167" column="19" lean-forward="true" selection-start-line="167" selection-end-line="168" />
+        <state relative-caret-position="2205">
+          <caret line="167" column="19" selection-start-line="167" selection-end-line="168" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
+        <state relative-caret-position="472">
+          <caret line="36" column="3" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="36" selection-end-column="3" />
           <folding>
             <element signature="e#45#71#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4150">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        <state relative-caret-position="495">
+          <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
           <folding>
             <element signature="e#46#72#0" expanded="true" />
           </folding>
