@@ -7,6 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, ImageBackground, ActivityIndicator} from 'react-native'
 import {blueColor} from '../../constants/color';
+import {upLoadImageFirebase} from '../../constants/firebaseHelper';
 
 
 export default class ItemImagePostEvent extends React.Component {
@@ -21,6 +22,11 @@ export default class ItemImagePostEvent extends React.Component {
 
   componentDidMount() {
 
+    const {nameEvent, imageInfo} = this.props
+
+    upLoadImageFirebase(nameEvent, imageInfo.sourceURL, imageInfo.mime).then(data => {
+      console.log(data)
+    })
   }
 
   render() {

@@ -189,7 +189,8 @@ class CreateEventContainer extends React.Component {
                   style={{flex: 1}}
                   data={this.state.listImagePostEvent}
                   keyExtractor={(item, index) => index.toString()}
-                  renderItem={({item, index}) => <ItemImagePostEvent imageInfo={item}/>}
+                  renderItem={({item, index}) => <ItemImagePostEvent imageInfo={item}
+                                                                     nameEvent={this.state.eventTittle}/>}
                 />
 
 
