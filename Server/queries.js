@@ -1,10 +1,10 @@
-var promise = require('bluebird');
-var options = {
+const promise = require('bluebird');
+const options = {
     promiseLib: promise
 }
-var pgp = require('pg-promise')(options)
-var connectString = 'postgres://postgres:1212@35.221.110.118:5432/yoloDatabase';
-var db = pgp(connectString);
+const pgp = require('pg-promise')(options)
+const connectString = 'postgres://postgres:1212@35.221.110.118:5432/yoloDatabase';
+const db = pgp(connectString);
 const jwt = require('jsonwebtoken');
 
 //login
@@ -152,6 +152,22 @@ function getEventsbyUser(req, res, next) {
         })
 }
 
+function getEventsbyId(req, res, next) {
+    db.any("select * from events where event_id = '" + req.params.eventId + "'", req.body)
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved event'
+                });
+        })
+        .catch(function (err) {
+            return next(err);
+        })
+}
+
+
 function createEvent(req, res, next) {
     db.none("INSERT INTO events(username, event_title, description, price, location, date_start, date_end, avatar) VALUES (${username}, ${event_title}, ${description}, ${price}, ${location}, ${date_start}, ${date_end},  ${avatar})", req.body)
         .then(function (data) {
@@ -178,5 +194,6 @@ module.exports = {
     createEvent: createEvent,
     getEventsbyUser: getEventsbyUser,
     Login: Login,
+    getEventsbyId: getEventsbyId,
 }
 

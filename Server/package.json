@@ -7,14 +7,17 @@
   },
   "dependencies": {
     "bluebird": "^3.5.2",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jsonwebtoken": "^8.3.0",
-    "morgan": "~1.9.0",
+    "mongoose": "^5.3.8",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.5",
-    "pg-promise": "^8.4.6"
+    "pg-promise": "^8.4.6",
+    "save": "^2.3.2"
   }
 }

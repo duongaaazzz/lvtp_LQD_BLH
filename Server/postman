@@ -1,0 +1,24 @@
+
+{
+    "username": "lequocduong2",
+    "phone": "0907359632",
+    "fullname": "Lê Quốc Dương",
+    "avatar": "https://sm.ign.com/ign_ap/news/a/avatar-the/avatar-the-last-airbender-is-getting-expansion-novels_qa8e.jpg"
+}
+
+
+[
+	{"propName": "phone",  "value": "098792382"},
+	{"propName": "username",  "value": "duongaaazzz"}
+]
+
+
+{
+	 "title": "YAN Music Festival",
+     "price": "200",
+     "description": "Sự kiện âm nhạc lớn nhất nước",
+     "avatar": "https://timo.vn/wp-content/uploads/1d7176f245b7ace9f5a6-1.jpg",
+     "type": ["music"],
+     "created_by": "5bdb50a3493ab035886e610e",
+     "userlist": ["5bdb51609ba9a81df4255941"]
+}
