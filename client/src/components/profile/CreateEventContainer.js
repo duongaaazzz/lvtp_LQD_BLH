@@ -4,14 +4,15 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, StyleSheet} from 'react-native'
+import {View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, FlatList} from 'react-native'
 import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import ImagePicker from 'react-native-image-crop-picker';
 import RouteKey from '../../constants/routeKey'
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import DatePicker from 'react-native-datepicker'
 import Moment from 'moment';
 import {postCreateEvents} from '../../utilities/ApiManager';
 
+import ItemImagePostEvent from './ItemImagePostEvent'
 
 class CreateEventContainer extends React.Component {
 
@@ -21,11 +22,12 @@ class CreateEventContainer extends React.Component {
     this.state = {
       data: [],
       isDateTimePickerVisible: false,
-      dateTimePickerStart: '',
-      dateTimePickerEnd: '',
+      dateTimePickerStart: Moment().format('DD-MM-YYYY'),
+      dateTimePickerEnd: Moment().format('DD-MM-YYYY'),
       eventTittle: '',
       description: '',
-      price: 0
+      price: 0,
+      listImagePostEvent: []
     }
     this.isDateTimePickerEnd = false
   }
@@ -34,21 +36,6 @@ class CreateEventContainer extends React.Component {
 
   }
 
-  _showDateTimePicker = () => this.setState({isDateTimePickerVisible: true});
-
-  _hideDateTimePicker = () => this.setState({isDateTimePickerVisible: false});
-
-  _handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
-
-    if (!this.isDateTimePickerEnd) {
-      this.setState({dateTimePickerStart: Moment(date).format('DD-MM-YYYY')})
-    } else {
-      this.setState({dateTimePickerEnd: Moment(date).format('DD-MM-YYYY')})
-    }
-
-    this._hideDateTimePicker();
-  };
 
   render() {
     const {navigate} = this.props.navigation;
@@ -91,42 +78,54 @@ class CreateEventContainer extends React.Component {
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Thời gian bắt
                 đầu </Text>
-              <TouchableOpacity onPress={() => {
-                this.isDateTimePickerEnd = false
-                this._showDateTimePicker()
-              }}>
-                <View style={styles.inputWrapper}>
-                  <Text
-                    numberOfLines={1}
-                    style={styles.textInput}>
-                    {this.state.dateTimePickerStart}
-                  </Text>
-                </View>
-              </TouchableOpacity>
+
+              <DatePicker
+                style={{width: '100%', marginTop: 10}}
+                date={this.state.dateTimePickerStart}
+                mode="datetime"
+                placeholder="select date"
+                format="DD-MM-YYYY h:mm a"
+                minDate={Moment().format('DD-MM-YYYY')}
+                maxDate="01-01-2020"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                is24Hour={true}
+                customStyles={{
+                  dateInput: [styles.inputWrapper, {borderWidth: 0, marginRight: 10}]
+                }}
+                onDateChange={(date) => {
+                  console.log(date)
+                  this.setState({dateTimePickerStart: date})
+                }}
+              />
+
             </View>
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>
                 Thời gian kết thúc </Text>
-              <TouchableOpacity onPress={() => {
-                this.isDateTimePickerEnd = true
-                this._showDateTimePicker()
-              }}>
-                <View style={styles.inputWrapper}>
-                  <Text
-                    numberOfLines={1}
-                    style={styles.textInput}>
-                    {this.state.dateTimePickerEnd}
-                  </Text>
-                </View>
-              </TouchableOpacity>
+
+              <DatePicker
+                style={{width: '100%', marginTop: 10}}
+                date={this.state.dateTimePickerEnd}
+                mode="datetime"
+                placeholder="select date"
+                format="DD-MM-YYYY h:mm a"
+                minDate={Moment().format('DD-MM-YYYY')}
+                maxDate="01-01-2020"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                is24Hour={true}
+                customStyles={{
+                  dateInput: [styles.inputWrapper, {borderWidth: 0, marginRight: 10}]
+                }}
+                onDateChange={(date) => {
+                  this.setState({dateTimePickerEnd: date})
+                }}
+              />
+
             </View>
 
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleDatePicked}
-              onCancel={this._hideDateTimePicker}
-            />
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Giá </Text>
@@ -175,9 +174,44 @@ class CreateEventContainer extends React.Component {
 
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Ảnh đại điện</Text>
-              <View style={[styles.inputWrapper, {height: 65}]}>
+
+              <View style={{
+                width: '100%',
+                height: 120,
+                backgroundColor: 'white',
+                marginVertical: 5,
+                borderRadius: 5,
+                justifyContent: 'center'
+              }}>
+
+                <FlatList
+                  horizontal={true}
+                  style={{flex: 1}}
+                  data={this.state.listImagePostEvent}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={({item, index}) => <ItemImagePostEvent imageInfo={item}
+                                                                     nameEvent={this.state.eventTittle}/>}
+                />
+
 
               </View>
+
+              <TouchableOpacity onPress={() => {
+                ImagePicker.openPicker({
+                  multiple: true
+                }).then(images => {
+                  this.setState({
+                    listImagePostEvent: images
+                  })
+
+                });
+              }}>
+                <View style={[styles.inputWrapper, {height: 40, flexDirection: 'row'}]}>
+
+                  <Text style={[styles.textStyle, {fontWeight: '500'}]}>Chọn ảnh từ bộ sưu tập</Text>
+                </View>
+              </TouchableOpacity>
+
             </View>
 
 
@@ -250,7 +284,8 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: whiteColor
+    backgroundColor: whiteColor,
+
   },
   wrapper: {
     width: '80%', marginVertical: 5

@@ -18,7 +18,8 @@ export default class ItemEventProfile extends React.Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile)}>
+      <TouchableOpacity
+        onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.item})}>
         <View style={{
           marginTop: 10,
           backgroundColor: whiteColor,
@@ -42,7 +43,7 @@ export default class ItemEventProfile extends React.Component {
               </Text>
 
               <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10, color: grayColor}]}>
-              {this.props.item.date_start}
+                {this.props.item.date_start}
               </Text>
 
             </View>
@@ -52,7 +53,7 @@ export default class ItemEventProfile extends React.Component {
                 width: 66, height: 66, borderRadius: 33,
                 marginHorizontal: 20
               }}
-              source={{ uri: this.props.item.avatar}}
+              source={{uri: this.props.item.avatar}}
               resizeMode={'cover'}/>
 
           </View>

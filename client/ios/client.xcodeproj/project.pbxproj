@@ -58,6 +58,9 @@
 		BBC6905533FD4F28B8ED5C02 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B340476DFBAB488E9D4B40A8 /* Octicons.ttf */; };
 		D4A62AF54E30465E8BB3613C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 227ABF6BD0E246719F6A427E /* SimpleLineIcons.ttf */; };
 		F24F5D2A21762FD10022358F /* SegoeUIBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F24F5D2921762FD10022358F /* SegoeUIBold.ttf */; };
+		F26051E9218A0766009C8C70 /* libRSKImageCropper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26051E8218A0766009C8C70 /* libRSKImageCropper.a */; };
+		F26051EB218A0773009C8C70 /* libQBImagePickerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26051EA218A0773009C8C70 /* libQBImagePickerController.a */; };
+		F260520C218A0A25009C8C70 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F260520B218A0A1C009C8C70 /* libRCTCameraRoll.a */; };
 		F2B3A40E2171EA3100659378 /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2B3A40D2171EA3100659378 /* SegoeUI.ttf */; };
 		F487E6340658417F18403F4E /* libPods-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592B2F007DFB6038FA1EA771 /* libPods-client.a */; };
 		F70536B53FCED64690160882 /* libPods-client-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1E773FE920E768AE43C165 /* libPods-client-tvOSTests.a */; };
@@ -351,6 +354,13 @@
 			remoteGlobalIDString = 64AA15081EF7F30100718508;
 			remoteInfo = "BVLinearGradient-tvOS";
 		};
+		F260520A218A0A1C009C8C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2605206218A0A1C009C8C70 /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
+		};
 		F2B3A4452171EAAD00659378 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BE7C2EE8D52B45BFBC4C8BD8 /* RNVectorIcons.xcodeproj */;
@@ -426,6 +436,9 @@
 		EFBB8B78CD5345B5950EEEC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		F04DA2AD18A5423A8E222D0F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		F24F5D2921762FD10022358F /* SegoeUIBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUIBold.ttf; sourceTree = "<group>"; };
+		F26051E8218A0766009C8C70 /* libRSKImageCropper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRSKImageCropper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F26051EA218A0773009C8C70 /* libQBImagePickerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libQBImagePickerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2605206218A0A1C009C8C70 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		F2B3A40D2171EA3100659378 /* SegoeUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUI.ttf; sourceTree = "<group>"; };
 		FBF0E0D997FC4E7794DCCA5D /* Pods-client-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-client-tvOSTests/Pods-client-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -444,6 +457,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F260520C218A0A25009C8C70 /* libRCTCameraRoll.a in Frameworks */,
+				F26051EB218A0773009C8C70 /* libQBImagePickerController.a in Frameworks */,
+				F26051E9218A0766009C8C70 /* libRSKImageCropper.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -610,6 +626,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F26051EA218A0773009C8C70 /* libQBImagePickerController.a */,
+				F26051E8218A0766009C8C70 /* libRSKImageCropper.a */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				592B2F007DFB6038FA1EA771 /* libPods-client.a */,
 				65CFF3477FBEB5139B2FAE4F /* libPods-client-tvOS.a */,
@@ -640,6 +658,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F2605206218A0A1C009C8C70 /* RCTCameraRoll.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -737,6 +756,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F2605207218A0A1C009C8C70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F260520B218A0A1C009C8C70 /* libRCTCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F2B3A41B2171EAAC00659378 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +829,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				380C4BB3CD50B92FD473B13A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -901,6 +929,10 @@
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = F2605207218A0A1C009C8C70 /* Products */;
+					ProjectRef = F2605206218A0A1C009C8C70 /* RCTCameraRoll.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -1227,6 +1259,13 @@
 			remoteRef = F2023FCF21778765006D8912 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F260520B218A0A1C009C8C70 /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = F260520A218A0A1C009C8C70 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F2B3A4462171EAAD00659378 /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1307,7 +1346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		25506B0BBCAF372B8C13948C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1340,6 +1379,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		380C4BB3CD50B92FD473B13A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-client/Pods-client-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-client/Pods-client-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		4A72B21AAB23001B2CC3DBBF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
