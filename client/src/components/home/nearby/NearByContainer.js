@@ -16,18 +16,17 @@ class NearByContainer extends React.Component {
     super();
 
     this.state = {
-      data: []
+      data: ''
     }
   }
 
-  componentWillMount() {
-
+  componentDidMount() {
     getEvent().then(ress => {
       if (ress) {
-        this.setState({data: ress})
+        this.setState({data: ress.events})
+        console.log('data:', this.state.data)
       }
     });
-
   }
 
   render() {
@@ -35,7 +34,6 @@ class NearByContainer extends React.Component {
       !this.state.data ? <ActivityIndicator size='large' color={blueColor} style={{flex:1,justifyContent: 'center', alignItems: 'center'}}/> :
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
           <View style={{elevation: 0}}>
-
             <FlatList
               keyExtractor={(item, index) => index.toString()}
               data={this.state.data}

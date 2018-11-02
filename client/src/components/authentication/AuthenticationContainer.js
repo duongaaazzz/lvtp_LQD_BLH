@@ -23,7 +23,8 @@ class AuthenticationContainer extends React.Component {
         
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
           console.log('check user exits, phone number: ',this.props.navigation.state.params.numberPhone );
-          if (!!ress) {
+          console.log(ress);
+          if (ress) {
             this.props.getUserInfo(ress)
             NavigationServices.navigate('MainTab')
           } else {
@@ -31,7 +32,6 @@ class AuthenticationContainer extends React.Component {
           }
         });
         // very xong r
-
         // setTimeout(() => {
         //   NavigationServices.navigate('MainTab')
         // }, 15000)
@@ -54,8 +54,6 @@ class AuthenticationContainer extends React.Component {
 
 
   render() {
-
-
     return (
       <View style={{
         flex: 1,

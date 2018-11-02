@@ -53,7 +53,7 @@ class DetailsCardEvent extends React.Component {
 
             <View style={styles.tittleEvent}>
               <Text style={[styles.textStyle, { fontSize: 24, marginLeft: 15 }]}>
-                {data.event_title}
+                {data.title}
               </Text>
             </View>
 
@@ -87,7 +87,7 @@ class DetailsCardEvent extends React.Component {
           <View style={styles.viewInfo}>
             <Text style={[styles.textStyle, { fontWeight: '400' }]}> by </Text>
             <Text style={[styles.textStyle, { fontSize: 15 }]}>
-              {data.username}
+              {data.created_by}
               </Text>
           </View>
 
@@ -96,7 +96,7 @@ class DetailsCardEvent extends React.Component {
               <Ionicons name='md-time' size={19} color={blackColor} />
             </View>
             <Text style={[styles.textStyle, { fontSize: 15, marginLeft: 3, fontWeight: '400' }]}>
-              Sept 21, Friday - Sept 23, Sunday.
+              {data.time_start}
               </Text>
           </View>
 
@@ -105,7 +105,7 @@ class DetailsCardEvent extends React.Component {
               <MaterialIcons name='location-on' size={20} color={blackColor} />
             </View>
             <Text style={[styles.textStyle, { fontSize: 15, marginLeft: 3, fontWeight: '400' }]}>
-              {data.location}
+              location
               </Text>
           </View>
 

@@ -50,17 +50,15 @@ export function validateVerificationCode(countryCode = '+84', phoneNumber, code)
     })
   })
 }
-
-
 /**
  * Get add event form server
  * @return {Promise<any>}
  */
 export function getEvent() {
   return new Promise(resolve => {
-    getWithTimeout(`${urlServer}api/events`, {}).then(response => {
+    getWithTimeout(`${urlServer}/events`, {}).then(response => {
       if (response.status === 'success') {
-        resolve(response.data)
+        resolve(response)
       } else resolve(false)
     })
   })
@@ -74,9 +72,9 @@ export function getEvent() {
  */
 export function getUserInfoWithPhone(numberPhone) {
   return new Promise(resolve => {
-    getWithTimeout(`${urlServer}api/users/checkPhonenumber/${numberPhone}`, {}).then(response => {
-      if (response.status === 'success') {
-        resolve(response.data[0])
+    getWithTimeout(`${urlServer}/users/checkPhonenumber/${numberPhone}`, {}).then(response => {
+      if (response.status === 'succeed') {
+        resolve(response.user)
       } else resolve(false)
     })
   })
@@ -111,7 +109,6 @@ console.log('formbody', formBody);
   const header = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
-
   return new Promise(resolve => {
     postWithTimeout(`${urlServer}api/users`, header, formBody).then(response => {
       if (response.status === 'success') {
@@ -124,12 +121,27 @@ console.log('formbody', formBody);
  *Get User's Events
  * @param {string} username 
  */
-export function getUserEvents(username) {
+export function getUserEvents(userid) {
   return new Promise(resolve => {
-    getWithTimeout(`${urlServer}api/events/${username}`, {}).then(response => {
+    getWithTimeout(`${urlServer}/events/usercreate/${userid}`, {}).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
-        resolve(response.data)
+        resolve(response.events)
+      } else resolve(false)
+    })
+  })
+}
+
+/**
+ *Get User Signed Events
+ * @param {string} username 
+ */
+export function getUserSignedEvents(userid) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}/events/usersign/${userid}`, {}).then(response => {
+      if (response.status === 'success') {
+        //console.log('data', data)
+        resolve(response.events)
       } else resolve(false)
     })
   })

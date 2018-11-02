@@ -23,7 +23,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ItemEventProfile from './ItemEventProfile'
 import NavigationServices from '../../navigation/NavigationServices';
 import RouteKey from '../../constants/routeKey';
-import { getUserEvents } from '../../utilities/ApiManager';
+import { getUserEvents, getUserSignedEvents } from '../../utilities/ApiManager';
 
 
 const { width, height } = Dimensions.get('window')
@@ -47,9 +47,15 @@ class ProfileContainer extends React.Component {
 
   componentDidMount() {
     // console.log('aaa', this.props.userInfo)
-    getUserEvents(this.props.userInfo.username).then(data => {
+    getUserEvents(this.props.userInfo._id).then(data => {
       //this.setState({eventData: data })
       this.dataEventM=data
+      console.log('dataEventM', this.dataEventM)
+    })
+    getUserSignedEvents(this.props.userInfo._id).then(data => {
+      //this.setState({eventData: data })
+      this.dataEventS=data
+      console.log('dataEventM', this.dataEventS)
     })
   }
 
