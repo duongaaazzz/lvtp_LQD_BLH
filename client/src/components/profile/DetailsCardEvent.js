@@ -4,154 +4,143 @@
 
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { HeaderBackButton } from 'react-navigation';
-import { View, Text, TouchableOpacity, ScrollView, ImageBackground, StyleSheet } from 'react-native'
-import NavigationServices from '../../navigation/NavigationServices'
+import {connect} from 'react-redux';
+import {View, Text, TouchableOpacity, ScrollView, ImageBackground, StyleSheet, Dimensions} from 'react-native'
+import LinearGradient from 'react-native-linear-gradient';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import RouteKey from '../../constants/routeKey'
-import { blackColor, blueColor } from '../../constants/color';
+import {
+  backgroundColor,
+  blackColor,
+  blueColor,
+  darkBlueColor, darkPinkColor,
+  grayColor, lightBlueColor, pinkColor,
+  redColor,
+  skyColor, violetColor, whiteColor
+} from '../../constants/color';
+import Moment from 'moment';
+
+
+const {width, height} = Dimensions.get('window')
+
+
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
 
-  render() {
-    const { navigate } = this.props.navigation;
-    const data = this.props.navigation.getParam('data', 'NO-ID')
-    console.log('data in detail: ', data);
-    return (<View style={{ flex: 1 }}>
+  renderTime() {
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
+
+    const dateStart = Moment(detailCardEvent.date_start).format('DD-MM')
+
+    const month = dateStart.slice(3, 5)
+    const day = dateStart.slice(0, 2)
 
 
-      <ScrollView>
-        <View style={{
-          flex: 1,
-          // justifyContent: 'flex-start',
-          alignItems: 'flex-start',
-        }}>
+    return <View style={{width: '25%', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={[styles.textStyle, {fontSize: 13, color: redColor}]}>Tháng {month}</Text>
+      <Text style={[styles.textStyle, {fontSize: 44, marginTop: -10}]}>{day}</Text>
+    </View>
+  }
 
+  renderInfoEvent(listColor, number, test,nameIcon) {
+    return <LinearGradient
+      colors={listColor}
+      start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+      style={[styles.infoEvent]}>
 
-          <View style={{ width: '100%', height: 210,}}>
-            <ImageBackground
-              style={{
-                flex: 1,
-              }}
-              source={{ uri: data.avatar }}
-              resizeMode={'cover'} />
-          </View>
-
-          <View style={{
-            height: 70,
-            width: '100%',
-            marginTop: 10,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            marginBottom: 5
-          }}>
-
-            <View style={styles.tittleEvent}>
-              <Text style={[styles.textStyle, { fontSize: 24, marginLeft: 15 }]}>
-                {data.title}
-              </Text>
-            </View>
-
-
-            <View style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginRight: 10
-            }}>
-              <TouchableOpacity>
-                <View style={{
-                  backgroundColor: blueColor,
-                  height: 38,
-                  width: 120,
-                  borderRadius: 19,
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}>
-                  <Text style={[styles.textStyle, {
-                    fontSize: 17,
-                    color: '#ffffff'
-                  }]}>
-                    Tham gia
-                    </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-
-          <View style={styles.viewInfo}>
-            <Text style={[styles.textStyle, { fontWeight: '400' }]}> by </Text>
-            <Text style={[styles.textStyle, { fontSize: 15 }]}>
-              {data.created_by}
-              </Text>
-          </View>
-
-          <View style={styles.viewInfo}>
-            <View style={{ height: 25, width: 20, alignItems: 'center', justifyContent: 'flex-end' }}>
-              <Ionicons name='md-time' size={19} color={blackColor} />
-            </View>
-            <Text style={[styles.textStyle, { fontSize: 15, marginLeft: 3, fontWeight: '400' }]}>
-              {data.time_start}
-              </Text>
-          </View>
-
-          <View style={styles.viewInfo}>
-            <View style={{ height: 25, width: 20, alignItems: 'center', justifyContent: 'center' }}>
-              <MaterialIcons name='location-on' size={20} color={blackColor} />
-            </View>
-            <Text style={[styles.textStyle, { fontSize: 15, marginLeft: 3, fontWeight: '400' }]}>
-              location
-              </Text>
-          </View>
-
-          <View style={styles.viewInfo}>
-            <View style={{ height: 25, width: 20, alignItems: 'flex-end', justifyContent: 'flex-end' }}>
-              <MaterialCommunityIcons name='ticket-confirmation' size={19} color={blackColor} />
-            </View>
-            <Text style={[styles.textStyle, { fontSize: 15, marginLeft: 3, fontWeight: '400' }]}>
-              {data.price}
-              </Text>
-          </View>
-
-
-          <View style={[styles.viewInfo, { flexDirection: 'row', alignItems: 'flex-end' }]}>
-            <Text style={[styles.textStyle, { fontWeight: '400', marginTop: 15, }]}>
-              Description
-              </Text>
-
-            <View
-              style={{ borderBottomWidth: 1, width: '70%', marginBottom: 8, marginHorizontal: 10, color: blackColor }} />
-          </View>
-
-          <View style={[styles.viewInfo, { width: '90%', marginTop: 10 }]}>
-            <Text style={[styles.textStyle, { fontWeight: '400', fontSize: 13 }]}>
-              {data.description}
-              </Text>
-          </View>
-
-        </View>
-      </ScrollView>
-
-      <View style={{
-        zIndex: 999,
-        position: 'absolute',
-        top: 20,
-        left: 5,
-      }}>
-
-        <TouchableOpacity
-          style={{ height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}
-          onPress={() => navigate(RouteKey.ProfileScreen, { name: 'Brent' })}>
-          <Ionicons name={'ios-arrow-back'} size={34} color={blueColor} />
-        </TouchableOpacity>
+      <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
+        <MaterialCommunityIcons name={nameIcon} size={30}
+                                color={whiteColor}/>
       </View>
 
-    </View>
+      <View style={{flex: 0.8, marginBottom: 10}}>
+
+        <Text style={[styles.textStyle, {fontSize: 38, color: whiteColor}]}> {number}</Text>
+        <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
+
+      </View>
+
+    </LinearGradient>
+  }
+
+  render() {
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
+    console.log('data in detail: ', detailCardEvent);
+
+    const {navigate} = this.props.navigation;
+
+    return (<View style={{flex: 1}}>
+
+
+        <ScrollView>
+          <View style={{
+            flex: 1,
+            // justifyContent: 'flex-start',
+            // alignItems: 'flex-start',
+          }}>
+
+
+            <View style={{width: '100%', height: 210,}}>
+              <ImageBackground
+                style={{
+                  backgroundColor: grayColor,
+                  flex: 1,
+                }}
+                source={{uri: detailCardEvent.avatar}}
+                resizeMode={'cover'}/>
+            </View>
+
+            <View style={styles.wrapperTitle}>
+
+              <View style={{width: '50%', marginLeft: 15}}>
+                <Text
+                  numberOfLines={4}
+                  style={[styles.textStyle, {fontSize: 20,}]}
+                >
+                  {detailCardEvent.description}
+                </Text>
+
+                <View style={{borderWidth: 1, marginTop: 10, width: '90%',}}/>
+              </View>
+
+              {this.renderTime()}
+
+            </View>
+
+            <View style={styles.overview}>
+              <Text style={[styles.textStyle, {fontSize: 20}]}>Tổng quan </Text>
+            </View>
+
+            <View style={styles.body}>
+
+              {this.renderInfoEvent([blueColor, darkBlueColor], 120, 'Người đăng ký','account-supervisor')}
+              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Người thích','heart')}
+              {this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ','share')}
+
+            </View>
+
+
+          </View>
+        </ScrollView>
+
+        <View style={{
+          zIndex: 999,
+          position: 'absolute',
+          top: 20,
+          left: 5,
+        }}>
+
+          <TouchableOpacity
+            style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
+            onPress={() => navigate(RouteKey.ProfileScreen)}>
+            <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
+          </TouchableOpacity>
+        </View>
+
+      </View>
     )
   }
 }
@@ -162,17 +151,32 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: blackColor
   },
-  viewInfo: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  wrapperTitle: {
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginLeft: 20,
+    minHeight: 100,
+    flexDirection: 'row',
+    marginHorizontal: 15,
   },
-  tittleEvent: {
-    width: '55%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
+  overview: {
+    height: 30,
+    width: '100%',
+    marginLeft: 30,
+  },
+  body: {
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '85%',
+  },
+  infoEvent: {
+    borderRadius: 10,
+    marginVertical: 10,
+    width: width * 0.41,
+    height: width * 0.41,
+    justifyContent: 'space-between'
   }
 })
 

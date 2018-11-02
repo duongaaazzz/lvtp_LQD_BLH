@@ -4,7 +4,7 @@
 
 
 import initialState from '../redux/initialState'
-import {GET_USER_INFO} from '../actions/user';
+import {GET_EVENT_USER, GET_USER_INFO} from '../actions/user';
 
 export default function user(state = initialState.userInfo, action) {
 
@@ -14,6 +14,12 @@ export default function user(state = initialState.userInfo, action) {
       return {
         ...state,
         ...action.userInfo
+      }
+    }
+    case GET_EVENT_USER: {
+      return {
+        ...state,
+        currentUserEvent: action.currentUserEvent
       }
     }
 

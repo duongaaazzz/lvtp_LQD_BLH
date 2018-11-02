@@ -15,28 +15,32 @@ class NearByContainer extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      data: ''
-    }
+    this.state = {}
   }
 
-  componentDidMount() {
-    getEvent().then(ress => {
-      if (ress) {
-        this.setState({data: ress.events})
-        console.log('data:', this.state.data)
-      }
-    });
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+
+
+    }
   }
 
   render() {
     return (
-      !this.state.data ? <ActivityIndicator size='large' color={blueColor} style={{flex:1,justifyContent: 'center', alignItems: 'center'}}/> :
+      !this.props.currentUserEvent ?
+        <ActivityIndicator size='large' color={blueColor}
+                           style={{
+                             flex: 1,
+                             justifyContent: 'center',
+                             alignItems: 'center'
+                           }}/>
+        :
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
           <View style={{elevation: 0}}>
+
             <FlatList
               keyExtractor={(item, index) => index.toString()}
-              data={this.state.data}
+              data={this.props.currentUserEvent}
               renderItem={({item}) => <ItemCardEvent data={item}/>}
             />
           </View>
@@ -45,4 +49,6 @@ class NearByContainer extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(NearByContainer);
+export default connect(state => ({
+  currentUserEvent: state.userInfo.currentUserEvent
+}), dispatch => ({}))(NearByContainer);

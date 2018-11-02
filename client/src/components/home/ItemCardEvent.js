@@ -4,17 +4,18 @@
 
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native'
+import {connect} from 'react-redux';
+import {View, Text, StyleSheet, Dimensions, Image, TouchableOpacity} from 'react-native'
 import NavigationServices from '../../navigation/NavigationServices'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Moment from 'moment';
 
 
 import RouteKey from '../../constants/routeKey'
-import { blackColor, grayColor } from '../../constants/color';
+import {blackColor, grayColor} from '../../constants/color';
 
 
-const { width, height } = Dimensions.get('window')
+const {width, height} = Dimensions.get('window')
 
 
 class ItemCardEvent extends React.Component {
@@ -22,7 +23,7 @@ class ItemCardEvent extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={() => {
-        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent,{data: this.props.data})
+        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
       }}>
         <View style={{
           borderRadius: 10,
@@ -73,11 +74,11 @@ class ItemCardEvent extends React.Component {
                 flexDirection: 'row',
               }}>
 
-                <MaterialCommunityIcons name='heart' size={17} color={blackColor} />
-                <Text style={[styles.textStyle, { marginRight: 5, fontSize: 10 }]}>10</Text>
+                <MaterialCommunityIcons name='heart' size={17} color={blackColor}/>
+                <Text style={[styles.textStyle, {marginRight: 5, fontSize: 10}]}>10</Text>
 
-                <MaterialCommunityIcons name='message' size={17} color={blackColor} />
-                <Text style={[styles.textStyle, { marginRight: 5, fontSize: 10 }]}>10</Text>
+                <MaterialCommunityIcons name='message' size={17} color={blackColor}/>
+                <Text style={[styles.textStyle, {marginRight: 5, fontSize: 10}]}>10</Text>
 
               </View>
             </View>
@@ -93,8 +94,8 @@ class ItemCardEvent extends React.Component {
                 style={{
                   width: 100, height: 100, borderRadius: 50
                 }}
-                source={{ uri: this.props.data.avatar}}
-                resizeMode={'cover'} />
+                source={{uri: this.props.data.avatar}}
+                resizeMode={'cover'}/>
             </View>
 
 

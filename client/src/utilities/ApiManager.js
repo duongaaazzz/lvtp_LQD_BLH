@@ -161,7 +161,7 @@ export function getUserSignedEvents(userid) {
 export function postCreateEvents(username,event_title, description, price, location, date_start, date_end, avatar) {
 
   let details = {
-    'username': username,
+    'username': username ,
     'event_title': event_title,
     'description': description,
     'price': price,
