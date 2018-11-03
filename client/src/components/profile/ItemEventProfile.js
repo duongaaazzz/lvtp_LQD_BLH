@@ -39,13 +39,12 @@ export default class ItemEventProfile extends React.Component {
                 style={[styles.textStyle, {fontSize: 17}]}
                 numberOfLines={2}
               >
-                {this.props.item.event_title}
+                {this.props.item.title}
               </Text>
 
               <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 10, color: grayColor}]}>
-                {this.props.item.date_start}
+                {this.props.item.time_start}
               </Text>
-
             </View>
 
             <Image

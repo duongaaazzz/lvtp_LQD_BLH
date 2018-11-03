@@ -2,8 +2,7 @@ package com.client;
 
 import android.app.Application;
 
-import com.facebook.react.ReactApplication;
-import com.RNFetchBlob.RNFetchBlobPackage;
+import com.facebook.react.ReactApplication;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
