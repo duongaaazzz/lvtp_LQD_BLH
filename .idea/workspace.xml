@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/client/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/constants/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/constant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,14 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
+            <state relative-caret-position="332">
+              <caret line="128" column="12" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
               <folding>
                 <element signature="e#43#69#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constant.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -42,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/client/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
               <folding>
                 <element signature="e#16#57#0" expanded="true" />
               </folding>
@@ -132,12 +138,12 @@
         <option value="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" />
         <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
         <option value="$PROJECT_DIR$/Server/queries.js" />
         <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
         <option value="$PROJECT_DIR$/Server/app.yaml" />
         <option value="$PROJECT_DIR$/client/index.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
+        <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
       </list>
     </option>
   </component>
@@ -354,20 +360,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46666000" />
+    <option name="totallyTimeSpent" value="47227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
@@ -629,13 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -742,7 +741,7 @@
     <entry file="file://$PROJECT_DIR$/client/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="e#16#57#0" expanded="true" />
           </folding>
@@ -751,11 +750,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
+        <state relative-caret-position="332">
+          <caret line="128" column="12" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
           <folding>
             <element signature="e#43#69#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
