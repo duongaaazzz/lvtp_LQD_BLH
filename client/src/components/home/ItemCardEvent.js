@@ -41,7 +41,6 @@ class ItemCardEvent extends React.Component {
             flex: 1,
             margin: 5
           }}>
-
             {/*Left card*/}
             <View style={{
               flex: 1,
@@ -54,7 +53,7 @@ class ItemCardEvent extends React.Component {
                 }]}
                 numberOfLines={2}
               >
-                {this.props.data.event_title}
+                {this.props.data.title}
               </Text>
 
               <Text
@@ -65,7 +64,7 @@ class ItemCardEvent extends React.Component {
                 }]}
                 numberOfline={1}
               >
-                {Moment(this.props.data.date_start).format('D MMM YYYY')}
+                {this.props.data.time_start}
               </Text>
 
               <View style={{
@@ -82,9 +81,7 @@ class ItemCardEvent extends React.Component {
                 <Text style={[styles.textStyle, {marginRight: 5, fontSize: 10}]}>10</Text>
 
               </View>
-
             </View>
-
             {/*Right card*/}
             <View style={{
               flex: 1,

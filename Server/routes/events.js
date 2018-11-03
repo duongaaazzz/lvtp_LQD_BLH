@@ -18,6 +18,7 @@ router.get('/', (req, res, next) => {
         .then(docs => {
             console.log(docs);
             const respone = {
+                status: 'success',
                 count: docs.length,
                 events: docs,
             };
@@ -154,7 +155,10 @@ router.get('/usercreate/:userId', (req, res, next) => {
         .then(doc => {
             console.log(doc);
             if (doc) {
-                res.status(200).json(doc);
+                res.status(200).json({
+                    status: 'success',
+                    events: doc
+                });
             } else {
                 res.status(404).json({ message: 'event does not exist' });
             }
@@ -173,7 +177,10 @@ router.get('/usersign/:userId', (req, res, next) => {
         .then(doc => {
             console.log(doc);
             if (doc) {
-                res.status(200).json(doc);
+                res.status(200).json({
+                    status: 'success',
+                    events: doc
+                });
             } else {
                 res.status(404).json({ message: 'event does not exist' });
             }

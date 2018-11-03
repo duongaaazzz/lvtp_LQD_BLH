@@ -118,4 +118,29 @@ router.delete('/:userId', (req, res, next) => {
 
 
 
+/* GET user by phone. */
+router.get('/checkPhonenumber/:phone', (req, res, next) => {
+    const phone = req.params.phone;
+    User.findOne({ phone: phone })
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            if (doc) {
+                res.status(200).json({
+                    status: 'succeed',
+                    user: doc,
+                });
+            } else {
+                res.status(404).json({
+                    status: 'failed',
+                    message: 'user does not exist'
+                });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
+});
+
 module.exports = router;
