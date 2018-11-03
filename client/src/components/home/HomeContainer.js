@@ -7,19 +7,26 @@ import {connect} from 'react-redux';
 import {View, Text} from 'react-native'
 import NavigationServices from '../../navigation/NavigationServices'
 import {HomeSwitch} from '../../navigation/AppNavigator'
-import {getEvent} from '../../utilities/ApiManager';
-import {GET_EVENT_USER} from '../../actions/user';
+import {getEvent, loginUserWithPhone} from '../../utilities/ApiManager';
+import {GET_EVENT_USER, USER_LOGIN} from '../../actions/user';
 
 class HomeContainer extends React.Component {
 
 
   componentDidMount() {
 
-    getEvent().then(ress => {
-      if (ress) {
-        this.props.getEvent(ress.events)
+    console.log('userInfo', this.props.userInfo)
+    loginUserWithPhone(this.props.userInfo.phone).then(data => {
+      if (!!data) {
+        this.props.setToken(data)
+        getEvent().then(ress => {
+          if (ress) {
+            this.props.getEvent(ress.events)
+          }
+        });
+
       }
-    });
+    })
 
   }
 
@@ -33,6 +40,10 @@ class HomeContainer extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({
+export default connect(state => ({
+  token: state,
+  userInfo: state.userInfo
+}), dispatch => ({
+  setToken: (token) => dispatch({type: USER_LOGIN, token: token}),
   getEvent: (currentUserEvent) => dispatch({type: GET_EVENT_USER, currentUserEvent})
 }))(HomeContainer);

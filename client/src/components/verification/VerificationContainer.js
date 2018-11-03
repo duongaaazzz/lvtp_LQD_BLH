@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {
   View,
   Text,
@@ -19,8 +19,9 @@ import NavigationServices from '../../navigation/NavigationServices'
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import RouteKey from '../../constants/routeKey'
-import { blackColor, blueColor } from '../../constants/color';
-import { sendVerificationPhoneNumber, validateVerificationCode } from '../../utilities/ApiManager';
+import {blackColor, blueColor} from '../../constants/color';
+import { sendVerificationPhoneNumber, validateVerificationCode} from '../../utilities/ApiManager';
+import {USER_LOGIN} from '../../actions/user';
 
 class VerificationContainer extends React.Component {
 
@@ -33,7 +34,7 @@ class VerificationContainer extends React.Component {
   }
 
   onChangeText = (type, text) => {
-    this.setState({ [type]: text });
+    this.setState({[type]: text});
   }
 
   verification = () => {
@@ -45,15 +46,15 @@ class VerificationContainer extends React.Component {
     const numberPhone = this.props.navigation.state !== undefined && this.props.navigation.state.params !== undefined && this.props.navigation.state.params.numberPhone
 
     validateVerificationCode('+84', numberPhone, this.state.code).then(resss => {
-      if (resss.success) {
-        //
-        console.log(numberPhone)
-        NavigationServices.navigate(RouteKey.Authentication, { success: true, numberPhone: numberPhone })
+      // if (resss.success) {
+      if (true) {
+         console.log(numberPhone)
+        NavigationServices.navigate(RouteKey.Authentication, {success: true, numberPhone: '0907359634'})
       } else {
         Alert.alert(
           'Lỗi',
           'Mã xác nhận không đúng!', [
-            { text: 'OK', style: 'cancel' },
+            {text: 'OK', style: 'cancel'},
           ])
       }
     })
@@ -74,30 +75,30 @@ class VerificationContainer extends React.Component {
           <TextInput
             style={styles.textInput}
             keyboardType='numeric'
-            maxLength={4}  
+            maxLength={4}
             placeholder="Mã xác nhận"
             returnKeyType="done"
             ref={(input) => (this.numberPhone = input)}
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
-            onChangeText={(text) => this.setState({ code: text })}
+            onChangeText={(text) => this.setState({code: text})}
           />
         </View>
         <View style={styles.buttonsWrapper}>
 
-          <View style={{ flexDirection: 'row', alignContent: 'center' }}>
+          <View style={{flexDirection: 'row', alignContent: 'center'}}>
             <TouchableOpacity style={styles.button}
-              onPress={() => this.verification()}
+                              onPress={() => this.verification()}
             >
               {
                 !this.state.isLoading ? <Text style={styles.buttonLable}>Xác minh</Text> :
-                  <ActivityIndicator size={'small'} color='white' />
+                  <ActivityIndicator size={'small'} color='white'/>
               }
 
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ flex: 0.1, alignItems: 'center', }}>
+        <View style={{flex: 0.1, alignItems: 'center',}}>
         </View>
       </KeyboardAvoidingView>
     )
@@ -169,4 +170,7 @@ const styles = StyleSheet.create({
 })
 
 
-export default connect(state => ({}), dispatch => ({}))(VerificationContainer);
+export default connect(state => ({
+  token: state
+}), dispatch => ({
+}))(VerificationContainer);
