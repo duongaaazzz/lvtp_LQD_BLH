@@ -17,7 +17,7 @@ class HomeContainer extends React.Component {
 
     getEvent().then(ress => {
       if (ress) {
-        this.props.getEvent(ress)
+        this.props.getEvent(ress.events)
       }
     });
 
