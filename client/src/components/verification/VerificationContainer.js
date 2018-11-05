@@ -49,7 +49,7 @@ class VerificationContainer extends React.Component {
       // if (resss.success) {
       if (true) {
          console.log(numberPhone)
-        NavigationServices.navigate(RouteKey.Authentication, {success: true, numberPhone: '0907359634'})
+        NavigationServices.navigate(RouteKey.Authentication, {success: true, numberPhone: numberPhone})
       } else {
         Alert.alert(
           'Lỗi',
