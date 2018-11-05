@@ -16,9 +16,17 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import RouteKey from '../../constants/routeKey'
 import {blackColor, blueColor} from '../../constants/color';
 import Moment from 'moment/moment';
+import {handleUserEvent} from '../../utilities/ApiManager';
 
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
+
+  joinEvent() {
+    handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
+      console.log(data)
+    })
+
+  }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -62,7 +70,9 @@ class DetailsCardEvent extends React.Component {
                 alignItems: 'center',
                 marginRight: 10
               }}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  this.joinEvent()
+                }}>
                   <View style={{
                     backgroundColor: blueColor,
                     height: 38,

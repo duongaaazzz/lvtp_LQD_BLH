@@ -3,7 +3,8 @@
  */
 
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
-import {getWithTimeout, postWithTimeout} from './networking';
+import {getWithTimeout, patchWithTimeout, postWithTimeout} from './networking';
+import store from '../redux/store';
 
 /**
  * Send verification phone number
@@ -195,6 +196,10 @@ export function postCreateEvents(username, event_title, description, price, loca
   })
 }
 
+/**
+ * Get current user
+ * @return {Promise<any>}
+ */
 export function getCurrentUser() {
   return new Promise(resolve => {
     getWithTimeout(`${urlServer}/users/api/currentUser`, {}).then(response => {
@@ -205,12 +210,34 @@ export function getCurrentUser() {
   })
 }
 
+/**
+ * Login with phone
+ * @param numberPhone
+ * @return {Promise<any>}
+ */
 export function loginUserWithPhone(numberPhone) {
   return new Promise(resolve => {
     getWithTimeout(`${urlServer}/users/login/${numberPhone}`, {}).then(response => {
       if (response.status === 'success') {
         resolve(response.token)
       } else resolve(false)
+    })
+  })
+}
+
+export function handleUserEvent(eventId) {
+  return new Promise(resolve => {
+
+    let body = {
+      userId: store.getState().userInfo._id
+    }
+
+    patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data.events)
+      } else {
+        resolve(false)
+      }
     })
   })
 }

@@ -168,3 +168,36 @@ export function put(api, headers, body) {
     return {data: null}
   })
 }
+
+
+export function patchWithTimeout(api, headers, body) {
+  console.log('getWithTimeout');
+  return timeout(patch(api, headers, body), 60000, api)
+}
+
+
+export function patch(api, headers, body) {
+
+  let token = store.getState().userInfo.token
+  console.log('store.getState().userInfo.token', token)
+
+  return fetch(api, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      ...headers
+    },
+    body: JSON.stringify(body)
+  }).then(response => {
+    console.log(response)
+    return response.json().then(data => {
+      console.log(data)
+      return data
+    })
+  }).catch(err => {
+    console.log('There is an error occurred while requesting api', err, api)
+    return {data: null}
+  })
+}

@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utilities/networking.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utilities/networking.js" afterDir="false" />
     </list>
@@ -30,54 +25,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AuthenticationContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
+      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearByContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#43#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileContainer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+            <state relative-caret-position="345">
+              <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiManager.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiManager.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="207" column="30" lean-forward="true" selection-start-line="207" selection-start-column="30" selection-end-line="207" selection-end-column="30" />
+            <state relative-caret-position="311">
+              <caret line="238" column="21" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -85,8 +58,8 @@
       <file leaf-file-name="networking.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/utilities/networking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1330">
-              <caret line="40" column="38" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="38" />
+            <state relative-caret-position="2835">
+              <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -94,23 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VerificationContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js">
+      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/redux/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="22" column="93" lean-forward="true" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/reducers/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-              <folding>
-                <element signature="e#44#92#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -191,18 +152,18 @@
         <option value="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" />
         <option value="$USER_HOME$/Downloads/tinh_an_3_khong_limit.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
-        <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
         <option value="$USER_HOME$/Downloads/tinh_an_3_khong_limit_hien_tien.js" />
         <option value="$PROJECT_DIR$/client/src/redux/store.js" />
         <option value="$PROJECT_DIR$/client/src/actions/user.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
-        <option value="$PROJECT_DIR$/client/src/utilities/networking.js" />
         <option value="$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/utilities/networking.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
+        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
       </list>
     </option>
   </component>
@@ -268,6 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -357,12 +319,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;V&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;RegisterUserScreen&#9;null&#9;null&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;V&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;RegisterUserScreen&#9;null&#9;null&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/ItemCardEvent.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Lo&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -416,35 +377,35 @@
       <workItem from="1540002254205" duration="16230000" />
       <workItem from="1540175730561" duration="172000" />
       <workItem from="1540218940007" duration="723000" />
-      <workItem from="1541234494076" duration="4960000" />
+      <workItem from="1541234494076" duration="7598000" />
+      <workItem from="1541384542409" duration="161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56624000" />
+    <option name="totallyTimeSpent" value="59423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32893" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32893" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32893" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,9 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding>
-            <element signature="e#44#70#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,16 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#45#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -714,13 +662,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/actions/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/registerUser/RegisterUserContainer.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -736,54 +678,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/redux/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="117" column="28" selection-start-line="116" selection-start-column="2" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#43#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/networking.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1330">
-          <caret line="40" column="38" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="22" column="93" lean-forward="true" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="207" column="30" lean-forward="true" selection-start-line="207" selection-start-column="30" selection-end-line="207" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#44#92#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -798,27 +713,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/nearby/NearByContainer.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="38">
+          <caret line="22" column="93" lean-forward="true" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="345">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/redux/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/networking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2835">
+          <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
           <folding>
-            <element signature="e#43#69#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/ProfileContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+        <state relative-caret-position="345">
+          <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#45#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="238" column="21" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
         </state>
       </provider>
     </entry>
