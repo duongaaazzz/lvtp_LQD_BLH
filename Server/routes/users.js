@@ -178,7 +178,7 @@ router.get('/login/:phone', (req, res, next) => {
         .then(function (data) {
             if (data) {
                 //create token
-                jwt.sign({ data }, 'aloha', { expiresIn: '30m' }, (err, token) => {
+                jwt.sign({ data }, 'aloha', { expiresIn: '1d' }, (err, token) => {
                     res.status(200)
                         .json({
                             status: 'success',
