@@ -90,7 +90,7 @@ export function getUserInfoWithPhone(numberPhone) {
  * @param {numberic} numberPhone
  * @param {srting} fullName
  */
-export function postUserInfo(username, password, email, numberPhone, fullName) {
+export function postUserInfo(username, password, email, numberPhone, fullName, avatar) {
 
   let details = {
     'username': username,
@@ -98,6 +98,7 @@ export function postUserInfo(username, password, email, numberPhone, fullName) {
     'email': email,
     'phone': numberPhone,
     'fullname': fullName,
+    'avatar': avatar
   };
 
   let formBody = [];
