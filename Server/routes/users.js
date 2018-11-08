@@ -6,7 +6,7 @@ const db = require('../queries');
 const checkAuth = require('../middleware/check-auth');
 
 const User = require('../models/user');
-
+const jwt = require('jsonwebtoken');
 
 
 /* GET users list. */
@@ -142,5 +142,63 @@ router.get('/checkPhonenumber/:phone', (req, res, next) => {
             res.status(500).json({ error: err });
         });
 });
+
+/* GET current user by phone. */
+router.get('/api/currentUser', checkAuth, (req, res, next) => {
+
+    const bearerHeader = req.headers['authorization'];
+    const bearer = bearerHeader.split(' ')
+    // Get token from array
+    const bearerToken = bearer[1];
+    //Set the token
+    req.token = bearerToken;
+    jwt.verify(req.token, 'aloha', (err, decode) => {
+        if (decode) {
+            res.status(200).json({
+                user: decode,
+                status: 'success'
+            })
+        } else {
+            res.status(404).json({
+                status: 'fail',
+                message: 'token invalid',
+                error: err
+            })
+        }
+    })
+
+});
+
+
+/* GET  Login user by phone. */
+router.get('/login/:phone', (req, res, next) => {
+    const phone = req.params.phone;
+    User.findOne({ phone: phone })
+        .exec()
+        .then(function (data) {
+            if (data) {
+                //create token
+                jwt.sign({ data }, 'aloha', { expiresIn: '1d' }, (err, token) => {
+                    res.status(200)
+                        .json({
+                            status: 'success',
+                            token,
+                            message: 'token created'
+                        });
+                });
+            }
+            else {
+                res.status(404)
+                    .json({
+                        status: 'failed',
+                        message: 'user does not exist'
+                    });
+            }
+        })
+        .catch(function (err) {
+            return next(err);
+        })
+});
+
 
 module.exports = router;

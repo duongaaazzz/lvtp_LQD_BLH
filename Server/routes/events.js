@@ -10,7 +10,7 @@ const Event = require('../models/event');
 
 
 /* GET events listing. */
-router.get('/', (req, res, next) => {
+router.get('/', checkAuth, (req, res, next) => {
     Event.find()
         .select('title description avatar type created_by userlist time_start time_end price _id')
         .limit(10)
@@ -215,39 +215,53 @@ router.get('/type/:Etype', (req, res, next) => {
 /* Sign Up to an event. */
 router.patch('/sign/:eventId', (req, res, next) => {
     const id = req.params.eventId;
-    Event.updateOne({ _id: id }, { $push: { userlist: req.body.userid } })
+    Event.findById(id)
         .exec()
-        .then(result => {
-            console.log(result);
-            res.status(201).json({
-                message: "Successfully update event ",
-                result: result
-            });
+        .then(doc => {
+            console.log(doc);
+            if (doc) {
+                let index = doc.userlist.findIndex(i => i == req.body.userid);
+                console.log('index: ', index);
+                console.log('userid: ', req.body.userid);
+                if (index < 0) {
+                    Event.updateOne({ _id: id }, { $push: { userlist: req.body.userid } })
+                        .exec()
+                        .then(result => {
+                            doc.userlist.push(req.body.userid);
+                            res.status(200).json({
+                                status: 'success',
+                                message: "Signed",
+                                event: doc
+                            });
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).json({ error: err });
+                        });
+                } else {
+                    Event.updateOne({ _id: id }, { $pull: { userlist: req.body.userid } })
+                        .exec()
+                        .then(result => {
+                            doc.userlist.pull(req.body.userid);
+                            res.status(201).json({
+                                status: 'success',
+                                message: "Unsigned",
+                                event: doc
+                            });
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).json({ error: err });
+                        });
+                }
+            } else {
+                res.status(404).json({ message: 'event does not exist' });
+            }
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({ error: err });
         });
 });
-
-/*  UnSign Up to an event. */
-router.patch('/unsign/:eventId', (req, res, next) => {
-    const id = req.params.eventId;
-    Event.updateOne({ _id: id }, { $pull: { userlist: req.body.userid } })
-        .exec()
-        .then(result => {
-            console.log(result);
-            res.status(201).json({
-                message: "Successfully update event ",
-                result: result
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({ error: err });
-        });
-});
-
-
 
 module.exports = router;

@@ -37,7 +37,6 @@ class NearByContainer extends React.Component {
         :
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
           <View style={{elevation: 0}}>
-
             <FlatList
               keyExtractor={(item, index) => index.toString()}
               data={this.props.currentUserEvent}

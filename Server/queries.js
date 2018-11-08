@@ -28,13 +28,10 @@ function Login(req, res, next) {
                             message: 'token created'
                         });
                 });
-
         })
         .catch(function (err) {
             return next(err);
         })
-
-
 }
 
 
