@@ -10,7 +10,13 @@ import NavigationServices from '../../navigation/NavigationServices'
 
 import RouteKey from '../../constants/routeKey'
 import {grayColor} from '../../constants/color';
-import {getCurrentUser, getUserInfoWithPhone, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import {
+  getCurrentUser,
+  getEvent,
+  getUserInfoWithPhone,
+  loginUserWithPhone,
+  sendVerificationPhoneNumber
+} from '../../utilities/ApiManager';
 import {GET_USER_INFO, USER_LOGIN} from '../../actions/user';
 
 class AuthenticationContainer extends React.Component {
@@ -26,7 +32,15 @@ class AuthenticationContainer extends React.Component {
           console.log(ress);
           if (ress) {
             this.props.getUserInfo(ress)
-            NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
+
+            loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
+              if (!!data) {
+                this.props.setToken(data)
+
+                NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
+
+              }
+            })
           } else {
             NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone})
           }
@@ -44,13 +58,13 @@ class AuthenticationContainer extends React.Component {
         if (data) {
 
           getCurrentUser().then(data => {
-            console.log('ssasdasd',data)
-            if(!!data){
+            console.log('ssasdasd', data)
+            if (!!data) {
 
               this.props.getUserInfo(data)
 
               NavigationServices.navigate('MainTab', {numberPhone: data.phone})
-            }else {
+            } else {
               NavigationServices.navigate(RouteKey.LoginScreen)
             }
           })

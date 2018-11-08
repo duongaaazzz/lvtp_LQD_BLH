@@ -113,8 +113,8 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}/api/users`, header, formBody).then(response => {
-      if (response.status === 'success') {
+    postWithTimeout(`${urlServer}/users`, header, formBody).then(response => {
+      if (response.status === 201) {
         resolve(true)
       } else resolve(false)
     })
