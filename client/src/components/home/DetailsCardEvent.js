@@ -21,19 +21,46 @@ import {handleUserEvent} from '../../utilities/ApiManager';
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      sign: 'Đăng ký',
+    }
+  }
+  
   joinEvent() {
-    handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
-      console.log(data)
-    })
+    try {
+      handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
+        //console.log(data)
+        // if(data.message === 'Signed')
+        //   this.setState({sign = 'Hủy Đăng Ký'})
+        // else {
+        //   this.setState({sign = 'Đăng Ký'})
+        // }
+      }
+        )
+    } catch (error) {
+      console.log(error)
+    }
+    
 
   }
 
   render() {
-    const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation
     const data = this.props.navigation.getParam('data', 'NO-ID')
-    console.log('data in detail: ', data);
+    let index = data.userlist.findIndex(i => i == this.props.userInfo._id)
+    console.log('sign: ', this.state.sign)
+    if(index < 0){
+      this.setState({sign='Đăng Ký'})
+      console.log('sign: ', this.state.sign)
+    } else {
+      this.setState({sign= 'Hủy Đăng Ký'})
+      console.log('sign: ', this.state.sign);
+    }
+    console.log('index: ', index)
+   
     return (<View style={{flex: 1}}>
-
         <ScrollView>
           <View style={{
             flex: 1,
@@ -74,7 +101,7 @@ class DetailsCardEvent extends React.Component {
                   this.joinEvent()
                 }}>
                   <View style={{
-                    backgroundColor: blueColor,
+                    backgroundColor: this.state.sign === 'Đăng Ký' ? 'blue' : 'red',
                     height: 38,
                     width: 120,
                     borderRadius: 19,
@@ -85,7 +112,7 @@ class DetailsCardEvent extends React.Component {
                       fontSize: 17,
                       color: '#ffffff'
                     }]}>
-                      Tham gia
+                      {this.state.sign}
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -114,7 +141,7 @@ class DetailsCardEvent extends React.Component {
                 <MaterialIcons name='location-on' size={20} color={blackColor}/>
               </View>
               <Text style={[styles.textStyle, {fontSize: 15, marginLeft: 3, fontWeight: '400'}]}>
-                location
+                {data.location}
               </Text>
             </View>
 
@@ -185,4 +212,6 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(state => ({}), dispatch => ({}))(DetailsCardEvent);
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({}))(DetailsCardEvent);

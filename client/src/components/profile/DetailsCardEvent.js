@@ -4,8 +4,8 @@
 
 
 import React from 'react';
-import {connect} from 'react-redux';
-import {View, Text, TouchableOpacity, ScrollView, ImageBackground, StyleSheet, Dimensions} from 'react-native'
+import { connect } from 'react-redux';
+import { View, Text, TouchableOpacity, ScrollView, ImageBackground, StyleSheet, Dimensions } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -24,7 +24,7 @@ import {
 import Moment from 'moment';
 
 
-const {width, height} = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 
 //const { navigation } = this.props;
@@ -39,28 +39,25 @@ class DetailsCardEvent extends React.Component {
     const day = dateStart.slice(0, 2)
 
 
-    return <View style={{width: '25%', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={[styles.textStyle, {fontSize: 13, color: redColor}]}>Tháng {month}</Text>
-      <Text style={[styles.textStyle, {fontSize: 44, marginTop: -10}]}>{day}</Text>
+    return <View style={{ width: '25%', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={[styles.textStyle, { fontSize: 13, color: redColor }]}>Tháng {month}</Text>
+      <Text style={[styles.textStyle, { fontSize: 44, marginTop: -10 }]}>{day}</Text>
     </View>
   }
 
-  renderInfoEvent(listColor, number, test,nameIcon) {
+  renderInfoEvent(listColor, number, test, nameIcon) {
     return <LinearGradient
       colors={listColor}
-      start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+      start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
       style={[styles.infoEvent]}>
 
-      <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
+      <View style={{ width: 30, height: 30, marginTop: 10, marginLeft: 10 }}>
         <MaterialCommunityIcons name={nameIcon} size={30}
-                                color={whiteColor}/>
+          color={whiteColor} />
       </View>
-
-      <View style={{flex: 0.8, marginBottom: 10}}>
-
-        <Text style={[styles.textStyle, {fontSize: 38, color: whiteColor}]}> {number}</Text>
-        <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
-
+      <View style={{ flex: 0.8, marginBottom: 10 }}>
+        <Text style={[styles.textStyle, { fontSize: 38, color: whiteColor }]}> {number}</Text>
+        <Text style={[styles.textStyle, { fontSize: 17, color: whiteColor, marginLeft: 7 }]}> {test}</Text>
       </View>
 
     </LinearGradient>
@@ -68,79 +65,80 @@ class DetailsCardEvent extends React.Component {
 
   render() {
     const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
-    console.log('data in detail: ', detailCardEvent);
+    console.log('so nguoi dang ky: ', detailCardEvent.userlist.length);
+    const { navigate } = this.props.navigation;
 
-    const {navigate} = this.props.navigation;
+    return (<View style={{ flex: 1 }}>
 
-    return (<View style={{flex: 1}}>
+      <ScrollView>
+        <View style={{
+          flex: 1,
+        }}>
+          <View style={{ width: '100%', height: 210 }}>
 
+            <ImageBackground
+              style={{
+                backgroundColor: grayColor,
+                flex: 1,
+              }}
+              source={{ uri: detailCardEvent.avatar }}
+              resizeMode={'cover'} />
+            <View style={{ width: '100%', flex: 0.1, paddingTop: 150, justifyContent:'flex-end', flexDirection: 'row', position: "absolute" }}>
+              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+                style={[styles.button, { width: 100, backgroundColor: 'gray' }]}>
+                <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Cập Nhật</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+                style={[styles.button, { width: 100, backgroundColor: redColor }]}>
+                <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Xóa Event</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
 
-        <ScrollView>
-          <View style={{
-            flex: 1,
-            // justifyContent: 'flex-start',
-            // alignItems: 'flex-start',
-          }}>
+          <View style={styles.wrapperTitle}>
 
+            <View style={{ width: '50%', marginLeft: 15 }}>
+              <Text
+                numberOfLines={4}
+                style={[styles.textStyle, { fontSize: 20, }]}
+              >
+                {detailCardEvent.description}
+              </Text>
 
-            <View style={{width: '100%', height: 210,}}>
-              <ImageBackground
-                style={{
-                  backgroundColor: grayColor,
-                  flex: 1,
-                }}
-                source={{uri: detailCardEvent.avatar}}
-                resizeMode={'cover'}/>
+              <View style={{ borderWidth: 1, marginTop: 10, width: '90%', }} />
             </View>
 
-            <View style={styles.wrapperTitle}>
-
-              <View style={{width: '50%', marginLeft: 15}}>
-                <Text
-                  numberOfLines={4}
-                  style={[styles.textStyle, {fontSize: 20,}]}
-                >
-                  {detailCardEvent.description}
-                </Text>
-
-                <View style={{borderWidth: 1, marginTop: 10, width: '90%',}}/>
-              </View>
-
-              {this.renderTime()}
-
-            </View>
-
-            <View style={styles.overview}>
-              <Text style={[styles.textStyle, {fontSize: 20}]}>Tổng quan </Text>
-            </View>
-
-            <View style={styles.body}>
-
-              {this.renderInfoEvent([blueColor, darkBlueColor], 120, 'Người đăng ký','account-supervisor')}
-              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Người thích','heart')}
-              {this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ','share')}
-
-            </View>
-
+            {this.renderTime()}
 
           </View>
-        </ScrollView>
 
-        <View style={{
-          zIndex: 999,
-          position: 'absolute',
-          top: 20,
-          left: 5,
-        }}>
+          <View style={styles.overview}>
+            <Text style={[styles.textStyle, { fontSize: 20 }]}>Tổng quan </Text>
+          </View>
 
-          <TouchableOpacity
-            style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigate(RouteKey.ProfileScreen)}>
-            <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
-          </TouchableOpacity>
+          <View style={styles.body}>
+            {this.renderInfoEvent([blueColor, darkBlueColor], detailCardEvent.userlist.length, 'Người đăng ký', 'account-supervisor')}
+            {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Người thích', 'heart')}
+            {this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ', 'share')}
+          </View>
+
+
         </View>
-
+      </ScrollView>
+      <View style={{
+        zIndex: 999,
+        position: 'absolute',
+        top: 20,
+        left: 5,
+      }}>
+        <TouchableOpacity
+          style={{ height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}
+          onPress={() => navigate(RouteKey.ProfileScreen)}>
+          <Ionicons name={'ios-arrow-back'} size={34} color={blueColor} />
+        </TouchableOpacity>
       </View>
+
+    </View>
     )
   }
 }
@@ -170,6 +168,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '85%',
+  },
+  buttonLable: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  button: {
+    backgroundColor: blueColor,
+    padding: 10,
+    width: 190,
+    height: 40,
+    margin: 5,
+    borderRadius: 30,
   },
   infoEvent: {
     borderRadius: 10,
