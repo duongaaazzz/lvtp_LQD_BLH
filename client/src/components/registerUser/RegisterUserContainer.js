@@ -12,15 +12,19 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   ActivityIndicator,
+  ImageBackground,
+  Platform,
   Modal
 } from 'react-native'
 import NavigationServices from '../../navigation/NavigationServices'
 import Entypo from 'react-native-vector-icons/Entypo';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import RouteKey from '../../constants/routeKey'
 import {blackColor, blueColor, grayColor} from '../../constants/color';
 import {getUserInfoWithPhone, postUserInfo, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
 import {GET_USER_INFO} from '../../actions/user';
+import {upLoadImageFirebase} from '../../constants/firebaseHelper';
 
 
 class RegisterUserContainer extends React.Component {
@@ -28,11 +32,14 @@ class RegisterUserContainer extends React.Component {
   constructor() {
     super();
     this.state = {
+      avatar: '',
+      linkAvatar: '',
       numberPhone: '',
       username: '',
       fullname: '',
       email: '',
-      isLoading: false
+      isLoading: false,
+      isUploadImageSuccess: false
     }
 
     this.state = {
@@ -49,7 +56,14 @@ class RegisterUserContainer extends React.Component {
 
     this.setState({isLoading: true})
 
-    postUserInfo(this.state.username, 'AXbsnX', this.state.email, this.props.navigation.state.params.numberPhone, this.state.fullname).then(resssssss => {
+    postUserInfo(
+      this.state.username,
+      'AXbsnX',
+      this.state.email,
+      this.props.navigation.state.params.numberPhone,
+      this.state.fullname,
+      this.state.linkAvatar
+    ).then(resssssss => {
       if (!!resssssss) {
 
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
@@ -57,7 +71,7 @@ class RegisterUserContainer extends React.Component {
             this.props.getUserInfo(ress)
             NavigationServices.navigate('MainTab')
           } else {
-            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone })
+            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone})
           }
         });
       }
@@ -65,8 +79,8 @@ class RegisterUserContainer extends React.Component {
   }
 
   render() {
-
-    const {numberPhone} = this.props.navigation.state.params
+    console.log(this.props.userInfo)
+    const {numberPhone} = this.props.navigation.state.params || ''
 
     return (
       <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
@@ -74,8 +88,40 @@ class RegisterUserContainer extends React.Component {
           <Text style={styles.text}>Tạo Tài Khoản Mới</Text>
         </View>
 
-        <View style={{backgroundColor: grayColor, width: 55, height: 55, alignSelf: 'center', borderRadius: 6}}>
-        </View>
+        <TouchableOpacity onPress={() => {
+          ImagePicker.openPicker({
+            multiple: false
+          }).then(images => {
+
+            this.setState({
+              avatar: images
+            })
+
+            upLoadImageFirebase(this.props.userInfo.username, images.sourceURL, images.mime).then(data => {
+              this.setState({
+                isUploadImageSuccess: true,
+                linkAvatar: data
+              })
+            })
+
+
+          });
+        }}>
+
+          {
+            !!this.state.avatar ? <ImageBackground
+                source={{uri: Platform.OS === 'ios' ? this.state.avatar.sourceURL.replace('file://', '') : this.state.avatar.sourceURL}}
+                style={styles.avatarStyle}>
+                {
+                  !this.state.isUploadImageSuccess && <ActivityIndicator size={'small'} color={blueColor}/>
+                }
+              </ImageBackground>
+              :
+              <View style={styles.avatarStyle}/>
+          }
+
+        </TouchableOpacity>
+
         <View style={styles.inputWrapper}>
 
 
@@ -201,9 +247,22 @@ const styles = StyleSheet.create({
     fontFamily: 'SegoeUI',
     color: blackColor
   },
+  avatarStyle: {
+    backgroundColor: grayColor,
+    width: 70,
+    height: 70,
+    alignSelf: 'center',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: grayColor,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 })
 
 
-export default connect(state => ({}), dispatch => ({
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({
   getUserInfo: (userInfo) => dispatch({type: GET_USER_INFO, userInfo})
 }))(RegisterUserContainer);

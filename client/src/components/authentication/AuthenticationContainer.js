@@ -5,13 +5,19 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, TouchableOpacity, ActivityIndicator} from 'react-native'
+import {View, Text, AsyncStorage, ActivityIndicator} from 'react-native'
 import NavigationServices from '../../navigation/NavigationServices'
 
 import RouteKey from '../../constants/routeKey'
 import {grayColor} from '../../constants/color';
-import {getUserInfoWithPhone, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
-import {GET_USER_INFO} from '../../actions/user';
+import {
+  getCurrentUser,
+  getEvent,
+  getUserInfoWithPhone,
+  loginUserWithPhone,
+  sendVerificationPhoneNumber
+} from '../../utilities/ApiManager';
+import {GET_USER_INFO, USER_LOGIN} from '../../actions/user';
 
 class AuthenticationContainer extends React.Component {
 
@@ -20,21 +26,27 @@ class AuthenticationContainer extends React.Component {
     if (this.props.navigation.state !== undefined && this.props.navigation.state.params !== undefined) {
 
       if (this.props.navigation.state.params.success) {
-        
+
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
-          console.log('check user exits, phone number: ',this.props.navigation.state.params.numberPhone );
+          console.log('check user exits, phone number: ', this.props.navigation.state.params.numberPhone);
           console.log(ress);
           if (ress) {
             this.props.getUserInfo(ress)
-            NavigationServices.navigate('MainTab')
+
+            loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
+              if (!!data) {
+                loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
+                  if (!!data) {
+                    this.props.setToken(data)
+                    NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
+                  }
+                })
+              }
+            })
           } else {
-            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone })
+            NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone})
           }
         });
-        // very xong r
-        // setTimeout(() => {
-        //   NavigationServices.navigate('MainTab')
-        // }, 15000)
 
       } else {
         // setTimeout(() => {
@@ -44,14 +56,43 @@ class AuthenticationContainer extends React.Component {
     } else {
       //check token available
 
+      this.checkToken().then(data => {
+        if (data) {
 
+          getCurrentUser().then(data => {
+            console.log('ssasdasd', data)
+            if (!!data) {
 
-      // setTimeout(() => {
-      //   NavigationServices.navigate(RouteKey.LoginScreen)
-      // }, 500)
+              this.props.getUserInfo(data)
+
+              NavigationServices.navigate('MainTab', {numberPhone: data.phone})
+            } else {
+              NavigationServices.navigate(RouteKey.LoginScreen)
+            }
+          })
+
+          // NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
+        } else {
+
+          NavigationServices.navigate(RouteKey.LoginScreen)
+          console.log('dsfsdfds')
+        }
+      })
     }
   }
 
+  checkToken() {
+    return new Promise(resolve => {
+      let token = AsyncStorage.getItem('@yolo:token').then(token => {
+
+        this.props.setToken(token)
+
+        return !!token
+      })
+
+      resolve(token)
+    })
+  }
 
   render() {
     return (
@@ -71,5 +112,6 @@ class AuthenticationContainer extends React.Component {
 }
 
 export default connect(state => ({}), dispatch => ({
+  setToken: (token) => dispatch({type: USER_LOGIN, token: token}),
   getUserInfo: (userInfo) => dispatch({type: GET_USER_INFO, userInfo})
 }))(AuthenticationContainer);
