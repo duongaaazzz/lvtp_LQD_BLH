@@ -26,6 +26,7 @@ router.get('/', checkAuth, (req, res, next) => {
                 res.status(200).json(respone);
             } else {
                 res.status(404).json({
+                    status: 'success',
                     message: 'There are 0 event'
                 });
             }
