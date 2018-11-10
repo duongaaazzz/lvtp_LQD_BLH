@@ -35,10 +35,12 @@ class AuthenticationContainer extends React.Component {
 
             loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
               if (!!data) {
-                this.props.setToken(data)
-
-                NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
-
+                loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
+                  if (!!data) {
+                    this.props.setToken(data)
+                    NavigationServices.navigate('MainTab', {numberPhone: this.props.navigation.state.params.numberPhone})
+                  }
+                })
               }
             })
           } else {

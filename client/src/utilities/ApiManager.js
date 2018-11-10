@@ -188,7 +188,7 @@ export function postCreateEvents(username, event_title, description, price, loca
   };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}api/events/createEvent`, header, formBody).then(response => {
+    postWithTimeout(`${urlServer}/events/createEvent`, header, formBody).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(true)

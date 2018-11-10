@@ -26,6 +26,10 @@ export default class ItemImagePostEvent extends React.Component {
 
     upLoadImageFirebase(nameEvent, imageInfo.sourceURL, imageInfo.mime).then(data => {
       console.log(data)
+      if (!!data) {
+        this.setState({isUploadImageSuccess: true})
+        this.props.upLoadImageEventSuccess(data)
+      }
     })
   }
 

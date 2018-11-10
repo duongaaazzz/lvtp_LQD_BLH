@@ -31,7 +31,7 @@ export function getWithTimeout(api, headers) {
 export function get(api, headers) {
 
   let token = store.getState().userInfo.token
-  console.log('store.getState().userInfo.token', token)
+  console.log('getWithTimeout', token)
 
   return fetch(api, {
     method: 'get',
@@ -62,17 +62,22 @@ export function post(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
 
+  let token = store.getState().userInfo.token
+
+
   let heads = {}
   if (headers['Content-Type'])
     heads = {
       ...headers,
       'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
   else
     heads = {
       ...headers,
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
 
   return fetch(api, {
