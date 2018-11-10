@@ -3,7 +3,8 @@
  */
 
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
-import {getWithTimeout, postWithTimeout} from './networking';
+import {getWithTimeout, patchWithTimeout, postWithTimeout} from './networking';
+import store from '../redux/store';
 
 /**
  * Send verification phone number
@@ -50,6 +51,7 @@ export function validateVerificationCode(countryCode = '+84', phoneNumber, code)
     })
   })
 }
+
 /**
  * Get add event form server
  * @return {Promise<any>}
@@ -82,13 +84,13 @@ export function getUserInfoWithPhone(numberPhone) {
 
 /**
  * Create User
- * @param {string} username 
- * @param {string} password 
- * @param {string} email 
- * @param {numberic} numberPhone 
- * @param {srting} fullName 
+ * @param {string} username
+ * @param {string} password
+ * @param {string} email
+ * @param {numberic} numberPhone
+ * @param {srting} fullName
  */
-export function postUserInfo(username,password, email, numberPhone, fullName) {
+export function postUserInfo(username, password, email, numberPhone, fullName, avatar) {
 
   let details = {
     'username': username,
@@ -96,30 +98,32 @@ export function postUserInfo(username,password, email, numberPhone, fullName) {
     'email': email,
     'phone': numberPhone,
     'fullname': fullName,
-};
+    'avatar': avatar
+  };
 
-let formBody = [];
-for (var property in details) {
-  var encodedKey = encodeURIComponent(property);
-  var encodedValue = encodeURIComponent(details[property]);
-  formBody.push(encodedKey + "=" + encodedValue);
-}
-formBody = formBody.join("&");
-console.log('formbody', formBody);
+  let formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + '=' + encodedValue);
+  }
+  formBody = formBody.join('&');
+  console.log('formbody', formBody);
   const header = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}api/users`, header, formBody).then(response => {
-      if (response.status === 'success') {
+    postWithTimeout(`${urlServer}/users`, header, formBody).then(response => {
+      if (response.status === 201) {
         resolve(true)
       } else resolve(false)
     })
   })
 }
+
 /**
  *Get User's Events
- * @param {string} username 
+ * @param {string} username
  */
 export function getUserEvents(userid) {
   return new Promise(resolve => {
@@ -134,7 +138,7 @@ export function getUserEvents(userid) {
 
 /**
  *Get User Signed Events
- * @param {string} username 
+ * @param {string} username
  */
 export function getUserSignedEvents(userid) {
   return new Promise(resolve => {
@@ -148,20 +152,20 @@ export function getUserSignedEvents(userid) {
 }
 
 /**
- * 
- * @param {string} username 
- * @param {string} event_title 
- * @param {string} description 
- * @param {float} price 
- * @param {string} location 
- * @param {date} date_start 
- * @param {date} date_end 
- * @param {string} avatar 
+ *
+ * @param {string} username
+ * @param {string} event_title
+ * @param {string} description
+ * @param {float} price
+ * @param {string} location
+ * @param {date} date_start
+ * @param {date} date_end
+ * @param {string} avatar
  */
-export function postCreateEvents(username,event_title, description, price, location, date_start, date_end, avatar) {
+export function postCreateEvents(username, event_title, description, price, location, date_start, date_end, avatar) {
 
   let details = {
-    'username': username ,
+    'username': username,
     'event_title': event_title,
     'description': description,
     'price': price,
@@ -169,26 +173,72 @@ export function postCreateEvents(username,event_title, description, price, locat
     'date_start': date_start,
     'date_end': date_end,
     'avatar': avatar,
-};
+  };
 
-let formBody = [];
-for (var property in details) {
-  var encodedKey = encodeURIComponent(property);
-  var encodedValue = encodeURIComponent(details[property]);
-  formBody.push(encodedKey + "=" + encodedValue);
-}
-formBody = formBody.join("&");
-console.log('formbody', formBody);
+  let formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + '=' + encodedValue);
+  }
+  formBody = formBody.join('&');
+  console.log('formbody', formBody);
   const header = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}api/events/createEvent`, header, formBody).then(response => {
+    postWithTimeout(`${urlServer}/events/createEvent`, header, formBody).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(true)
       } else resolve(false)
+    })
+  })
+}
+
+/**
+ * Get current user
+ * @return {Promise<any>}
+ */
+export function getCurrentUser() {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}/users/api/currentUser`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.user.data)
+      } else resolve(false)
+    })
+  })
+}
+
+/**
+ * Login with phone
+ * @param numberPhone
+ * @return {Promise<any>}
+ */
+export function loginUserWithPhone(numberPhone) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}/users/login/${numberPhone}`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.token)
+      } else resolve(false)
+    })
+  })
+}
+
+export function handleUserEvent(eventId) {
+  return new Promise(resolve => {
+
+    let body = {
+      userId: store.getState().userInfo._id
+    }
+
+    patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data.events)
+      } else {
+        resolve(false)
+      }
     })
   })
 }

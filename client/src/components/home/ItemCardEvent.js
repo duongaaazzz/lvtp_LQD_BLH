@@ -64,7 +64,8 @@ class ItemCardEvent extends React.Component {
                 }]}
                 numberOfline={1}
               >
-                {this.props.data.time_start}
+                {Moment(this.props.data.date_start).format('D MMM YYYY')}
+
               </Text>
 
               <View style={{

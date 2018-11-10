@@ -27,7 +27,8 @@ class CreateEventContainer extends React.Component {
       eventTittle: '',
       description: '',
       price: 0,
-      listImagePostEvent: []
+      linkImageEvent: '',
+      listImagePostEvent: ''
     }
     this.isDateTimePickerEnd = false
   }
@@ -36,6 +37,9 @@ class CreateEventContainer extends React.Component {
 
   }
 
+  upLoadImageEventSuccess = (linkImage) => {
+    this.setState({linkImageEvent: linkImage})
+  }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -184,22 +188,21 @@ class CreateEventContainer extends React.Component {
                 justifyContent: 'center'
               }}>
 
-                <FlatList
-                  horizontal={true}
-                  style={{flex: 1}}
-                  data={this.state.listImagePostEvent}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={({item, index}) => <ItemImagePostEvent imageInfo={item}
-                                                                     nameEvent={this.state.eventTittle}/>}
-                />
-
+                {
+                  !!this.state.listImagePostEvent && <ItemImagePostEvent imageInfo={this.state.listImagePostEvent}
+                                                                         nameEvent={this.state.eventTittle}
+                                                                         upLoadImageEventSuccess={this.upLoadImageEventSuccess}
+                  />
+                }
 
               </View>
 
               <TouchableOpacity onPress={() => {
                 ImagePicker.openPicker({
-                  multiple: true
+                  multiple: false
                 }).then(images => {
+
+                  console.log(images)
                   this.setState({
                     listImagePostEvent: images
                   })
@@ -224,9 +227,9 @@ class CreateEventContainer extends React.Component {
                   this.state.price, 'a b c',
                   this.state.dateTimePickerStart,
                   this.state.dateTimePickerEnd,
-                  'swsws'
-                ).then(resss=>{
-                  if(resss){
+                  this.state.linkImageEvent
+                ).then(resss => {
+                  if (resss) {
                     navigate(RouteKey.ProfileScreen, {})
                   }
                 })

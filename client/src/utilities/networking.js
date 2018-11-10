@@ -1,6 +1,7 @@
 /**
  * Created by Duong Le on 9/16/18.
  */
+import store from '../redux/store';
 
 
 function timeout(request, duration, api) {
@@ -29,11 +30,15 @@ export function getWithTimeout(api, headers) {
 
 export function get(api, headers) {
 
+  let token = store.getState().userInfo.token
+  console.log('getWithTimeout', token)
+
   return fetch(api, {
     method: 'get',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
       ...headers
     }
   }).then(response => {
@@ -57,17 +62,22 @@ export function post(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
 
+  let token = store.getState().userInfo.token
+
+
   let heads = {}
   if (headers['Content-Type'])
     heads = {
       ...headers,
       'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
   else
     heads = {
       ...headers,
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
 
   return fetch(api, {
@@ -84,12 +94,13 @@ export function post(api, headers, body) {
     return {data: null}
   })
 }
-export function  deleteWithTimeout(api, headers, body) {
+
+export function deleteWithTimeout(api, headers, body) {
   console.log('deleteWithTimeout');
   return timeout(_delete(api, headers, body), 30000, api);
 }
 
-export function _delete(api, headers, body){
+export function _delete(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
 
@@ -119,7 +130,7 @@ export function _delete(api, headers, body){
     })
   }).catch(err => {
     console.log('There is an error occurred while requesting api', err, api)
-    return { data: null }
+    return {data: null}
   })
 
 }
@@ -151,6 +162,39 @@ export function put(api, headers, body) {
     method: 'put',
     headers: heads,
     body: body
+  }).then(response => {
+    console.log(response)
+    return response.json().then(data => {
+      console.log(data)
+      return data
+    })
+  }).catch(err => {
+    console.log('There is an error occurred while requesting api', err, api)
+    return {data: null}
+  })
+}
+
+
+export function patchWithTimeout(api, headers, body) {
+  console.log('getWithTimeout');
+  return timeout(patch(api, headers, body), 60000, api)
+}
+
+
+export function patch(api, headers, body) {
+
+  let token = store.getState().userInfo.token
+  console.log('store.getState().userInfo.token', token)
+
+  return fetch(api, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      ...headers
+    },
+    body: JSON.stringify(body)
   }).then(response => {
     console.log(response)
     return response.json().then(data => {
