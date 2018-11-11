@@ -61,10 +61,7 @@ export function postWithTimeout(api, headers, body) {
 export function post(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
-
   let token = store.getState().userInfo.token
-
-
   let heads = {}
   if (headers['Content-Type'])
     heads = {

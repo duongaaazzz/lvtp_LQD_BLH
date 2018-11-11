@@ -3,7 +3,7 @@
  */
 
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
-import {getWithTimeout, patchWithTimeout, postWithTimeout} from './networking';
+import {getWithTimeout, patchWithTimeout, postWithTimeout, deleteWithTimeout} from './networking';
 import store from '../redux/store';
 
 /**
@@ -90,12 +90,9 @@ export function getUserInfoWithPhone(numberPhone) {
  * @param {numberic} numberPhone
  * @param {srting} fullName
  */
-export function postUserInfo(username, password, email, numberPhone, fullName, avatar) {
-
+export function postUserInfo(username, numberPhone, fullName, avatar) {
   let details = {
     'username': username,
-    'password': password,
-    'email': email,
     'phone': numberPhone,
     'fullname': fullName,
     'avatar': avatar
@@ -114,7 +111,7 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
   };
   return new Promise(resolve => {
     postWithTimeout(`${urlServer}/users`, header, formBody).then(response => {
-      if (response.status === 201) {
+      if (response.status === 'success') {
         resolve(true)
       } else resolve(false)
     })
@@ -125,9 +122,9 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
  *Get User's Events
  * @param {string} username
  */
-export function getUserEvents(userid) {
+export function getUserEvents(username) {
   return new Promise(resolve => {
-    getWithTimeout(`${urlServer}/events/usercreate/${userid}`, {}).then(response => {
+    getWithTimeout(`${urlServer}/events/usercreate/${username}`, {}).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(response.events)
@@ -162,17 +159,17 @@ export function getUserSignedEvents(userid) {
  * @param {date} date_end
  * @param {string} avatar
  */
-export function postCreateEvents(username, event_title, description, price, location, date_start, date_end, avatar) {
-
+export function postCreateEvents(username, event_title, description, price, location, date_start, date_end, avatar, type) {
   let details = {
-    'username': username,
-    'event_title': event_title,
-    'description': description,
+    'title': event_title,
     'price': price,
-    'location': location,
-    'date_start': date_start,
-    'date_end': date_end,
+    'description': description,
     'avatar': avatar,
+    'type': type,
+    'location': location,
+    'created_by': username,
+    'time_start': date_start,
+    'time_end': date_end,
   };
 
   let formBody = [];
@@ -188,7 +185,7 @@ export function postCreateEvents(username, event_title, description, price, loca
   };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}/events/createEvent`, header, formBody).then(response => {
+    postWithTimeout(`${urlServer}/events`, header, formBody).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(true)
@@ -228,14 +225,24 @@ export function loginUserWithPhone(numberPhone) {
 
 export function handleUserEvent(eventId) {
   return new Promise(resolve => {
-
     let body = {
-      userId: store.getState().userInfo._id
+      userid: store.getState().userInfo._id
     }
-
     patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
         resolve(data.events)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+export function deleteUserEvent(eventId) {
+  return new Promise(resolve => {
+    deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
       } else {
         resolve(false)
       }

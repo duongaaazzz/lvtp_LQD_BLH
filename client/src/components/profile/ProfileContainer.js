@@ -47,7 +47,7 @@ class ProfileContainer extends React.Component {
 
   componentDidMount() {
     // console.log('aaa', this.props.userInfo)
-    getUserEvents(this.props.userInfo._id).then(data => {
+    getUserEvents(this.props.userInfo.username).then(data => {
       //this.setState({eventData: data })
       this.dataEventM = data
       console.log('dataEventM', this.dataEventM)

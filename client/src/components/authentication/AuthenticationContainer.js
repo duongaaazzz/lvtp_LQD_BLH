@@ -32,7 +32,6 @@ class AuthenticationContainer extends React.Component {
           console.log(ress);
           if (ress) {
             this.props.getUserInfo(ress)
-
             loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
               if (!!data) {
                 loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {

@@ -12,7 +12,7 @@ const Event = require('../models/event');
 /* GET events listing. */
 router.get('/', checkAuth, (req, res, next) => {
     Event.find()
-        .select('title description avatar type created_by userlist time_start time_end price _id')
+        .select('title description avatar type created_by userlist time_start time_end price _id location')
         .limit(10)
         .exec()
         .then(docs => {
@@ -25,7 +25,8 @@ router.get('/', checkAuth, (req, res, next) => {
             if (Object.keys(docs).length !== 0) {
                 res.status(200).json(respone);
             } else {
-                res.status(404).json({
+                res.status(200).json({
+                    status: 'success',
                     message: 'There are 0 event'
                 });
             }
@@ -64,8 +65,8 @@ router.post('/', (req, res, next) => {
         description: req.body.description,
         avatar: req.body.avatar,
         type: req.body.type,
+        location: req.body.location,
         created_by: req.body.created_by,
-        userlist: req.body.userlist,
         time_start: req.body.time_start,
         time_end: req.body.time_end
     });
@@ -148,12 +149,12 @@ router.get('/search/:key', (req, res, next) => {
 });
 
 /* GET events user create. */
-router.get('/usercreate/:userId', (req, res, next) => {
-    const id = req.params.userId;
-    Event.find({ created_by: id })
+router.get('/usercreate/:username', (req, res, next) => {
+    const username = req.params.username;
+    Event.find({ created_by: username })
         .exec()
         .then(doc => {
-            console.log(doc);
+         //   console.log(doc);
             if (doc) {
                 res.status(200).json({
                     status: 'success',
@@ -175,7 +176,7 @@ router.get('/usersign/:userId', (req, res, next) => {
     Event.find({ userlist: id })
         .exec()
         .then(doc => {
-            console.log(doc);
+//console.log(doc);
             if (doc) {
                 res.status(200).json({
                     status: 'success',
