@@ -51,6 +51,11 @@ class ProfileContainer extends React.Component {
       //this.setState({eventData: data })
       this.dataEventM = data
       console.log('dataEventM', this.dataEventM)
+
+      if (!!this.props.navigation.state && !!this.props.navigation.state.params && this.props.navigation.state.params.createEvent) {
+        this.changeTabEvent(tabSelectName.manage)
+      }
+
     })
     getUserSignedEvents(this.props.userInfo._id).then(data => {
       //this.setState({eventData: data })
@@ -58,6 +63,7 @@ class ProfileContainer extends React.Component {
       this.setState({eventData: data})
       console.log('dataEventM', this.dataEventS)
     })
+
   }
 
 

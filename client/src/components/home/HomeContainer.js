@@ -21,7 +21,7 @@ class HomeContainer extends React.Component {
         this.props.setToken(data)
         getEvent().then(ress => {
           if (ress) {
-            this.props.getEvent(ress.events)
+            this.props.getEvent(ress.events || [])
           }
         });
 
