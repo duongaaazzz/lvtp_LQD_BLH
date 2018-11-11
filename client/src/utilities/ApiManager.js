@@ -3,7 +3,7 @@
  */
 
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
-import {getWithTimeout, patchWithTimeout, postWithTimeout} from './networking';
+import {getWithTimeout, patchWithTimeout, postWithTimeout, deleteWithTimeout} from './networking';
 import store from '../redux/store';
 
 /**
@@ -90,12 +90,9 @@ export function getUserInfoWithPhone(numberPhone) {
  * @param {numberic} numberPhone
  * @param {srting} fullName
  */
-export function postUserInfo(username, password, email, numberPhone, fullName, avatar) {
-
+export function postUserInfo(username, numberPhone, fullName, avatar) {
   let details = {
     'username': username,
-    'password': password,
-    'email': email,
     'phone': numberPhone,
     'fullname': fullName,
     'avatar': avatar
@@ -110,11 +107,11 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
   formBody = formBody.join('&');
   console.log('formbody', formBody);
   const header = {
-    'Content-Type': 'application/json;charset=UTF-8'
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
   return new Promise(resolve => {
     postWithTimeout(`${urlServer}/users`, header, formBody).then(response => {
-      if (response.status === 201) {
+      if (response.status === 'success') {
         resolve(true)
       } else resolve(false)
     })
@@ -234,6 +231,18 @@ export function handleUserEvent(eventId) {
     patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
         resolve(data.events)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+export function deleteUserEvent(eventId) {
+  return new Promise(resolve => {
+    deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
       } else {
         resolve(false)
       }

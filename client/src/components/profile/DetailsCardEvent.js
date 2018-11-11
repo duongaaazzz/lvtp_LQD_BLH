@@ -22,13 +22,15 @@ import {
   skyColor, violetColor, whiteColor
 } from '../../constants/color';
 import Moment from 'moment';
-
+import { deleteUserEvent } from '../../utilities/ApiManager';
 
 const { width, height } = Dimensions.get('window')
 
 
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
+
+
 
   renderTime() {
     const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
@@ -88,7 +90,11 @@ class DetailsCardEvent extends React.Component {
                 style={[styles.button, { width: 100, backgroundColor: 'gray' }]}>
                 <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Cập Nhật</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+              <TouchableOpacity onPress={() => deleteUserEvent(detailCardEvent._id).then(resss => {
+                if (resss) {
+                  navigate(RouteKey.ProfileScreen, {})
+                }
+              })}
                 style={[styles.button, { width: 100, backgroundColor: redColor }]}>
                 <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Xóa Event</Text>
               </TouchableOpacity>

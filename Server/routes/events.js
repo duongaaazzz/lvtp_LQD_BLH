@@ -154,7 +154,7 @@ router.get('/usercreate/:username', (req, res, next) => {
     Event.find({ created_by: username })
         .exec()
         .then(doc => {
-            console.log(doc);
+         //   console.log(doc);
             if (doc) {
                 res.status(200).json({
                     status: 'success',
@@ -176,7 +176,7 @@ router.get('/usersign/:userId', (req, res, next) => {
     Event.find({ userlist: id })
         .exec()
         .then(doc => {
-            console.log(doc);
+//console.log(doc);
             if (doc) {
                 res.status(200).json({
                     status: 'success',

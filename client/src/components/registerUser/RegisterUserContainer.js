@@ -22,7 +22,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 import RouteKey from '../../constants/routeKey'
 import {blackColor, blueColor, grayColor} from '../../constants/color';
-import {getUserInfoWithPhone, postUserInfo, sendVerificationPhoneNumber} from '../../utilities/ApiManager';
+import {getUserInfoWithPhone, postUserInfo, sendVerificationPhoneNumber, loginUserWithPhone} from '../../utilities/ApiManager';
 import {GET_USER_INFO} from '../../actions/user';
 import {upLoadImageFirebase} from '../../constants/firebaseHelper';
 
@@ -32,7 +32,7 @@ class RegisterUserContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      avatar: '',
+      avatar: 'http://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar.png',
       linkAvatar: '',
       numberPhone: '',
       username: '',
@@ -53,22 +53,18 @@ class RegisterUserContainer extends React.Component {
   }
 
   onPressRegister() {
-
     this.setState({isLoading: true})
-
     postUserInfo(
       this.state.username,
-      'AXbsnX',
-      this.state.email,
       this.props.navigation.state.params.numberPhone,
       this.state.fullname,
-      this.state.linkAvatar
+      this.state.avatar
     ).then(resssssss => {
       if (!!resssssss) {
-
-        getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
+        this.setState({isLoading: false})
+        loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
           if (!!ress) {
-            this.props.getUserInfo(ress)
+            this.props.setToken(ress)
             NavigationServices.navigate('MainTab')
           } else {
             NavigationServices.navigate(RouteKey.RegisterUserScreen, {numberPhone: this.props.navigation.state.params.numberPhone})
@@ -81,7 +77,6 @@ class RegisterUserContainer extends React.Component {
   render() {
     console.log(this.props.userInfo)
     const {numberPhone} = this.props.navigation.state.params || ''
-
     return (
       <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
         <View style={styles.titileWrapper}>
@@ -92,7 +87,6 @@ class RegisterUserContainer extends React.Component {
           ImagePicker.openPicker({
             multiple: false
           }).then(images => {
-
             this.setState({
               avatar: images
             })
@@ -123,8 +117,6 @@ class RegisterUserContainer extends React.Component {
         </TouchableOpacity>
 
         <View style={styles.inputWrapper}>
-
-
           <Text style={styles.textStyle}>
             +84 {numberPhone}
           </Text>
@@ -149,7 +141,7 @@ class RegisterUserContainer extends React.Component {
             underlineColorAndroid="transparent"
             onChangeText={(text) => this.setState({fullname: text})}
           />
-          <TextInput
+          {/* <TextInput
             style={styles.textInput}
             keyboardType='email-address'
             placeholder="email"
@@ -158,7 +150,7 @@ class RegisterUserContainer extends React.Component {
             placeholderTextColor="gray"
             underlineColorAndroid="transparent"
             onChangeText={(text) => this.setState({email: text})}
-          />
+          /> */}
         </View>
 
 
@@ -264,5 +256,6 @@ const styles = StyleSheet.create({
 export default connect(state => ({
   userInfo: state.userInfo
 }), dispatch => ({
+  setToken: (token) => dispatch({type: USER_LOGIN, token: token}),
   getUserInfo: (userInfo) => dispatch({type: GET_USER_INFO, userInfo})
 }))(RegisterUserContainer);

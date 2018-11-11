@@ -49,16 +49,16 @@ class DetailsCardEvent extends React.Component {
   render() {
     const {navigate} = this.props.navigation
     const data = this.props.navigation.getParam('data', 'NO-ID')
-    let index = data.userlist.findIndex(i => i == this.props.userInfo._id)
-    console.log('sign: ', this.state.sign)
-    if(index < 0){
-      this.setState({sign='Đăng Ký'})
-      console.log('sign: ', this.state.sign)
-    } else {
-      this.setState({sign= 'Hủy Đăng Ký'})
-      console.log('sign: ', this.state.sign);
-    }
-    console.log('index: ', index)
+    // let index = data.userlist.findIndex(i => i == this.props.userInfo._id)
+    // console.log('sign: ', this.state.sign)
+    // if(index < 0){
+    //   this.setState({sign:'Đăng Ký'})
+    //   console.log('sign: ', this.state.sign)
+    // } else {
+    //   this.setState({sign: 'Hủy Đăng Ký'})
+    //   console.log('sign: ', this.state.sign);
+    // }
+    // console.log('index: ', index)
    
     return (<View style={{flex: 1}}>
         <ScrollView>

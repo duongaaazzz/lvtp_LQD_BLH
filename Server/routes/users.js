@@ -67,6 +67,7 @@ router.post('/', (req, res, next) => {
         .then(result => {
             console.log(result);
             res.status(201).json({
+                status: 'success',
                 message: "Successfully create user ",
                 createUser: user
             });
