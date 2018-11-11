@@ -21,8 +21,8 @@ class CreateEventContainer extends React.Component {
     this.state = {
       data: [],
       isDateTimePickerVisible: false,
-      dateTimePickerStart: Moment().format('DD-MM-YYYY'),
-      dateTimePickerEnd: Moment().format('DD-MM-YYYY'),
+      dateTimePickerStart: Moment().format('YYYY-MM-DD'),
+      dateTimePickerEnd: Moment().format('YYYY-MM-DD'),
       eventTittle: '',
       description: '',
       price: 0,
@@ -89,9 +89,9 @@ class CreateEventContainer extends React.Component {
                 date={this.state.dateTimePickerStart}
                 mode="datetime"
                 placeholder="select date"
-                format="YYYY-MM-DD HH:mm"
-                minDate={Moment().format('DD-MM-YYYY')}
-                maxDate="01-01-2020"
+                format="YYYY-MM-DD"
+                minDate={Moment().format('YYYY-MM-DD')}
+                maxDate="2020-01-01"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 is24Hour={true}
@@ -115,9 +115,9 @@ class CreateEventContainer extends React.Component {
                 date={this.state.dateTimePickerEnd}
                 mode="datetime"
                 placeholder="select date"
-                format="YYYY-MM-DD HH:mm"
-                minDate={Moment().format('DD-MM-YYYY')}
-                maxDate="01-01-2020"
+                format="YYYY-MM-DD"
+                minDate={Moment().format('YYYY-MM-DD')}
+                maxDate="2020-01-01"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 is24Hour={true}
