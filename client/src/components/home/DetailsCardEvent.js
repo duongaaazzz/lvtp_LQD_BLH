@@ -24,26 +24,39 @@ class DetailsCardEvent extends React.Component {
   constructor() {
     super();
     this.state = {
-      sign: 'Đăng ký',
+      sign: false,
     }
   }
-  
-  joinEvent() {
-    try {
-      handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
-        //console.log(data)
-        // if(data.message === 'Signed')
-        //   this.setState({sign = 'Hủy Đăng Ký'})
-        // else {
-        //   this.setState({sign = 'Đăng Ký'})
-        // }
-      }
-        )
-    } catch (error) {
-      console.log(error)
-    }
-    
 
+  componentWillMount() {
+    console.log('this.props.navigation', this.props.navigation.state.params)
+    console.log('this.props.navigation', this.props.userInfo)
+
+    const {userlist} = this.props.navigation.state.params.data
+
+    let indexOf = userlist.findIndex(i => i === this.props.userInfo._id)
+
+    if (indexOf > -1) {
+      this.setState({
+        sign: true,
+      })
+    }
+
+  }
+
+
+  joinEvent() {
+
+
+    handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
+        console.log('sssdvsdvsdvsd',data)
+        if (data.message === 'Signed')
+          this.setState({sign: true})
+        else {
+          this.setState({sign: false})
+        }
+      }
+    )
   }
 
   render() {
@@ -59,7 +72,7 @@ class DetailsCardEvent extends React.Component {
     //   console.log('sign: ', this.state.sign);
     // }
     // console.log('index: ', index)
-   
+
     return (<View style={{flex: 1}}>
         <ScrollView>
           <View style={{
@@ -101,7 +114,7 @@ class DetailsCardEvent extends React.Component {
                   this.joinEvent()
                 }}>
                   <View style={{
-                    backgroundColor: this.state.sign === 'Đăng Ký' ? 'blue' : 'red',
+                    backgroundColor: this.state.sign ? 'blue' : 'red',
                     height: 38,
                     width: 120,
                     borderRadius: 19,
@@ -112,7 +125,7 @@ class DetailsCardEvent extends React.Component {
                       fontSize: 17,
                       color: '#ffffff'
                     }]}>
-                      {this.state.sign}
+                      {this.state.sign ? 'Huỷ đăng ký' : 'Đăng ký'}
                     </Text>
                   </View>
                 </TouchableOpacity>

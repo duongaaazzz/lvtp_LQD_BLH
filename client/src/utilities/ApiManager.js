@@ -5,6 +5,7 @@
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
 import {getWithTimeout, patchWithTimeout, postWithTimeout, deleteWithTimeout} from './networking';
 import store from '../redux/store';
+import {GET_EVENT_USER} from '../actions/user';
 
 /**
  * Send verification phone number
@@ -230,7 +231,12 @@ export function handleUserEvent(eventId) {
     }
     patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
-        resolve(data.events)
+        resolve(data)
+
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+
       } else {
         resolve(false)
       }
