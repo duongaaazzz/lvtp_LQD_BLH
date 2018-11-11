@@ -49,7 +49,7 @@ class DetailsCardEvent extends React.Component {
 
 
     handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
-        console.log('sssdvsdvsdvsd',data)
+        console.log('sssdvsdvsdvsd', data)
         if (data.message === 'Signed')
           this.setState({sign: true})
         else {

@@ -23,7 +23,17 @@ class ItemCardEvent extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={() => {
-        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
+
+        if (this.props.userInfo.username === this.props.data.created_by) {
+          NavigationServices.homeSwitchNavigate(RouteKey.DetailsEventProfile, {
+            detailCardEvent: this.props.data,
+            backHome: true
+          })
+        } else {
+          NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
+        }
+
+
       }}>
         <View style={{
           borderRadius: 10,
@@ -107,7 +117,9 @@ class ItemCardEvent extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(ItemCardEvent);
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({}))(ItemCardEvent);
 
 
 const styles = StyleSheet.create({

@@ -34,7 +34,10 @@ export const HomeSwitch = createSwitchNavigator({
   },
   [RouteKey.DetailsCardEvent]: {
     screen: DetailsCardEvent
-  }
+  },
+  [RouteKey.DetailsEventProfile]: {
+    screen: DetailsEventProfile
+  },
 })
 
 export const ProfileSwitch = createSwitchNavigator({
