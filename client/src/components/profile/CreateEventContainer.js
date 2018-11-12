@@ -26,7 +26,7 @@ class CreateEventContainer extends React.Component {
       eventTittle: '',
       description: '',
       price: 0,
-      location,
+      location: '',
       linkImageEvent: '',
       listImagePostEvent: '',
       type: [],

@@ -22,15 +22,33 @@ export default class ItemImagePostEvent extends React.Component {
 
   componentDidMount() {
 
+    this.perUploafImage()
+
+  }
+
+
+  perUploafImage() {
     const {nameEvent, imageInfo} = this.props
 
-    upLoadImageFirebase(nameEvent, Platform.OS === 'ios' ? imageInfo.sourceURL : imageInfo.path, imageInfo.mime).then(data => {
-      console.log(data)
-      if (!!data) {
-        this.setState({isUploadImageSuccess: true})
-        this.props.upLoadImageEventSuccess(data)
-      }
-    })
+    if (this.props.imageInfo.sourceURL === undefined && this.props.imageInfo.path === undefined) {
+      this.setState({isUploadImageSuccess: true})
+    } else {
+      this.setState({isUploadImageSuccess: false})
+      setTimeout(() => {
+        upLoadImageFirebase(nameEvent, Platform.OS === 'ios' ? imageInfo.sourceURL : imageInfo.path, imageInfo.mime).then(data => {
+          if (!!data) {
+            this.setState({isUploadImageSuccess: true})
+            this.props.upLoadImageEventSuccess(data)
+          }
+        })
+      }, 1000)
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.imageInfo != this.props.imageInfo) {
+      this.perUploafImage()
+    }
   }
 
   render() {
@@ -39,7 +57,7 @@ export default class ItemImagePostEvent extends React.Component {
     return (
       <View style={{width: 110, height: 110, backgroundColor: 'gray', margin: 5}}>
         <ImageBackground
-          source={{uri: Platform.OS === 'ios' ? this.props.imageInfo.sourceURL : this.props.imageInfo.path}}
+          source={{uri: Platform.OS === 'ios' ? this.props.imageInfo.sourceURL : this.props.imageInfo.path || this.props.imageInfo}}
           style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
         >
           {
