@@ -249,6 +249,11 @@ export function deleteUserEvent(eventId) {
     deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
       if (data.status === 'success') {
         resolve(data)
+
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+
       } else {
         resolve(false)
       }
