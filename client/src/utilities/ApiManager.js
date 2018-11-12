@@ -244,6 +244,32 @@ export function handleUserEvent(eventId) {
   })
 }
 
+
+export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, about ) {
+  return new Promise(resolve => {
+    let userid= store.getState().userInfo._id
+    let body = 
+    [ 
+      {"propName": "fullname",  "value": fullname},
+      {"propName": "birthday",  "value": birthday},
+      {"propName": "gender",  "value": gender},
+      {"propName": "email",  "value": email},
+      {"propName": "avatar",  "value": avatar},
+      {"propName": "about",  "value": about},
+    ]
+    console.log('userid', userid)
+    console.log(body)
+    patchWithTimeout(`${urlServer}/users/${userid}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+
 export function deleteUserEvent(eventId) {
   return new Promise(resolve => {
     deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {

@@ -119,7 +119,7 @@ class ProfileContainer extends React.Component {
           <Text style={[styles.textStyle, {fontSize: 16, fontWeight: '400',}]}>@{this.props.userInfo.username}</Text>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.EditUserInfor)}>
           <Ionicons name={'md-settings'} size={23} color={grayColor}/>
         </TouchableOpacity>
 

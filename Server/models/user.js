@@ -6,7 +6,11 @@ const userSchema = mongoose.Schema({
     fullname: {type: String},
     phone: {type: Number, require: true },
     avatar: {type: String},
-    joined : { type : Date, default: Date.now }
+    joined : { type : Date, default: Date.now },
+    email: {type: String},
+    gender:  {type: String, default: 'other'},
+    birthday: {type: Date, default: Date.now},
+    about: {type: String},
 });
 
 module.exports =  mongoose.model('User', userSchema);
