@@ -17,17 +17,84 @@ class SearchContainer extends React.Component {
     super(props)
 
     this.state = {
-      dataSearch: props.currentUserEvent
+      dataSearch: props.currentUserEvent,
+      currentUserEvent: props.currentUserEvent,
+      isSearch: false,
+      isMusicTypeFilter: false,
+      isNearbySortFilter: false
     }
   }
 
-  onChangeText = (type, text) => {
-    this.setState({[type]: text});
-  }
+  onChangeText = text => {
+    let context = this;
+    clearTimeout(this.inputTextTimeOut);
+    if (!!text) {
+      this.inputTextTimeOut = setTimeout(function () {
+        //Searching...
+        context.setState({isSearch: true});
+        let dataSearch = [];
 
 
-  renderFilter = (filterName, filterType, styleFiller, func) => <TouchableOpacity>
-    <View style={styleFiller}>
+        dataSearch = context.state.currentUserEvent.filter(i => {
+          if (
+            i.title.toUpperCase().includes(context.state.keySearch) ||
+            i.title.includes(context.state.keySearch)
+          )
+            return i;
+        });
+
+        context.setState({
+          dataSearch: dataSearch
+        });
+
+      }, 1000);
+    }
+
+    if (!text) {
+      this.cancelSearch();
+    } else {
+      this.setState({keySearch: text, showButtonClose: true});
+    }
+  };
+
+  cancelSearch = () => {
+    this.setState({
+      dataSearch: this.props.currentUserEvent,
+      currentUserEvent: this.props.currentUserEvent,
+      keySearch: '',
+      isSearch: false
+    });
+  };
+
+
+  renderFilter = (filterName, filterType, styleFiller, func) => <TouchableOpacity onPress={() => {
+
+    if (filterName === 'Music') {
+      let dataFilter = []
+      if (this.state.isMusicTypeFilter) {
+        dataFilter = this.state.currentUserEvent
+      } else {
+        dataFilter = this.state.currentUserEvent.filter(i => {
+          let index = i.type.findIndex(iii => iii.toLowerCase().includes('music'))
+
+          if (index > -1) {
+            return i[index]
+          }
+        })
+      }
+
+      this.setState({
+        isMusicTypeFilter: !this.state.isMusicTypeFilter,
+        dataSearch: dataFilter
+      })
+    } else {
+      this.setState({isNearbySortFilter: !this.state.isNearbySortFilter})
+    }
+
+  }}>
+    <View style={[styles.buttonFilter, (filterName === 'Music' && this.state.isMusicTypeFilter)
+    || (filterName === 'Nearby' && this.state.isNearbySortFilter) ? styleFiller : {backgroundColor: grayColor}
+    ]}>
       <Text style={[styles.textStyle, {color: '#ffffff'}]}>
         {filterType + ': ' + filterName}
       </Text>
@@ -42,6 +109,9 @@ class SearchContainer extends React.Component {
           <TextInput
             style={[styles.textInput, styles.textStyle, {fontSize: 16, color: grayColor}]}
             placeholder={'Search event'}
+            onChangeText={text => {
+              this.onChangeText(text);
+            }}
           />
 
           <FontAwesome
@@ -62,8 +132,8 @@ class SearchContainer extends React.Component {
             alignItems: 'center',
             marginVertical: 5,
           }}>
-          {this.renderFilter('Music', 'Type', [styles.buttonFilter, {backgroundColor: blueColor}])}
-          {this.renderFilter('Nearby', 'Sort', [styles.buttonFilter, {backgroundColor: greenColor}])}
+          {this.renderFilter('Music', 'Type', {backgroundColor: blueColor})}
+          {this.renderFilter('Nearby', 'Sort', {backgroundColor: greenColor})}
         </View>
 
 
