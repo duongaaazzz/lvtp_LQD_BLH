@@ -39,6 +39,9 @@ class CreateEventContainer extends React.Component {
   }
 
   upLoadImageEventSuccess = (linkImage) => {
+    console.log('====================================');
+    console.log('link image', linkImage);
+    console.log('====================================');
     this.setState({linkImageEvent: linkImage})
   }
 
@@ -202,7 +205,7 @@ class CreateEventContainer extends React.Component {
                 ImagePicker.openPicker({
                   multiple: false
                 }).then(images => {
-                  console.log(images)
+                 // console.log(images)
                   this.setState({
                     listImagePostEvent: images
                   })
