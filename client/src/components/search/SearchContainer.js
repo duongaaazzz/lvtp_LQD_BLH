@@ -13,11 +13,11 @@ import ItemSearch from './ItemSearch'
 
 class SearchContainer extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      dataSearch: [1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      dataSearch: props.currentUserEvent
     }
   }
 
@@ -73,7 +73,7 @@ class SearchContainer extends React.Component {
             <FlatList
               data={this.state.dataSearch}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({item, index}) => <ItemSearch/>}
+              renderItem={({item, index}) => <ItemSearch infoEvent={item}/>}
             />
           </View>
         </ScrollView>
@@ -130,4 +130,6 @@ const styles = StyleSheet.create({
 })
 
 
-export default connect(state => ({}), dispatch => ({}))(SearchContainer);
+export default connect(state => ({
+  currentUserEvent: state.userInfo.currentUserEvent
+}), dispatch => ({}))(SearchContainer);

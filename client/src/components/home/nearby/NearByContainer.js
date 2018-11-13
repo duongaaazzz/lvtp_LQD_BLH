@@ -9,25 +9,44 @@ import {View, Text, FlatList, TouchableOpacity, AsyncStorage, ActivityIndicator}
 import ItemCardEvent from '../ItemCardEvent'
 import {backgroundColor, blueColor} from '../../../constants/color';
 import {getEvent} from '../../../utilities/ApiManager';
+import {GET_EVENT_USER} from '../../../actions/user';
 
 class NearByContainer extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {}
+    this.state = {
+      isFetching: false,
+      currentUserEvent: props.currentUserEvent
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-
-
+    if (this.props.currentUserEvent !== nextProps.currentUserEvent) {
+      this.setState({
+        currentUserEvent: nextProps.currentUserEvent
+      })
     }
+  }
+
+  onRefresh() {
+    this.setState({isFetching: true}, function () {
+
+      getEvent().then(ress => {
+        if (ress) {
+          this.props.getEvent(ress.events || [])
+          this.setState({isFetching: false})
+        }
+      });
+
+    });
+
   }
 
   render() {
     return (
-      !this.props.currentUserEvent ?
+      !this.state.currentUserEvent ?
         <ActivityIndicator size='large' color={blueColor}
                            style={{
                              flex: 1,
@@ -38,8 +57,10 @@ class NearByContainer extends React.Component {
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
           <View style={{elevation: 0}}>
             <FlatList
+              onRefresh={() => this.onRefresh()}
+              refreshing={this.state.isFetching}
               keyExtractor={(item, index) => index.toString()}
-              data={this.props.currentUserEvent}
+              data={this.state.currentUserEvent}
               renderItem={({item}) => <ItemCardEvent data={item}/>}
             />
           </View>
@@ -50,4 +71,6 @@ class NearByContainer extends React.Component {
 
 export default connect(state => ({
   currentUserEvent: state.userInfo.currentUserEvent
-}), dispatch => ({}))(NearByContainer);
+}), dispatch => ({
+  getEvent: (currentUserEvent) => dispatch({type: GET_EVENT_USER, currentUserEvent})
+}))(NearByContainer);

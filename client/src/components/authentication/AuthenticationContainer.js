@@ -84,7 +84,9 @@ class AuthenticationContainer extends React.Component {
     return new Promise(resolve => {
       let token = AsyncStorage.getItem('@yolo:token').then(token => {
 
-        this.props.setToken(token)
+        if (!!token) {
+          this.props.setToken(token)
+        }
 
         return !!token
       })

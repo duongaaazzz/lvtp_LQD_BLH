@@ -4,8 +4,9 @@
 
 
 import initialState from '../redux/initialState'
-import {GET_EVENT_USER, GET_USER_INFO, USER_LOGIN} from '../actions/user';
+import {GET_EVENT_USER, GET_USER_INFO, USER_LOGIN, USER_LOGOUT} from '../actions/user';
 import {AsyncStorage} from 'react-native'
+import NavigationServices from '../navigation/NavigationServices';
 
 export default function user(state = initialState.userInfo, action) {
 
@@ -22,6 +23,21 @@ export default function user(state = initialState.userInfo, action) {
         ...state,
         token: action.token
       }
+    }
+    case USER_LOGOUT: {
+
+      NavigationServices.resetToLogin()
+
+      try {
+        AsyncStorage.removeItem('@yolo:token');
+      } catch (error) {
+        // Error saving data
+      }
+
+      return {
+        state: initialState.userInfo
+      }
+
     }
     case GET_USER_INFO: {
       return {

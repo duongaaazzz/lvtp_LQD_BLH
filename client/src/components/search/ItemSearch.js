@@ -35,7 +35,7 @@ export default class ItemSearch extends React.Component {
               style={{
                 width: 50, height: 50, borderRadius: 25
               }}
-              source={require('../../assets/image/background.png')}
+              source={{uri: this.props.infoEvent.avatar}}
               resizeMode={'cover'}/>
 
             <View style={{flex: 1, marginHorizontal: 20}}>
@@ -43,10 +43,10 @@ export default class ItemSearch extends React.Component {
                 style={[styles.textStyle, {fontSize: 17}]}
                 numberOfLines={1}
               >
-                GALA - Vui Hội Trăng Rằm Tương Lai Xanh Cần Thơ
+                {this.props.infoEvent.title}
               </Text>
 
-              <View style={{flexDirection: 'row', width: '100%', height: 20, alignItems: 'center',marginTop:5}}>
+              <View style={{flexDirection: 'row', width: '100%', height: 20, alignItems: 'center', marginTop: 5}}>
                 <View style={{width: 10, height: 10, borderRadius: 5, backgroundColor: grayColor}}/>
                 <Text style={[styles.textStyle, {fontWeight: '400', fontSize: 14, marginLeft: 5,}]}>
                   1km away
