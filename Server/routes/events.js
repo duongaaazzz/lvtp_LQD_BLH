@@ -97,6 +97,7 @@ router.patch('/:eventId', (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(201).json({
+        status: 'success',
         message: 'Successfully update event ',
         result: result
       });

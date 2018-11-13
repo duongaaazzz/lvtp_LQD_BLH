@@ -257,8 +257,8 @@ export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, 
       {"propName": "avatar",  "value": avatar},
       {"propName": "about",  "value": about},
     ]
-    console.log('userid', userid)
-    console.log(body)
+    // console.log('userid', userid)
+    // console.log(body)
     patchWithTimeout(`${urlServer}/users/${userid}`, {}, body).then(data => {
       if (data.status === 'success') {
         resolve(data)
@@ -268,6 +268,33 @@ export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, 
     })
   })
 }
+
+
+export function patchUpdateEvent(eventId, title, description, price, type, location, avatar, time_start, time_end ) {
+  return new Promise(resolve => {
+    let body = 
+    [ 
+      {"propName": "title",  "value": title},
+      {"propName": "description",  "value": description},
+      {"propName": "price",  "value": price},
+      {"propName": "type",  "value": type},
+      {"propName": "location",  "value": location},
+      {"propName": "avatar",  "value": avatar},
+      {"propName": "time_start",  "value": time_start},
+      {"propName": "time_end",  "value": time_end},
+    ]
+    // console.log('userid', userid)
+    // console.log(body)
+    patchWithTimeout(`${urlServer}/events/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
 
 
 export function deleteUserEvent(eventId) {

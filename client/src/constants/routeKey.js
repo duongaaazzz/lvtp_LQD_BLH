@@ -17,5 +17,6 @@ export default {
   Authentication: 'AuthenticationContainer',
   VerificationContainer: 'VerificationContainer',
   CreateEvent: 'CreateEvent',
-  EditUserInfor: 'EditUserInfor'
+  EditUserInfor: 'EditUserInfor',
+  EditEvent: 'EditEvent'
 }

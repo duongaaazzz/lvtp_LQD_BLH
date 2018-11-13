@@ -67,9 +67,6 @@ class DetailsCardEvent extends React.Component {
 
   render() {
     const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
-    console.log('so nguoi dang ky: ', detailCardEvent.userlist.length);
-    const {navigate} = this.props.navigation;
-
     return (<View style={{flex: 1}}>
 
         <ScrollView>
@@ -93,14 +90,14 @@ class DetailsCardEvent extends React.Component {
                 flexDirection: 'row',
                 position: 'absolute'
               }}>
-                <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+                <TouchableOpacity onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.EditEvent, {detailCardEvent: detailCardEvent})}
                                   style={[styles.button, {width: 100, backgroundColor: 'gray'}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Cập
                     Nhật</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => deleteUserEvent(detailCardEvent._id).then(resss => {
                   if (resss) {
-                    navigate(RouteKey.ProfileScreen, {})
+                    NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {})
                   }
                 })}
                                   style={[styles.button, {width: 100, backgroundColor: redColor}]}>
@@ -152,7 +149,7 @@ class DetailsCardEvent extends React.Component {
               if (this.props.navigation.state.params.backHome) {
                 NavigationServices.homeSwitchNavigate('HomeTab')
               } else {
-                navigate(RouteKey.ProfileScreen)
+                NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
               }
             }}>
             <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
