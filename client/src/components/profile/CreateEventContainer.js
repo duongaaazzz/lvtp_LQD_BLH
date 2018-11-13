@@ -39,10 +39,7 @@ class CreateEventContainer extends React.Component {
   }
 
   upLoadImageEventSuccess = (linkImage) => {
-    console.log('====================================');
-    console.log('link image', linkImage);
-    console.log('====================================');
-    this.setState({linkImageEvent: linkImage})
+   this.setState({linkImageEvent: linkImage})
   }
 
   render() {

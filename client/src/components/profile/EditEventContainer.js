@@ -36,6 +36,7 @@ class EditEventContainer extends React.Component {
     }
     this.isDateTimePickerEnd = false
   }
+  
   updateGender = (gender) => {
     this.setState({ gender: gender })
   }
@@ -45,15 +46,17 @@ class EditEventContainer extends React.Component {
   }
 
   componentDidMount() {
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
+    console.log('detail event:' , detailCardEvent);
     this.setState({
-      title: this.props.navigation.state.params.detailCardEvent.title,
-      description: this.props.navigation.state.params.detailCardEvent.description,
-      price: this.props.navigation.state.params.detailCardEvent.price,
-      type: this.props.navigation.state.params.detailCardEvent.type,
-      location: this.props.navigation.state.params.detailCardEvent.location,
-      avatar: this.props.navigation.state.params.detailCardEvent.avatar,
-      time_start:this.props.navigation.state.params.detailCardEvent.time_start,
-      time_end: this.props.navigation.state.params.detailCardEvent.time_end,
+      title: detailCardEvent.title,
+      description: detailCardEvent.description,
+      price: detailCardEvent.price,
+      type: detailCardEvent.type,
+      location: detailCardEvent.location,
+      avatar: detailCardEvent.avatar,
+      time_start:detailCardEvent.time_start,
+      time_end: detailCardEvent.time_end,
     })
 
   }
@@ -101,7 +104,8 @@ class EditEventContainer extends React.Component {
             <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Giá</Text>
             <View style={styles.inputWrapper}>
               <TextInput
-                value={this.state.price}
+                keyboardType='numeric'
+                value={`${this.state.price}`}
                 placeholder="price"
                 style={styles.textInput}
                 placeholderTextColor={grayColor}
@@ -129,7 +133,7 @@ class EditEventContainer extends React.Component {
             <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Loại sự kiện</Text>
             <View style={styles.inputWrapper}>
               <TextInput
-                value={this.state.type}
+                value={`${this.state.type}`}
                 placeholder="type"
                 style={styles.textInput}
                 placeholderTextColor={grayColor}
@@ -239,7 +243,7 @@ class EditEventContainer extends React.Component {
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
             <TouchableOpacity style={styles.button} onPress={() => {
               patchUpdateEvent(
-                eventId, title, description, price, type, location, avatar, time_start, time_end
+                detailCardEvent._id, this.state.title, this.state.description, this.state.price, this.state.type, this.state.location, this.state.avatar, this.state.time_start, this.state.time_end
               ).then(res => {
                 console.log('update event result: ', res)
                 if (res.status == 'success')

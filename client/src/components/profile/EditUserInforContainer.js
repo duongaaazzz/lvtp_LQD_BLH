@@ -50,7 +50,6 @@ class EditUserInforContainer extends React.Component {
       fullname: this.props.userInfo.fullname,
       email: this.props.userInfo.email,
       avatar: this.props.userInfo.avatar,
-      //avatarPostEvent: this.props.userInfo.avatar,
       birthday: this.props.userInfo.birthday,
       about: this.props.userInfo.about
     })
@@ -73,7 +72,6 @@ class EditUserInforContainer extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
     return (<View style={{ flex: 1, backgroundColor: backgroundColor }}>
       <View style={{
         width: '100%',

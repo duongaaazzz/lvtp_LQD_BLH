@@ -21,9 +21,7 @@ export default class ItemImagePostEvent extends React.Component {
   }
 
   componentDidMount() {
-
     this.perUploafImage()
-
   }
 
 
@@ -53,7 +51,7 @@ export default class ItemImagePostEvent extends React.Component {
 
   render() {
 
-    console.log('image info', this.props.imageInfo)
+   // console.log('image info', this.props.imageInfo)
     return (
       <View style={{width: 110, height: 110, backgroundColor: 'gray', margin: 5}}>
         <ImageBackground
