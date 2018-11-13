@@ -119,7 +119,7 @@ export const MainTab = createBottomTabNavigator({
 
 export const AppNavigator = createSwitchNavigator({
   // [RouteKey.DetailsCardEvent]: {
-  //   screen: DetailsCardEvent
+  //   screen: EditUserInfor
   // },
   [RouteKey.Authentication]: {
     screen: AuthenticationContainer
