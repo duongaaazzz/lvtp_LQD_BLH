@@ -12,6 +12,13 @@ const eventSchema = mongoose.Schema({
     userlist: [{type: mongoose.Schema.Types.ObjectId, ref: 'User', default:''}],
     time_start:  { type : Date, default: Date.now },
     time_end:  { type : Date, default: Date.now },
+  //  comments: {type: Array, default: null},
+    comments: [
+    {
+        username: {type: String, ref: 'User'},
+        comment: {type:String}, 
+        at: { type : Date, default: Date.now }
+    }],
 });
 
 module.exports =  mongoose.model('Event', eventSchema);

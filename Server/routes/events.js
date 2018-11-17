@@ -11,7 +11,7 @@ const Event = require('../models/event');
 /* GET events listing. */
 router.get('/', checkAuth, (req, res, next) => {
   Event.find()
-    .select('title description avatar type created_by userlist time_start time_end price _id location')
+    .select('title description avatar type created_by userlist time_start time_end price _id location comments')
     .limit(10)
     .exec()
     .then(docs => {
@@ -32,7 +32,7 @@ router.get('/', checkAuth, (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -46,12 +46,12 @@ router.get('/:eventId', (req, res, next) => {
       if (doc) {
         res.status(200).json(doc);
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -81,7 +81,7 @@ router.post('/', (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -92,7 +92,7 @@ router.patch('/:eventId', (req, res, next) => {
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  Event.updateOne({_id: id}, {$set: updateOps})
+  Event.updateOne({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       console.log(result);
@@ -104,14 +104,14 @@ router.patch('/:eventId', (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
 /* DELETE event. */
 router.delete('/:eventId', (req, res, next) => {
   const id = req.params.eventId;
-  Event.remove({_id: id})
+  Event.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -121,7 +121,7 @@ router.delete('/:eventId', (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -129,7 +129,7 @@ router.delete('/:eventId', (req, res, next) => {
 /* Search events. */
 router.get('/search/:key', (req, res, next) => {
   const key = req.params.key;
-  Event.find({$text: {$search: key}})
+  Event.find({ $text: { $search: key } })
     .skip(20)
     .limit(10)
     .then(doc => {
@@ -137,19 +137,19 @@ router.get('/search/:key', (req, res, next) => {
       if (doc) {
         res.status(200).json(doc);
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
 /* GET events user create. */
 router.get('/usercreate/:username', (req, res, next) => {
   const username = req.params.username;
-  Event.find({created_by: username})
+  Event.find({ created_by: username })
     .exec()
     .then(doc => {
       //   console.log(doc);
@@ -159,34 +159,34 @@ router.get('/usercreate/:username', (req, res, next) => {
           events: doc
         });
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
 /* GET events user signed. */
 router.get('/usersign/:userId', (req, res, next) => {
   const id = req.params.userId;
-  Event.find({userlist: id})
+  Event.find({ userlist: id })
     .exec()
     .then(doc => {
-//console.log(doc);
+      //console.log(doc);
       if (doc) {
         res.status(200).json({
           status: 'success',
           events: doc
         });
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -194,19 +194,19 @@ router.get('/usersign/:userId', (req, res, next) => {
 /* GET event by type. */
 router.get('/type/:Etype', (req, res, next) => {
   const Etype = req.params.Etype;
-  Event.find({type: Etype})
+  Event.find({ type: Etype })
     .exec()
     .then(doc => {
       console.log(doc);
       if (doc) {
         res.status(200).json(doc);
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
@@ -223,7 +223,7 @@ router.patch('/sign/:eventId', (req, res, next) => {
         console.log('index: ', index);
         console.log('userid: ', req.body.userid);
         if (index < 0) {
-          Event.updateOne({_id: id}, {$push: {userlist: req.body.userid}})
+          Event.updateOne({ _id: id }, { $push: { userlist: req.body.userid } })
             .exec()
             .then(result => {
               doc.userlist.push(req.body.userid);
@@ -235,10 +235,10 @@ router.patch('/sign/:eventId', (req, res, next) => {
             })
             .catch(err => {
               console.log(err);
-              res.status(500).json({error: err});
+              res.status(500).json({ error: err });
             });
         } else {
-          Event.updateOne({_id: id}, {$pull: {userlist: req.body.userid}})
+          Event.updateOne({ _id: id }, { $pull: { userlist: req.body.userid } })
             .exec()
             .then(result => {
               doc.userlist.pull(req.body.userid);
@@ -250,17 +250,86 @@ router.patch('/sign/:eventId', (req, res, next) => {
             })
             .catch(err => {
               console.log(err);
-              res.status(500).json({error: err});
+              res.status(500).json({ error: err });
             });
         }
       } else {
-        res.status(404).json({message: 'event does not exist'});
+        res.status(404).json({ message: 'event does not exist' });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
+
+/* comment to an event. */
+router.patch('/comment/:eventId', (req, res, next) => {
+  const id = req.params.eventId;
+  Event.findById(id)
+    .exec()
+    .then(doc => {
+      //console.log(doc);
+      if (doc) {
+        Event.updateOne({ _id: id }, { $push: { comments: req.body.comment } })
+          .exec()
+          .then(result => {
+            doc.comments.push(req.body.comment);
+            res.status(200).json({
+              status: 'success',
+              message: 'commented on an event',
+              event: doc
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+          });
+      } else {
+        res.status(404).json({ message: 'event does not exist' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+
+/* delete comment to an event. */
+router.patch('/delcomment/:eventId', (req, res, next) => {
+  const id = req.params.eventId;
+  Event.findById(id)
+    .exec()
+    .then(doc => {
+      let index = doc.comments.findIndex(i => i == req.body.commentid);
+      //console.log('index: ', index);
+      //console.log(doc.comments);
+      doc.comments = doc.comments.slice(index);
+      // console.log(doc.comments);
+      if (doc) {
+        Event.updateOne({ _id: id }, { comments: doc.comments })
+          .exec()
+          .then(result => {
+            res.status(200).json({
+              status: 'success',
+              message: 'commented on an event',
+              event: doc
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+          });
+      } else {
+        res.status(404).json({ message: 'event does not exist' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
 
 module.exports = router;
