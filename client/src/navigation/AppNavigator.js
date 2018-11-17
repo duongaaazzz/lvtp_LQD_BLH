@@ -118,9 +118,9 @@ export const MainTab = createBottomTabNavigator({
 
 
 export const AppNavigator = createSwitchNavigator({
-  // [RouteKey.DetailsCardEvent]: {
-  //   screen: EditUserInfor
-  // },
+  [RouteKey.DetailsCardEvent]: {
+    screen: CreateEvent
+  },
   [RouteKey.Authentication]: {
     screen: AuthenticationContainer
   },

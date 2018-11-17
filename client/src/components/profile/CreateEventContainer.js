@@ -13,6 +13,9 @@ import Moment from 'moment';
 import {postCreateEvents} from '../../utilities/ApiManager';
 
 import ItemImagePostEvent from './ItemImagePostEvent'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import randomColor from 'randomcolor';
+
 
 class CreateEventContainer extends React.Component {
   constructor() {
@@ -30,8 +33,11 @@ class CreateEventContainer extends React.Component {
       linkImageEvent: '',
       listImagePostEvent: '',
       type: [],
+      eventInput: ''
     }
     this.isDateTimePickerEnd = false
+    this.taggggg = ''
+
   }
 
   componentWillMount() {
@@ -45,7 +51,55 @@ class CreateEventContainer extends React.Component {
     this.setState({linkImageEvent: linkImage})
   }
 
+  renderHashtag() {
+
+    let hashtagView = []
+
+    // console.log('as', this.state.type)
+    for (let i = 0; i < this.state.type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity onPress={() => {
+          let listHashtag = this.state.type.filter(tag => {
+            if (tag !== this.state.type[i]) {
+              return tag
+            }
+          })
+
+          this.setState({
+            type: listHashtag
+          })
+        }}>
+          <View style={{
+            marginHorizontal: 5,
+            backgroundColor: randomColor({seed: this.state.type[i]}),
+            height: 30,
+            borderRadius: 15,
+            paddingHorizontal: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            flexDirection: 'row'
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11
+            }]}>{this.state.type[i]}</Text>
+
+            <Ionicons name={'ios-close-circle-outline'} size={20} color={whiteColor}/>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
+
+  }
+
   render() {
+
+    console.log('sdasdsa', this.state.type)
     const {navigate} = this.props.navigation;
 
     return (<View style={{flex: 1, backgroundColor: backgroundColor}}>
@@ -55,7 +109,8 @@ class CreateEventContainer extends React.Component {
           height: 70,
           backgroundColor: blueColor,
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+
         }}>
           <Text style={[styles.textStyle, {
             fontWeight: 'bold',
@@ -180,6 +235,50 @@ class CreateEventContainer extends React.Component {
               </View>
             </View>
 
+
+            <View style={styles.wrapper}>
+              <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Loại sự kiện</Text>
+              <View style={[styles.inputWrapper, {flexDirection: 'row', paddingLeft: 15}]}>
+
+                <TextInput
+                  value={this.state.eventInput}
+                  autoCorrect={false}
+                  style={{flex: 1}}
+                  placeholderTextColor={grayColor}
+                  underlineColorAndroid="transparent"
+                  onChangeText={(text) => {
+                    if (text.includes(' ')) {
+
+                      let indexOf = this.state.type.findIndex(i => i === '#' + this.state.eventInput + ' ')
+
+                      if (indexOf === -1) {
+                        this.setState({
+                          type: [...this.state.type, '#' + this.state.eventInput + ' '],
+                          eventInput: ''
+                        })
+                      } else {
+                        this.setState({
+                          eventInput: ''
+                        })
+                      }
+
+                    } else {
+
+                      this.setState({
+                        eventInput: text
+                      })
+                    }
+
+                  }}
+                />
+              </View>
+
+              <View style={[styles.wrapperTitle, {flexDirection: 'row', flexWrap: 'wrap', marginRight: 5}]}>
+                {this.renderHashtag()}
+              </View>
+
+            </View>
+
             <View style={styles.wrapper}>
               <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Ảnh đại điện</Text>
 
@@ -205,7 +304,7 @@ class CreateEventContainer extends React.Component {
                 ImagePicker.openPicker({
                   multiple: false
                 }).then(images => {
-                 // console.log(images)
+                  // console.log(images)
                   this.setState({
                     listImagePostEvent: images
                   })
@@ -217,7 +316,6 @@ class CreateEventContainer extends React.Component {
               </TouchableOpacity>
 
             </View>
-
 
             <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
@@ -254,19 +352,7 @@ class CreateEventContainer extends React.Component {
           </View>
         </ScrollView>
 
-        {/*<View style={{*/}
-        {/*zIndex: 999,*/}
-        {/*position: 'absolute',*/}
-        {/*top: 20,*/}
-        {/*left: 5,*/}
-        {/*}}>*/}
 
-        {/*<TouchableOpacity*/}
-        {/*style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}*/}
-        {/*onPress={() => navigate(RouteKey.ProfileScreen, {})}>*/}
-        {/*<Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>*/}
-        {/*</TouchableOpacity>*/}
-        {/*</View>*/}
       </View>
     )
   }
