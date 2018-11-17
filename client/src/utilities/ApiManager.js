@@ -166,12 +166,13 @@ export function postCreateEvents(username, event_title, description, price, loca
     'price': price,
     'description': description,
     'avatar': avatar,
-    'type': type,
     'location': location,
     'created_by': username,
     'time_start': date_start,
     'time_end': date_end,
+    'type': type
   };
+
 
   let formBody = [];
   for (var property in details) {
@@ -245,18 +246,18 @@ export function handleUserEvent(eventId) {
 }
 
 
-export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, about ) {
+export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, about) {
   return new Promise(resolve => {
-    let userid= store.getState().userInfo._id
-    let body = 
-    [ 
-      {"propName": "fullname",  "value": fullname},
-      {"propName": "birthday",  "value": birthday},
-      {"propName": "gender",  "value": gender},
-      {"propName": "email",  "value": email},
-      {"propName": "avatar",  "value": avatar},
-      {"propName": "about",  "value": about},
-    ]
+    let userid = store.getState().userInfo._id
+    let body =
+      [
+        {'propName': 'fullname', 'value': fullname},
+        {'propName': 'birthday', 'value': birthday},
+        {'propName': 'gender', 'value': gender},
+        {'propName': 'email', 'value': email},
+        {'propName': 'avatar', 'value': avatar},
+        {'propName': 'about', 'value': about},
+      ]
     console.log('userid', userid)
     console.log(body)
     patchWithTimeout(`${urlServer}/users/${userid}`, {}, body).then(data => {

@@ -28,6 +28,8 @@ class AuthenticationContainer extends React.Component {
       if (this.props.navigation.state.params.success) {
 
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
+
+
           console.log('check user exits, phone number: ', this.props.navigation.state.params.numberPhone);
           console.log(ress);
           if (ress) {

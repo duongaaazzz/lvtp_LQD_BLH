@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/constants/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/constant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,31 +30,71 @@
       <file leaf-file-name="CreateEventContainer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="260" selection-start-line="260" selection-end-line="260" />
+            <state relative-caret-position="287">
+              <caret line="345" column="18" lean-forward="true" selection-start-line="331" selection-start-column="15" selection-end-line="345" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
+      <file leaf-file-name="ApiManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="121" column="23" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
+            <state relative-caret-position="218">
+              <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="epic.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/actions/epic.js">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="firebaseHelper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/firebaseHelper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="constant.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="105">
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="abc.json" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/abc.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="10" selection-start-column="10" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthenticationContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/routes/events.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1095">
+              <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -70,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dispatch</find>
       <find>RegisterUserScreen</find>
       <find>userI</find>
       <find>USER_LOGIN</find>
@@ -100,15 +139,20 @@
       <find>listImagePostEvent</find>
       <find>filter</find>
       <find>Ionicons</find>
+      <find>'</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
       <replace>avatar</replace>
       <replace>avatarPostEvent</replace>
+      <replace>&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -136,7 +180,6 @@
         <option value="$PROJECT_DIR$/client/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/registerUser/RegisterUserContainer.js" />
-        <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
         <option value="$PROJECT_DIR$/client/src/utilities/networking.js" />
         <option value="$PROJECT_DIR$/../../New Folder/lqd_an_2_3_4.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/HomeContainer.js" />
@@ -148,13 +191,16 @@
         <option value="$PROJECT_DIR$/client/node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js" />
         <option value="$PROJECT_DIR$/client/src/constants/firebaseHelper.js" />
         <option value="$PROJECT_DIR$/../../New Folder/lqd_logic_5.js" />
-        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/EditUserInforContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemImagePostEvent.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/NavigationServices.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
+        <option value="$PROJECT_DIR$/Server/models/event.js" />
+        <option value="$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js" />
+        <option value="$USER_HOME$/Downloads/abc.json" />
         <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
+        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
       </list>
     </option>
@@ -221,6 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,16 +360,32 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="create&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Edit&#9;null&#9;null&#10;Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Im&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ItemImagePostEvent.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ItemImagePostEvent.js&#10;Pr&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;de&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/DetailsCardEvent.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;Crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Ho&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/HomeContainer.js&#10;cont&#9;null&#9;null&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;V&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;RegisterUserScreen&#9;null&#9;null&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Lo&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="Aut&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;net&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/networking.js&#10;create&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Edit&#9;null&#9;null&#10;Pro&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;De&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/DetailsCardEvent.js&#10;crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Im&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ItemImagePostEvent.js&#10;Item&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ItemImagePostEvent.js&#10;Pr&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/ProfileContainer.js&#10;de&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/DetailsCardEvent.js&#10;Nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;Crea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/profile/CreateEventContainer.js&#10;Api&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Ho&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/HomeContainer.js&#10;cont&#9;null&#9;null&#10;App&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;Ap&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/utilities/ApiManager.js&#10;Au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Re&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/registerUser/RegisterUserContainer.js&#10;nea&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/home/nearby/NearByContainer.js&#10;V&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;RegisterUserScreen&#9;null&#9;null&#10;Appn&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/AppNavigator.js&#10;con&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/constants/constant.js&#10;Ver&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/verification/VerificationContainer.js&#10;au&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Auth&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/components/authentication/AuthenticationContainer.js&#10;Mai&#9;FILE&#9;file:///Users/lequocduong/Documents/aaa/lvtp_LQD_BLH/client/src/navigation/MainTabContainer.js&#10;Lo&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -396,12 +459,14 @@
       <workItem from="1541988911596" duration="115000" />
       <workItem from="1542031706611" duration="3411000" />
       <workItem from="1542161883033" duration="197000" />
-      <workItem from="1542439922875" duration="6970000" />
+      <workItem from="1542439922875" duration="12269000" />
+      <workItem from="1542467188054" duration="1219000" />
+      <workItem from="1542468908079" duration="1919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102679000" />
+    <option name="totallyTimeSpent" value="111116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -411,13 +476,12 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32893" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.14927346" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29194188" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,6 +489,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32893" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -455,27 +520,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/node_modules/react-proxy/modules/createPrototypeProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/tinh_an_3_khong_limit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -570,20 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/networking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/queries.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="167" column="20" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/routes/users.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -591,30 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/models/event.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/routes/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="29" column="64" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -661,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/constants/firebaseHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -679,13 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="280" column="10" selection-start-line="280" selection-start-column="10" selection-end-line="280" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -755,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="121" column="23" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/search/SearchContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -776,17 +765,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/navigation/AppNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="120" column="7" lean-forward="true" selection-start-line="120" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="167" column="20" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/models/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/postman">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/networking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="68" column="13" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/routes/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/authentication/AuthenticationContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/abc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/constants/firebaseHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/constants/constant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="105">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="260" selection-start-line="260" selection-end-line="260" />
+        <state relative-caret-position="287">
+          <caret line="345" column="18" lean-forward="true" selection-start-line="331" selection-start-column="15" selection-end-line="345" selection-end-column="18" />
         </state>
       </provider>
     </entry>

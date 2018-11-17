@@ -320,6 +320,15 @@ class CreateEventContainer extends React.Component {
             <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
               <TouchableOpacity style={styles.button} onPress={() => {
+                var type = ''
+                this.state.type.forEach((value => {
+                  value = value.trim()
+                  type = type + value + '|'
+                }))
+
+                type = type.substring(0, type.length - 1)
+
+                console.log(type)
                 postCreateEvents(
                   this.props.userInfo.username,
                   this.state.eventTittle,
@@ -329,7 +338,7 @@ class CreateEventContainer extends React.Component {
                   this.state.dateTimePickerStart,
                   this.state.dateTimePickerEnd,
                   this.state.linkImageEvent,
-                  this.state.type
+                  type
                 ).then(resss => {
                   if (resss) {
                     navigate(RouteKey.ProfileScreen, {createEvent: true})
