@@ -15,7 +15,7 @@ router.get('/', checkAuth, (req, res, next) => {
     .limit(10)
     .exec()
     .then(docs => {
-      console.log(docs);
+     // console.log(docs);
       const respone = {
         status: 'success',
         count: docs.length,
@@ -53,17 +53,19 @@ router.get('/:eventId', (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
-});
+}); 
 
 /* CREATE event. */
 router.post('/', (req, res, next) => {
+  const typed= req.body.type;
+  console.log (typed.split("|"));
   const event = new Event({
     _id: new mongoose.Types.ObjectId(),
     title: req.body.title,
     price: req.body.price,
     description: req.body.description,
     avatar: req.body.avatar,
-    type: req.body.type,
+    type: typed.split("|"),
     location: req.body.location,
     created_by: req.body.created_by,
     time_start: req.body.time_start,
