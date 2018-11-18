@@ -22,6 +22,9 @@ import AuthenticationContainer from '../components/authentication/Authentication
 import DetailsEventProfile from '../components/profile/DetailsCardEvent'
 import CreateEvent from '../components/profile/CreateEventContainer'
 import MainTabContainer from './MainTabContainer'
+import EditUserInfor from '../components/profile/EditUserInforContainer'
+import EditEvent from '../components/profile/EditEventContainer'
+
 
 import CustomHomeTab from './CustomHomeTab'
 import CustomMainTab from './CustomMainTab'
@@ -34,7 +37,10 @@ export const HomeSwitch = createSwitchNavigator({
   },
   [RouteKey.DetailsCardEvent]: {
     screen: DetailsCardEvent
-  }
+  },
+  [RouteKey.DetailsEventProfile]: {
+    screen: DetailsEventProfile
+  },
 })
 
 export const ProfileSwitch = createSwitchNavigator({
@@ -46,6 +52,12 @@ export const ProfileSwitch = createSwitchNavigator({
   },
   [RouteKey.CreateEvent]: {
     screen: CreateEvent
+  },
+  [RouteKey.EditUserInfor]: {
+    screen: EditUserInfor
+  },
+  [RouteKey.EditEvent]: {
+    screen: EditEvent
   }
 })
 
@@ -112,7 +124,7 @@ export const MainTab = createBottomTabNavigator({
 
 export const AppNavigator = createSwitchNavigator({
   // [RouteKey.DetailsCardEvent]: {
-  //   screen: DetailsCardEvent
+  //   screen: CreateEvent
   // },
   [RouteKey.Authentication]: {
     screen: AuthenticationContainer

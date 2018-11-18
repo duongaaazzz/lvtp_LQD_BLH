@@ -13,24 +13,31 @@ import Moment from 'moment';
 import {postCreateEvents} from '../../utilities/ApiManager';
 
 import ItemImagePostEvent from './ItemImagePostEvent'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import randomColor from 'randomcolor';
+
 
 class CreateEventContainer extends React.Component {
-
   constructor() {
     super();
 
     this.state = {
       data: [],
       isDateTimePickerVisible: false,
-      dateTimePickerStart: Moment().format('DD-MM-YYYY'),
-      dateTimePickerEnd: Moment().format('DD-MM-YYYY'),
+      dateTimePickerStart: Moment().format('YYYY-MM-DD'),
+      dateTimePickerEnd: Moment().format('YYYY-MM-DD'),
       eventTittle: '',
       description: '',
       price: 0,
+      location: '',
       linkImageEvent: '',
-      listImagePostEvent: ''
+      listImagePostEvent: '',
+      type: [],
+      eventInput: ''
     }
     this.isDateTimePickerEnd = false
+    this.taggggg = ''
+
   }
 
   componentWillMount() {
@@ -38,10 +45,58 @@ class CreateEventContainer extends React.Component {
   }
 
   upLoadImageEventSuccess = (linkImage) => {
-    this.setState({linkImageEvent: linkImage})
+   this.setState({linkImageEvent: linkImage})
+  }
+
+  renderHashtag() {
+
+    let hashtagView = []
+
+    // console.log('as', this.state.type)
+    for (let i = 0; i < this.state.type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity onPress={() => {
+          let listHashtag = this.state.type.filter(tag => {
+            if (tag !== this.state.type[i]) {
+              return tag
+            }
+          })
+
+          this.setState({
+            type: listHashtag
+          })
+        }}>
+          <View style={{
+            marginHorizontal: 5,
+            backgroundColor: randomColor({seed: this.state.type[i]}),
+            height: 30,
+            borderRadius: 15,
+            paddingHorizontal: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            flexDirection: 'row'
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11
+            }]}>{this.state.type[i]}</Text>
+
+            <Ionicons name={'ios-close-circle-outline'} size={20} color={whiteColor}/>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
+
   }
 
   render() {
+
+    console.log('sdasdsa', this.state.type)
     const {navigate} = this.props.navigation;
 
     return (<View style={{flex: 1, backgroundColor: backgroundColor}}>
@@ -51,7 +106,8 @@ class CreateEventContainer extends React.Component {
           height: 70,
           backgroundColor: blueColor,
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+
         }}>
           <Text style={[styles.textStyle, {
             fontWeight: 'bold',
@@ -88,9 +144,9 @@ class CreateEventContainer extends React.Component {
                 date={this.state.dateTimePickerStart}
                 mode="datetime"
                 placeholder="select date"
-                format="DD-MM-YYYY h:mm a"
-                minDate={Moment().format('DD-MM-YYYY')}
-                maxDate="01-01-2020"
+                format="YYYY-MM-DD"
+                minDate={Moment().format('YYYY-MM-DD')}
+                maxDate="2020-01-01"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 is24Hour={true}
@@ -114,9 +170,9 @@ class CreateEventContainer extends React.Component {
                 date={this.state.dateTimePickerEnd}
                 mode="datetime"
                 placeholder="select date"
-                format="DD-MM-YYYY h:mm a"
-                minDate={Moment().format('DD-MM-YYYY')}
-                maxDate="01-01-2020"
+                format="YYYY-MM-DD"
+                minDate={Moment().format('YYYY-MM-DD')}
+                maxDate="2020-01-01"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 is24Hour={true}
@@ -153,7 +209,7 @@ class CreateEventContainer extends React.Component {
                   style={styles.textInput}
                   placeholderTextColor={grayColor}
                   underlineColorAndroid="transparent"
-                  onChangeText={(text) => this.setState({numberPhone: text})}
+                  onChangeText={(text) => this.setState({location: text})}
                 />
               </View>
             </View>
@@ -174,6 +230,50 @@ class CreateEventContainer extends React.Component {
                   onChangeText={(description) => this.setState({description: description})}
                 />
               </View>
+            </View>
+
+
+            <View style={styles.wrapper}>
+              <Text style={[styles.textStyle, {fontSize: 18, fontWeight: '400', marginLeft: 10}]}>Loại sự kiện</Text>
+              <View style={[styles.inputWrapper, {flexDirection: 'row', paddingLeft: 15}]}>
+
+                <TextInput
+                  value={this.state.eventInput}
+                  autoCorrect={false}
+                  style={{flex: 1}}
+                  placeholderTextColor={grayColor}
+                  underlineColorAndroid="transparent"
+                  onChangeText={(text) => {
+                    if (text.includes(' ')) {
+
+                      let indexOf = this.state.type.findIndex(i => i === '#' + this.state.eventInput + ' ')
+
+                      if (indexOf === -1) {
+                        this.setState({
+                          type: [...this.state.type, '#' + this.state.eventInput + ' '],
+                          eventInput: ''
+                        })
+                      } else {
+                        this.setState({
+                          eventInput: ''
+                        })
+                      }
+
+                    } else {
+
+                      this.setState({
+                        eventInput: text
+                      })
+                    }
+
+                  }}
+                />
+              </View>
+
+              <View style={[styles.wrapperTitle, {flexDirection: 'row', flexWrap: 'wrap', marginRight: 5}]}>
+                {this.renderHashtag()}
+              </View>
+
             </View>
 
             <View style={styles.wrapper}>
@@ -201,36 +301,44 @@ class CreateEventContainer extends React.Component {
                 ImagePicker.openPicker({
                   multiple: false
                 }).then(images => {
-
-                  console.log(images)
+                  // console.log(images)
                   this.setState({
                     listImagePostEvent: images
                   })
-
                 });
               }}>
                 <View style={[styles.inputWrapper, {height: 40, flexDirection: 'row'}]}>
-
                   <Text style={[styles.textStyle, {fontWeight: '500'}]}>Chọn ảnh từ bộ sưu tập</Text>
                 </View>
               </TouchableOpacity>
 
             </View>
 
-
             <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
               <TouchableOpacity style={styles.button} onPress={() => {
+                var type = ''
+                this.state.type.forEach((value => {
+                  value = value.trim()
+                  type = type + value + '|'
+                }))
+
+                type = type.substring(0, type.length - 1)
+
+                console.log(type)
                 postCreateEvents(
                   this.props.userInfo.username,
-                  this.state.eventTittle, this.state.description,
-                  this.state.price, 'a b c',
+                  this.state.eventTittle,
+                  this.state.description,
+                  this.state.price,
+                  this.state.location,
                   this.state.dateTimePickerStart,
                   this.state.dateTimePickerEnd,
-                  this.state.linkImageEvent
+                  this.state.linkImageEvent,
+                  type
                 ).then(resss => {
                   if (resss) {
-                    navigate(RouteKey.ProfileScreen, {})
+                    navigate(RouteKey.ProfileScreen, {createEvent: true})
                   }
                 })
               }}>
@@ -238,7 +346,7 @@ class CreateEventContainer extends React.Component {
 
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {})}
+              <TouchableOpacity onPress={() => navigate(RouteKey.ProfileScreen, {createEvent: true})}
                                 style={[styles.button, {width: 100, backgroundColor: redColor}]}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Huỷ</Text>
 
@@ -250,19 +358,6 @@ class CreateEventContainer extends React.Component {
           </View>
         </ScrollView>
 
-        {/*<View style={{*/}
-        {/*zIndex: 999,*/}
-        {/*position: 'absolute',*/}
-        {/*top: 20,*/}
-        {/*left: 5,*/}
-        {/*}}>*/}
-
-        {/*<TouchableOpacity*/}
-        {/*style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}*/}
-        {/*onPress={() => navigate(RouteKey.ProfileScreen, {})}>*/}
-        {/*<Ionicons name={'ios-arrow-back'} size={34} color={whiteColor}/>*/}
-        {/*</TouchableOpacity>*/}
-        {/*</View>*/}
 
       </View>
     )
@@ -288,7 +383,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: whiteColor,
-
   },
   wrapper: {
     width: '80%', marginVertical: 5

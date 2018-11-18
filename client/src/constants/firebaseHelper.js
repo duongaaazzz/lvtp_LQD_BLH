@@ -39,7 +39,7 @@ const storeReference = (downloadUrl, sessionId, nameFile) => {
 export function upLoadImageFirebase(nameEvent = 'ssdasdas', uri, mime = 'application/octet-stream') {
   return new Promise((resolve, reject) => {
 
-    const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri
+    const uploadUri = uri.replace('file://', '')
     const sessionID = new Date().getTime()
 
     let uplaodBlob = null

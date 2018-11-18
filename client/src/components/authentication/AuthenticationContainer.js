@@ -28,11 +28,12 @@ class AuthenticationContainer extends React.Component {
       if (this.props.navigation.state.params.success) {
 
         getUserInfoWithPhone(this.props.navigation.state.params.numberPhone).then(ress => {
+
+
           console.log('check user exits, phone number: ', this.props.navigation.state.params.numberPhone);
           console.log(ress);
           if (ress) {
             this.props.getUserInfo(ress)
-
             loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
               if (!!data) {
                 loginUserWithPhone(this.props.navigation.state.params.numberPhone).then(data => {
@@ -85,7 +86,9 @@ class AuthenticationContainer extends React.Component {
     return new Promise(resolve => {
       let token = AsyncStorage.getItem('@yolo:token').then(token => {
 
-        this.props.setToken(token)
+        if (!!token) {
+          this.props.setToken(token)
+        }
 
         return !!token
       })

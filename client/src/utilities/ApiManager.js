@@ -3,8 +3,9 @@
  */
 
 import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/constant';
-import {getWithTimeout, patchWithTimeout, postWithTimeout} from './networking';
+import {getWithTimeout, patchWithTimeout, postWithTimeout, deleteWithTimeout} from './networking';
 import store from '../redux/store';
+import {GET_EVENT_USER} from '../actions/user';
 
 /**
  * Send verification phone number
@@ -90,12 +91,9 @@ export function getUserInfoWithPhone(numberPhone) {
  * @param {numberic} numberPhone
  * @param {srting} fullName
  */
-export function postUserInfo(username, password, email, numberPhone, fullName, avatar) {
-
+export function postUserInfo(username, numberPhone, fullName, avatar) {
   let details = {
     'username': username,
-    'password': password,
-    'email': email,
     'phone': numberPhone,
     'fullname': fullName,
     'avatar': avatar
@@ -114,7 +112,7 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
   };
   return new Promise(resolve => {
     postWithTimeout(`${urlServer}/users`, header, formBody).then(response => {
-      if (response.status === 201) {
+      if (response.status === 'success') {
         resolve(true)
       } else resolve(false)
     })
@@ -125,9 +123,9 @@ export function postUserInfo(username, password, email, numberPhone, fullName, a
  *Get User's Events
  * @param {string} username
  */
-export function getUserEvents(userid) {
+export function getUserEvents(username) {
   return new Promise(resolve => {
-    getWithTimeout(`${urlServer}/events/usercreate/${userid}`, {}).then(response => {
+    getWithTimeout(`${urlServer}/events/usercreate/${username}`, {}).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(response.events)
@@ -162,18 +160,19 @@ export function getUserSignedEvents(userid) {
  * @param {date} date_end
  * @param {string} avatar
  */
-export function postCreateEvents(username, event_title, description, price, location, date_start, date_end, avatar) {
-
+export function postCreateEvents(username, event_title, description, price, location, date_start, date_end, avatar, type) {
   let details = {
-    'username': username,
-    'event_title': event_title,
-    'description': description,
+    'title': event_title,
     'price': price,
-    'location': location,
-    'date_start': date_start,
-    'date_end': date_end,
+    'description': description,
     'avatar': avatar,
+    'location': location,
+    'created_by': username,
+    'time_start': date_start,
+    'time_end': date_end,
+    'type': type
   };
+
 
   let formBody = [];
   for (var property in details) {
@@ -188,7 +187,7 @@ export function postCreateEvents(username, event_title, description, price, loca
   };
 
   return new Promise(resolve => {
-    postWithTimeout(`${urlServer}/events/createEvent`, header, formBody).then(response => {
+    postWithTimeout(`${urlServer}/events`, header, formBody).then(response => {
       if (response.status === 'success') {
         //console.log('data', data)
         resolve(true)
@@ -228,14 +227,87 @@ export function loginUserWithPhone(numberPhone) {
 
 export function handleUserEvent(eventId) {
   return new Promise(resolve => {
-
     let body = {
-      userId: store.getState().userInfo._id
+      userid: store.getState().userInfo._id
     }
-
     patchWithTimeout(`${urlServer}/events/sign/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
-        resolve(data.events)
+        resolve(data)
+
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+
+export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, about) {
+  return new Promise(resolve => {
+    let userid = store.getState().userInfo._id
+    let body =
+      [
+        {'propName': 'fullname', 'value': fullname},
+        {'propName': 'birthday', 'value': birthday},
+        {'propName': 'gender', 'value': gender},
+        {'propName': 'email', 'value': email},
+        {'propName': 'avatar', 'value': avatar},
+        {'propName': 'about', 'value': about},
+      ]
+    console.log('userid', userid)
+    console.log(body)
+    patchWithTimeout(`${urlServer}/users/${userid}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+
+export function patchUpdateEvent(eventId, title, description, price, type, location, avatar, time_start, time_end ) {
+  return new Promise(resolve => {
+    let body = 
+    [ 
+      {"propName": "title",  "value": title},
+      {"propName": "description",  "value": description},
+      {"propName": "price",  "value": price},
+      {"propName": "type",  "value": type},
+      {"propName": "location",  "value": location},
+      {"propName": "avatar",  "value": avatar},
+      {"propName": "time_start",  "value": time_start},
+      {"propName": "time_end",  "value": time_end},
+    ]
+    // console.log('userid', userid)
+    // console.log(body)
+    patchWithTimeout(`${urlServer}/events/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
+      } else {
+        resolve(false)
+      }
+    })
+  })
+}
+
+
+
+export function deleteUserEvent(eventId) {
+  return new Promise(resolve => {
+    deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
+      if (data.status === 'success') {
+        resolve(data)
+
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+
       } else {
         resolve(false)
       }

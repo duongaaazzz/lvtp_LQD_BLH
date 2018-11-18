@@ -14,26 +14,102 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import RouteKey from '../../constants/routeKey'
-import {blackColor, blueColor} from '../../constants/color';
+import {blackColor, blueColor, whiteColor} from '../../constants/color';
 import Moment from 'moment/moment';
 import {handleUserEvent} from '../../utilities/ApiManager';
+import randomColor from 'randomcolor';
 
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      sign: false,
+    }
+  }
+
+  componentWillMount() {
+    console.log('this.props.navigation', this.props.navigation.state.params)
+    console.log('this.props.navigation', this.props.userInfo)
+
+    const {userlist} = this.props.navigation.state.params.data
+
+    let indexOf = userlist.findIndex(i => i === this.props.userInfo._id)
+
+    if (indexOf > -1) {
+      this.setState({
+        sign: true,
+      })
+    }
+
+  }
+
+
   joinEvent() {
+
+
     handleUserEvent(this.props.navigation.getParam('data', 'NO-ID')._id).then(data => {
-      console.log(data)
-    })
+        if (data.message === 'Signed')
+          this.setState({sign: true})
+        else {
+          this.setState({sign: false})
+        }
+      }
+    )
+  }
+
+
+  renderHashtag(type) {
+
+    let hashtagView = []
+
+    // console.log('as', this.state.type)
+    for (let i = 0; i < type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity>
+          <View style={{
+            marginHorizontal: 2,
+            backgroundColor: randomColor({seed: type[i]}),
+            height: 30,
+            borderRadius: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            flexDirection: 'row',
+
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11,
+              paddingHorizontal:15
+            }]}>{type[i]}</Text>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
 
   }
 
   render() {
-    const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation
     const data = this.props.navigation.getParam('data', 'NO-ID')
-    console.log('data in detail: ', data);
-    return (<View style={{flex: 1}}>
+    // let index = data.userlist.findIndex(i => i == this.props.userInfo._id)
+    // console.log('sign: ', this.state.sign)
+    // if(index < 0){
+    //   this.setState({sign:'Đăng Ký'})
+    //   console.log('sign: ', this.state.sign)
+    // } else {
+    //   this.setState({sign: 'Hủy Đăng Ký'})
+    //   console.log('sign: ', this.state.sign);
+    // }
+    // console.log('index: ', index)
 
+    return (<View style={{flex: 1}}>
         <ScrollView>
           <View style={{
             flex: 1,
@@ -74,7 +150,7 @@ class DetailsCardEvent extends React.Component {
                   this.joinEvent()
                 }}>
                   <View style={{
-                    backgroundColor: blueColor,
+                    backgroundColor: this.state.sign ? 'blue' : 'red',
                     height: 38,
                     width: 120,
                     borderRadius: 19,
@@ -85,7 +161,7 @@ class DetailsCardEvent extends React.Component {
                       fontSize: 17,
                       color: '#ffffff'
                     }]}>
-                      Tham gia
+                      {this.state.sign ? 'Huỷ đăng ký' : 'Đăng ký'}
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -114,7 +190,7 @@ class DetailsCardEvent extends React.Component {
                 <MaterialIcons name='location-on' size={20} color={blackColor}/>
               </View>
               <Text style={[styles.textStyle, {fontSize: 15, marginLeft: 3, fontWeight: '400'}]}>
-                location
+                {data.location}
               </Text>
             </View>
 
@@ -127,6 +203,10 @@ class DetailsCardEvent extends React.Component {
               </Text>
             </View>
 
+
+            <View style={{flexDirection: 'row', paddingLeft: 15}}>
+              {this.renderHashtag(data.type)}
+            </View>
 
             <View style={[styles.viewInfo, {flexDirection: 'row', alignItems: 'flex-end'}]}>
               <Text style={[styles.textStyle, {fontWeight: '400', marginTop: 15,}]}>
@@ -185,4 +265,6 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(state => ({}), dispatch => ({}))(DetailsCardEvent);
+export default connect(state => ({
+  userInfo: state.userInfo
+}), dispatch => ({}))(DetailsCardEvent);

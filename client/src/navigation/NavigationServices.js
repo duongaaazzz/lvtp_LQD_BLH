@@ -102,6 +102,7 @@ function resetToHomeSwitch() {
   )
 }
 
+
 export default {
   setTopLevelNavigatorProfileSwitch,
   profileSwitchNavigate,
@@ -115,5 +116,6 @@ export default {
   setTopLevelNavigatorHomeTab,
   setTopLevelNavigator,
   resetToLogin,
-  homeTabNavigate
+  homeTabNavigate,
+
 }

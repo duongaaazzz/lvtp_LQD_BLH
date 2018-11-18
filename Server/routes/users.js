@@ -12,7 +12,7 @@ const jwt = require('jsonwebtoken');
 /* GET users list. */
 router.get('/', (req, res, next) => {
     User.find()
-        .select('username fullname phone avatar _id joined')
+        .select('username fullname phone avatar _id joined birthday gender email about')
         .exec()
         .then(docs => {
             console.log(docs);
@@ -67,6 +67,7 @@ router.post('/', (req, res, next) => {
         .then(result => {
             console.log(result);
             res.status(201).json({
+                status: 'success',
                 message: "Successfully create user ",
                 createUser: user
             });
@@ -79,6 +80,7 @@ router.post('/', (req, res, next) => {
 
 /* UPDATE user. */
 router.patch('/:userId', (req, res, next) => {
+    console.log(req.body);
     const id = req.params.userId;
     const updateOps = {};
     for (const ops of req.body) {
@@ -87,11 +89,11 @@ router.patch('/:userId', (req, res, next) => {
     User.updateOne({ _id: id }, { $set: updateOps })
         .exec()
         .then(result => {
-            console.log(result);
-            res.status(201).json({
-                message: "Successfully update user ",
-                result: result
-            });
+            res.status(200).json({
+                status: 'success',
+                message: 'user Edited',
+                result: result,
+            });  
         })
         .catch(err => {
             console.log(err);

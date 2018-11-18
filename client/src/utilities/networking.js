@@ -61,10 +61,7 @@ export function postWithTimeout(api, headers, body) {
 export function post(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
-
   let token = store.getState().userInfo.token
-
-
   let heads = {}
   if (headers['Content-Type'])
     heads = {
@@ -104,20 +101,21 @@ export function _delete(api, headers, body) {
   if (typeof (body) === 'object' && body.constructor !== FormData)
     body = JSON.stringify(body)
 
-
+  let token = store.getState().userInfo.token
   let heads = {}
   if (headers['Content-Type'])
     heads = {
       ...headers,
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
   else
     heads = {
       ...headers,
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
-
   return fetch(api, {
     method: 'delete',
     headers: heads,
@@ -145,17 +143,20 @@ export function put(api, headers, body) {
     body = JSON.stringify(body)
 
 
+  let token = store.getState().userInfo.token
   let heads = {}
   if (headers['Content-Type'])
     heads = {
       ...headers,
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
   else
     heads = {
       ...headers,
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     }
 
   return fetch(api, {
@@ -176,16 +177,14 @@ export function put(api, headers, body) {
 
 
 export function patchWithTimeout(api, headers, body) {
-  console.log('getWithTimeout');
+  console.log('patchWithTimeout');
   return timeout(patch(api, headers, body), 60000, api)
 }
-
 
 export function patch(api, headers, body) {
 
   let token = store.getState().userInfo.token
   console.log('store.getState().userInfo.token', token)
-
   return fetch(api, {
     method: 'PATCH',
     headers: {
