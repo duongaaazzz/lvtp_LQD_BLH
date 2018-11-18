@@ -145,9 +145,35 @@ router.get('/checkPhonenumber/:phone', (req, res, next) => {
         });
 });
 
-/* GET current user by phone. */
-router.get('/api/currentUser', checkAuth, (req, res, next) => {
 
+
+/* GET check username exist. */
+router.get('/checkUsername/:username', (req, res, next) => {
+    const username = req.params.username;
+    User.findOne({ username: username })
+        .exec()
+        .then(doc => {
+          //  console.log(doc);
+            if (doc) {
+                res.status(200).json({
+                    status: 'success',
+                    message: 'username exist'
+                });
+            } else {
+                res.status(404).json({
+                    status: 'failed',
+                    message: 'user does not exist'
+                });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
+});
+
+/* GET current user. */
+router.get('/api/currentUser', checkAuth, (req, res, next) => {
     const bearerHeader = req.headers['authorization'];
     const bearer = bearerHeader.split(' ')
     // Get token from array
@@ -168,9 +194,7 @@ router.get('/api/currentUser', checkAuth, (req, res, next) => {
             })
         }
     })
-
 });
-
 
 /* GET  Login user by phone. */
 router.get('/login/:phone', (req, res, next) => {
@@ -187,6 +211,34 @@ router.get('/login/:phone', (req, res, next) => {
                             token,
                             message: 'token created'
                         });
+                });
+            }
+            else {
+                res.status(404)
+                    .json({
+                        status: 'failed',
+                        message: 'user does not exist'
+                    });
+            }
+        })
+        .catch(function (err) {
+            return next(err);
+        })
+});
+
+
+
+/* GET avatar user by username. */
+router.get('/avatar/:username', (req, res, next) => {
+    const username = req.params.username;
+    User.findOne({ username: username })
+        .exec()
+        .then(function (data) {
+            if (data) {
+                res.status(201)
+                .json({
+                    status: 'succ',
+                    avatar: data.avatar
                 });
             }
             else {

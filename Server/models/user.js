@@ -11,7 +11,6 @@ const userSchema = mongoose.Schema({
     gender:  {type: String, default: 'other'},
     birthday: {type: Date, default: Date.now},
     about: {type: String},
-
 });
 
 module.exports =  mongoose.model('User', userSchema);
