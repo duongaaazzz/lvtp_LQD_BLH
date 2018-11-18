@@ -76,13 +76,13 @@ class CustomHomeTab extends React.Component {
           selected: selectedTabIndex == 1,
           icon: 'search'
         })}
-        {this.renderItem({
-          index: 2,
-          selectedTabIndex: selectedTabIndex,
-          route: RouteKey.NotifyScreen,
-          selected: selectedTabIndex == 2,
-          icon: 'notifications'
-        })}
+        {/*{this.renderItem({*/}
+          {/*index: 2,*/}
+          {/*selectedTabIndex: selectedTabIndex,*/}
+          {/*route: RouteKey.NotifyScreen,*/}
+          {/*selected: selectedTabIndex == 2,*/}
+          {/*icon: 'notifications'*/}
+        {/*})}*/}
         {this.renderItem({
           index: 3,
           selectedTabIndex: selectedTabIndex,

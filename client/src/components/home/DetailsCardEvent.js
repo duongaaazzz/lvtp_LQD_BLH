@@ -14,9 +14,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import RouteKey from '../../constants/routeKey'
-import {blackColor, blueColor} from '../../constants/color';
+import {blackColor, blueColor, whiteColor} from '../../constants/color';
 import Moment from 'moment/moment';
 import {handleUserEvent} from '../../utilities/ApiManager';
+import randomColor from 'randomcolor';
 
 //const { navigation } = this.props;
 class DetailsCardEvent extends React.Component {
@@ -56,6 +57,42 @@ class DetailsCardEvent extends React.Component {
         }
       }
     )
+  }
+
+
+  renderHashtag(type) {
+
+    let hashtagView = []
+
+    // console.log('as', this.state.type)
+    for (let i = 0; i < type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity>
+          <View style={{
+            marginHorizontal: 2,
+            backgroundColor: randomColor({seed: type[i]}),
+            height: 30,
+            borderRadius: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            flexDirection: 'row',
+
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11,
+              paddingHorizontal:15
+            }]}>{type[i]}</Text>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
+
   }
 
   render() {
@@ -166,6 +203,10 @@ class DetailsCardEvent extends React.Component {
               </Text>
             </View>
 
+
+            <View style={{flexDirection: 'row', paddingLeft: 15}}>
+              {this.renderHashtag(data.type)}
+            </View>
 
             <View style={[styles.viewInfo, {flexDirection: 'row', alignItems: 'flex-end'}]}>
               <Text style={[styles.textStyle, {fontWeight: '400', marginTop: 15,}]}>
