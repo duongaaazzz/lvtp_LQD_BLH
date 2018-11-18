@@ -4,37 +4,39 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, FlatList, Picker } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, FlatList, Picker } from 'react-native'
 import { backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor } from '../../constants/color';
 import ImagePicker from 'react-native-image-crop-picker';
 import RouteKey from '../../constants/routeKey';
 import DatePicker from 'react-native-datepicker';
 import Moment from 'moment';
-import { patchUpdateUserInfor } from '../../utilities/ApiManager';
+import { patchUpdateEvent } from '../../utilities/ApiManager';
 import NavigationServices from '../../navigation/NavigationServices';
 
 import ItemImagePostEvent from './ItemImagePostEvent';
 import { USER_LOGOUT } from '../../actions/user';
 
 
-class EditUserInforContainer extends React.Component {
+class EditEventContainer extends React.Component {
   constructor() {
     super();
     this.state = {
       data: [],
       isDateTimePickerVisible: false,
-      birthday: Moment().format('DD-MM-YYYY'),
-      fullname: '',//this.props.userInfo.fullname,
-      gender: 'female',
-      location: '',
       avatarPostEvent: '',
-      now: new Date(),
-      avatar: '',
       listImagePostEvent: '',
+      title: '',
+      description: '',
+      price: '',
+      type: [],
+      location: '',
+      avatar: '',
+      time_start: Moment().format('DD-MM-YYYY'),
+      time_end: Moment().format('DD-MM-YYYY')
     }
     this.isDateTimePickerEnd = false
   }
-
+  
   updateGender = (gender) => {
     this.setState({ gender: gender })
   }
@@ -44,34 +46,23 @@ class EditUserInforContainer extends React.Component {
   }
 
   componentDidMount() {
-
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
+    console.log('detail event:' , detailCardEvent);
     this.setState({
-      gender: this.props.userInfo.gender,
-      fullname: this.props.userInfo.fullname,
-      email: this.props.userInfo.email,
-      avatar: this.props.userInfo.avatar,
-      birthday: this.props.userInfo.birthday,
-      about: this.props.userInfo.about
+      title: detailCardEvent.title,
+      description: detailCardEvent.description,
+      price: detailCardEvent.price,
+      type: detailCardEvent.type,
+      location: detailCardEvent.location,
+      avatar: detailCardEvent.avatar,
+      time_start:detailCardEvent.time_start,
+      time_end: detailCardEvent.time_end,
     })
 
-  }
-
-  _onPressSave(fullname, birthday, gender, email, avatar, about) {
-    patchUpdateUserInfor(
-      fullname,
-      birthday,
-      gender,
-      email,
-      avatar,
-      about
-    ).then(res => {
-      console.log('update user infor result: ', res)
-      if (res.status == 'success')
-        NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
-    })
   }
 
   render() {
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
     return (<View style={{ flex: 1, backgroundColor: backgroundColor }}>
       <View style={{
         width: '100%',
@@ -84,7 +75,7 @@ class EditUserInforContainer extends React.Component {
           fontWeight: 'bold',
           fontSize: 28,
           color: whiteColor
-        }]}>Chỉnh Sửa Thông Tin</Text>
+        }]}>Chỉnh Sửa Sự Kiện</Text>
 
 
       </View>
@@ -97,44 +88,70 @@ class EditUserInforContainer extends React.Component {
         }}>
 
           <View style={styles.wrapper}>
-            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Tên hiển thị</Text>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Tên sự kiện</Text>
             <View style={styles.inputWrapper}>
               <TextInput
-                value={this.state.fullname}
-                placeholder="Fullname"
+                value={this.state.title}
+                placeholder="Event's title"
                 style={styles.textInput}
                 placeholderTextColor={grayColor}
                 underlineColorAndroid="transparent"
-                onChangeText={(fullname) => this.setState({ fullname: fullname })}
+                onChangeText={(title) => this.setState({ title: title })}
               />
             </View>
           </View>
           <View style={styles.wrapper}>
-            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Email</Text>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Giá</Text>
             <View style={styles.inputWrapper}>
               <TextInput
-                value={this.state.email}
-                placeholder="Email"
+                keyboardType='numeric'
+                value={`${this.state.price}`}
+                placeholder="price"
                 style={styles.textInput}
                 placeholderTextColor={grayColor}
                 underlineColorAndroid="transparent"
-                onChangeText={(email) => this.setState({ email: email })}
+                onChangeText={(price) => this.setState({ price: price })}
               />
             </View>
           </View>
 
+          <View style={styles.wrapper}>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Địa Điểm</Text>
+            <View style={styles.inputWrapper}>
+              <TextInput
+                value={this.state.location}
+                placeholder="location"
+                style={styles.textInput}
+                placeholderTextColor={grayColor}
+                underlineColorAndroid="transparent"
+                onChangeText={(location) => this.setState({ location: location })}
+              />
+            </View>
+          </View>
 
           <View style={styles.wrapper}>
-            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Ngày Sinh</Text>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Loại sự kiện</Text>
+            <View style={styles.inputWrapper}>
+              <TextInput
+                value={`${this.state.type}`}
+                placeholder="type"
+                style={styles.textInput}
+                placeholderTextColor={grayColor}
+                underlineColorAndroid="transparent"
+                onChangeText={(type) => this.setState({ type: type })}
+              />
+            </View>
+          </View>
+
+          <View style={styles.wrapper}>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Thời gian Bắt Đầu</Text>
             <DatePicker
-              value={this.state.birthday}
+              value={this.state.time_start}
               style={{ width: '100%', marginTop: 10 }}
-              date={this.state.birthday}
-              mode="date"
-              placeholder="select date"
+              date={this.state.time_start}
+              mode="datetime"
               format="YYYY-MM-DD"
-              minDate="1920-01-01"
-              maxDate={new Date()}
+              minDate={new Date()}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               is24Hour={true}
@@ -142,28 +159,34 @@ class EditUserInforContainer extends React.Component {
                 dateInput: [styles.inputWrapper, { borderWidth: 0, marginRight: 10 }]
               }}
               onDateChange={(date) => {
-                console.log(date)
-                this.setState({ birthday: date })
+                this.setState({ time_start: date })
               }}
             />
           </View>
 
-
           <View style={styles.wrapper}>
-            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Giới tính </Text>
-            <Picker
-              selectedValue={this.state.gender}
-              onValueChange={this.updateGender}
-            >
-              <Picker.Item label="Nam" value="male" />
-              <Picker.Item label="Nữ" value="female" />
-              <Picker.Item label="Khác" value="other" />
-            </Picker>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Thời gian Kết Thúc</Text>
+            <DatePicker
+              value={this.state.time_end}
+              style={{ width: '100%', marginTop: 10 }}
+              date={this.state.time_end}
+              mode="datetime"
+              format="YYYY-MM-DD"
+              minDate={new Date()}
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              is24Hour={true}
+              customStyles={{
+                dateInput: [styles.inputWrapper, { borderWidth: 0, marginRight: 10 }]
+              }}
+              onDateChange={(date) => {
+                this.setState({ time_end: date })
+              }}
+            />
           </View>
 
           <View style={[styles.wrapper, {}]}>
-            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Giới thiệu bản
-                thân</Text>
+            <Text style={[styles.textStyle, { fontSize: 18, fontWeight: '400', marginLeft: 10 }]}>Mô tả</Text>
             <View style={[styles.inputWrapper, { height: 110 }]}>
               <TextInput
                 style={[styles.textInput, {
@@ -171,12 +194,12 @@ class EditUserInforContainer extends React.Component {
                   justifyContent: 'flex-start',
                   alignItems: 'flex-start'
                 }]}
-                value={this.state.about}
+                value={this.state.description}
                 maxLength={400}
                 multiline={true}
                 placeholderTextColor={grayColor}
                 underlineColorAndroid="transparent"
-                onChangeText={(about) => this.setState({ about: about })}
+                onChangeText={(description) => this.setState({ description: description })}
               />
             </View>
           </View>
@@ -219,14 +242,13 @@ class EditUserInforContainer extends React.Component {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
             <TouchableOpacity style={styles.button} onPress={() => {
-              this._onPressSave(
-                this.state.fullname,
-                this.state.birthday,
-                this.state.gender,
-                this.state.email,
-                this.state.avatar,
-                this.state.about)
-
+              patchUpdateEvent(
+                detailCardEvent._id, this.state.title, this.state.description, this.state.price, this.state.type, this.state.location, this.state.avatar, this.state.time_start, this.state.time_end
+              ).then(res => {
+                console.log('update event result: ', res)
+                if (res.status == 'success')
+                  NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
+              })
             }}>
               <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Lưu</Text>
 
@@ -237,23 +259,6 @@ class EditUserInforContainer extends React.Component {
               <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: whiteColor }]}>Huỷ</Text>
             </TouchableOpacity>
           </View>
-
-          <TouchableOpacity onPress={this.props.logoutUser}>
-            <View style={{
-              width: 200,
-              height: 50,
-              backgroundColor: 'red',
-              marginBottom: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginVertical: 10,
-              backgroundColor: 'transparent',
-            }}>
-              <Text style={[styles.textStyle, { alignSelf: 'center', fontWeight: '500', color: grayColor }]}>
-                Đăng xuất</Text>
-            </View>
-          </TouchableOpacity>
-
         </View>
       </ScrollView>
     </View>
@@ -265,7 +270,7 @@ export default connect(state => ({
   userInfo: state.userInfo
 }), dispatch => ({
   logoutUser: () => dispatch({ type: USER_LOGOUT })
-}))(EditUserInforContainer);
+}))(EditEventContainer);
 
 const styles = StyleSheet.create({
   textStyle: {
