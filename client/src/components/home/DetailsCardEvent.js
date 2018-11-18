@@ -12,11 +12,12 @@ import NavigationServices from '../../navigation/NavigationServices'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import RouteKey from '../../constants/routeKey'
-import {blackColor, blueColor, grayColor, whiteColor} from '../../constants/color';
+import {blackColor, blueColor, grayColor, redColor, skyColor, whiteColor, yellowColor} from '../../constants/color';
 import Moment from 'moment/moment';
-import {commentEvent, handleUserEvent} from '../../utilities/ApiManager';
+import {commentEvent, handleUserEvent, rateEvent} from '../../utilities/ApiManager';
 import randomColor from 'randomcolor';
 import formatDayAgo from '../../utilities/formatDayAgo';
 
@@ -25,13 +26,47 @@ class DetailsCardEvent extends React.Component {
 
   constructor(props) {
     super(props);
+
+
     this.state = {
       sign: false,
       isShowButtonSendComment: false,
       commentEvent: '',
-      listCommentEvent: props.navigation.state.params.data.comments
+      listCommentEvent: props.navigation.state.params.data.comments,
+      userStartEvent: [-1, -1, -1, -1, -1],
+      isRating: false,
+      listRateEvent: props.navigation.state.params.data.rates
     }
   }
+
+  componentDidMount() {
+
+    let indexRate = this.props.navigation.state.params.data.rates.findIndex(e => e.username === this.props.userInfo.username)
+
+
+    if (indexRate > -1) {
+
+      let rateE = this.props.navigation.state.params.data.rates[indexRate].rate
+
+      let start = [-1, -1, -1, -1, -1]
+
+      if (rateE >= 1) start[0] = 1
+
+      if (rateE >= 2) start[1] = 1
+
+      if (rateE >= 3) start[2] = 1
+
+      if (rateE >= 4) start[3] = 1
+
+      if (rateE >= 5) start[4] = 1
+
+      this.setState({
+        userStartEvent: start,
+      })
+
+    }
+  }
+
 
   componentWillMount() {
     console.log('this.props.navigation', this.props.navigation.state.params)
@@ -46,13 +81,12 @@ class DetailsCardEvent extends React.Component {
         sign: true,
       })
     }
-
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.navigation.state.params !== nextProps.navigation.state.params) {
 
-    }
+  componentWillReceiveProps(nextProps) {
+
+
   }
 
   joinEvent() {
@@ -116,6 +150,164 @@ class DetailsCardEvent extends React.Component {
     })
   }
 
+  renderRateEvent(listEvent) {
+
+    let start = [-1, -1, -1, -1, -1]
+
+    let rateE = 0
+
+    listEvent.map(e => {
+      rateE += e.rate
+    })
+    rateE = (rateE / listEvent.length)
+
+    if (rateE >= 0.5) start[0]++
+    if (rateE >= 1) start[0]++
+
+    if (rateE >= 1.5) start[1]++
+    if (rateE >= 2) start[1]++
+
+    if (rateE >= 2.5) start[2]++
+    if (rateE >= 3) start[2]++
+
+    if (rateE >= 3.5) start[3]++
+    if (rateE >= 4) start[3]++
+
+    if (rateE >= 4.5) start[4]++
+    if (rateE >= 5) start[4]++
+
+    return <View
+      style={{
+        width: 100,
+        position: 'absolute',
+        bottom: 5,
+        right: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+      }}>
+
+      <Text style={[styles.textStyle, {fontSize: 30, color: whiteColor}]}>
+        {rateE.toFixed(2)}
+      </Text>
+
+      <View style={{flexDirection: 'row', marginTop: -2}}>
+        <FontAwesome name={start[0] === -1 ? 'star-o' : start[0] === 0 ? 'star-half-empty' : 'star'} size={10}
+                     color={yellowColor}
+                     style={{marginHorizontal: 1}}/>
+        <FontAwesome name={start[1] === -1 ? 'star-o' : start[1] === 0 ? 'star-half-empty' : 'star'} size={10}
+                     color={yellowColor}
+                     style={{marginHorizontal: 1}}/>
+
+        <FontAwesome name={start[2] === -1 ? 'star-o' : start[2] === 0 ? 'star-half-empty' : 'star'} size={10}
+                     color={yellowColor}
+                     style={{marginHorizontal: 1}}/>
+
+        <FontAwesome name={start[3] === -1 ? 'star-o' : start[3] === 0 ? 'star-half-empty' : 'star'} size={10}
+                     color={yellowColor}
+                     style={{marginHorizontal: 1}}/>
+
+        <FontAwesome name={start[4] === -1 ? 'star-o' : start[4] === 0 ? 'star-half-empty' : 'star'} size={10}
+                     color={yellowColor}
+                     style={{marginHorizontal: 1}}/>
+
+
+      </View>
+
+    </View>
+  }
+
+  sendRateEvent(rateE) {
+    let start = [-1, -1, -1, -1, -1]
+
+
+    if (rateE >= 1) start[0] = 1
+
+    if (rateE >= 2) start[1] = 1
+
+    if (rateE >= 3) start[2] = 1
+
+    if (rateE >= 4) start[3] = 1
+
+    if (rateE >= 5) start[4] = 1
+
+    this.setState({
+      userStartEvent: start,
+      isRating: true
+    })
+
+    rateEvent(this.props.navigation.state.params.data._id, rateE, this.props.userInfo.username).then(data => {
+
+      console.log(data)
+
+      this.setState({
+        isRating: false,
+        listRateEvent: data.rates
+      })
+    })
+
+    console.log(start)
+  }
+
+  renderYouRate() {
+
+
+    return <View style={{width: '100%', marginTop: 10}}>
+      <View style={[styles.viewInfo, {flexDirection: 'row', alignItems: 'flex-end', marginLeft: 0}]}>
+        <Text style={[styles.textStyle, {fontWeight: '400', marginTop: 15,}]}>
+          Nhấn bình để bình chọn
+        </Text>
+        <View
+          style={{borderBottomWidth: 1, width: '45%', marginBottom: 8, marginHorizontal: 10, color: blackColor}}/>
+      </View>
+
+      <View style={{flexDirection: 'row', marginTop: 15, marginLeft: 30}}>
+
+        <TouchableOpacity disabled={this.state.isRating} onPress={() => this.sendRateEvent(1)}>
+          <FontAwesome
+            name={this.state.userStartEvent[0] === -1 ? 'star-o' : this.state.userStartEvent[0] === 0 ? 'star-half-empty' : 'star'}
+            size={35}
+            color={grayColor}
+            style={{marginHorizontal: 5}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity disabled={this.state.isRating} onPress={() => this.sendRateEvent(2)}>
+          <FontAwesome
+            name={this.state.userStartEvent[1] === -1 ? 'star-o' : this.state.userStartEvent[1] === 0 ? 'star-half-empty' : 'star'}
+            size={35}
+            color={grayColor}
+            style={{marginHorizontal: 5}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity disabled={this.state.isRating} onPress={() => this.sendRateEvent(3)}>
+          <FontAwesome
+            name={this.state.userStartEvent[2] === -1 ? 'star-o' : this.state.userStartEvent[2] === 0 ? 'star-half-empty' : 'star'}
+            size={35}
+            color={grayColor}
+            style={{marginHorizontal: 5}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity disabled={this.state.isRating} onPress={() => this.sendRateEvent(4)}>
+          <FontAwesome
+            name={this.state.userStartEvent[3] === -1 ? 'star-o' : this.state.userStartEvent[3] === 0 ? 'star-half-empty' : 'star'}
+            size={35}
+            color={grayColor}
+            style={{marginHorizontal: 5}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity disabled={this.state.isRating} onPress={() => this.sendRateEvent(5)}>
+          <FontAwesome
+            name={this.state.userStartEvent[4] === -1 ? 'star-o' : this.state.userStartEvent[4] === 0 ? 'star-half-empty' : 'star'}
+            size={35}
+            color={grayColor}
+            style={{marginHorizontal: 5}}/>
+        </TouchableOpacity>
+
+
+      </View>
+    </View>
+  }
+
   render() {
     const {navigate} = this.props.navigation
     const data = this.props.navigation.getParam('data', 'NO-ID')
@@ -145,10 +337,7 @@ class DetailsCardEvent extends React.Component {
                 source={{uri: data.avatar}}
                 resizeMode={'cover'}>
 
-                <View
-                  style={{width: 200, height: 30, backgroundColor: 'red', position: 'absolute', bottom: 0, right: 0}}>
-
-                </View>
+                {this.renderRateEvent(this.state.listRateEvent)}
 
               </ImageBackground>
             </View>
@@ -178,7 +367,7 @@ class DetailsCardEvent extends React.Component {
                   this.joinEvent()
                 }}>
                   <View style={{
-                    backgroundColor: this.state.sign ? 'blue' : 'red',
+                    backgroundColor: this.state.sign ? grayColor : blueColor,
                     height: 38,
                     width: 120,
                     borderRadius: 19,
@@ -250,6 +439,8 @@ class DetailsCardEvent extends React.Component {
                 {data.description}
               </Text>
             </View>
+
+            {this.renderYouRate()}
 
             <View style={[styles.viewInfo, {flexDirection: 'row', alignItems: 'flex-end'}]}>
               <Text style={[styles.textStyle, {fontWeight: '400', marginTop: 15,}]}>

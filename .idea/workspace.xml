@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/utilities/formatDayAgo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/History.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/lib/browser/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/lib/compat/callsite-tostring.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/lib/compat/event-listener-count.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/lib/compat/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/depd/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/http-errors/HISTORY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/http-errors/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/http-errors/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/http-errors/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/node_modules/body-parser/node_modules/raw-body/node_modules/http-errors/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/constants/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/constants/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/color.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utilities/ApiManager.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -54,11 +36,20 @@
       <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="148" column="115" selection-start-line="148" selection-start-column="115" selection-end-line="148" selection-end-column="115" />
+            <state relative-caret-position="257">
+              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding>
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="color.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -78,8 +69,8 @@
       <file leaf-file-name="ApiManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5025">
-              <caret line="341" column="21" selection-start-line="341" selection-start-column="21" selection-end-line="341" selection-end-column="21" />
+            <state relative-caret-position="201">
+              <caret line="388" column="16" selection-start-line="388" selection-start-column="16" selection-end-line="388" selection-end-column="16" />
               <folding>
                 <element signature="e#44#133#0" expanded="true" />
               </folding>
@@ -105,24 +96,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VerificationContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/verification/VerificationContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomMainTab.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/navigation/CustomMainTab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -134,11 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GET_USER_INFO</find>
-      <find>getCurrentUser</find>
-      <find>Token</find>
-      <find>users/lo</find>
-      <find>loginUserWithPhone</find>
       <find>currentUserEvent</find>
       <find>GET_EVENT_USER</find>
       <find>Upl</find>
@@ -160,10 +128,15 @@
       <find>FlatList</find>
       <find>Ionicons</find>
       <find>moment</find>
-      <find>Will</find>
       <find>filter</find>
       <find>detailCardEvent</find>
       <find>userInfo</find>
+      <find>đăng</find>
+      <find>FontAwesome</find>
+      <find>map</find>
+      <find>listRateEvent</find>
+      <find>Will</find>
+      <find>props</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
@@ -182,7 +155,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemEnventProfile.js" />
-        <option value="$PROJECT_DIR$/client/src/constants/color.js" />
         <option value="$PROJECT_DIR$/client/App.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/ProfileSwitchContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" />
@@ -223,10 +195,11 @@
         <option value="$PROJECT_DIR$/client/src/navigation/CustomMainTab.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" />
         <option value="$PROJECT_DIR$/client/src/constants/constant.js" />
-        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/utilities/formatDayAgo.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js" />
+        <option value="$PROJECT_DIR$/client/src/constants/color.js" />
+        <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
       </list>
     </option>
@@ -472,25 +445,25 @@
       <workItem from="1542467188054" duration="1219000" />
       <workItem from="1542468908079" duration="3751000" />
       <workItem from="1542519736301" duration="13340000" />
-      <workItem from="1542552592276" duration="337000" />
+      <workItem from="1542552592276" duration="8369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126625000" />
+    <option name="totallyTimeSpent" value="134657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.14134742" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.14134742" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
@@ -535,20 +508,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/node_modules/redux-observable/lib/cjs/createEpicMiddleware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/login/LoginContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
@@ -828,16 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5025">
-          <caret line="341" column="21" selection-start-line="341" selection-start-column="21" selection-end-line="341" selection-end-column="21" />
-          <folding>
-            <element signature="e#44#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -869,10 +818,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="618" column="4" selection-start-line="618" selection-start-column="4" selection-end-line="618" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/constants/color.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/utilities/ApiManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="388" column="16" selection-start-line="388" selection-start-column="16" selection-end-line="388" selection-end-column="16" />
+          <folding>
+            <element signature="e#44#133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="148" column="115" selection-start-line="148" selection-start-column="115" selection-end-line="148" selection-end-column="115" />
+        <state relative-caret-position="257">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding>
             <element signature="e#45#71#0" expanded="true" />
           </folding>

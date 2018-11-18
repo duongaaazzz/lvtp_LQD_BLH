@@ -226,6 +226,11 @@ export function loginUserWithPhone(numberPhone) {
   })
 }
 
+/**
+ * Handle user sign event
+ * @param eventId
+ * @return {Promise<any>}
+ */
 export function handleUserEvent(eventId) {
   return new Promise(resolve => {
     let body = {
@@ -246,7 +251,16 @@ export function handleUserEvent(eventId) {
   })
 }
 
-
+/**
+ * Update user infor
+ * @param fullname
+ * @param birthday
+ * @param gender
+ * @param email
+ * @param avatar
+ * @param about
+ * @return {Promise<any>}
+ */
 export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, about) {
   return new Promise(resolve => {
     let userid = store.getState().userInfo._id
@@ -272,6 +286,19 @@ export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, 
 }
 
 
+/**
+ * Update event
+ * @param eventId
+ * @param title
+ * @param description
+ * @param price
+ * @param type
+ * @param location
+ * @param avatar
+ * @param time_start
+ * @param time_end
+ * @return {Promise<any>}
+ */
 export function patchUpdateEvent(eventId, title, description, price, type, location, avatar, time_start, time_end) {
   return new Promise(resolve => {
     let body =
@@ -320,7 +347,13 @@ export function deleteUserEvent(eventId) {
   })
 }
 
-
+/**
+ * Comment event
+ * @param eventId
+ * @param comment
+ * @param username
+ * @return {Promise<any>}
+ */
 export function commentEvent(eventId, comment, username) {
 
   let body = {
@@ -333,6 +366,38 @@ export function commentEvent(eventId, comment, username) {
 
   return new Promise(resolve => {
     patchWithTimeout(`${urlServer}/events/comment/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data.event)
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+      } else {
+        resolve(false)
+
+      }
+    })
+  })
+}
+
+/**
+ * Rate event
+ * @param eventId
+ * @param rate
+ * @param username
+ * @return {Promise<any>}
+ */
+export function rateEvent(eventId, rate, username) {
+
+  let body = {
+    rate: {
+      username: username,
+      rate: rate ,
+      at: Moment().format()
+    }
+  }
+
+  return new Promise(resolve => {
+    patchWithTimeout(`${urlServer}/events/rate/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
         resolve(data.event)
         getEvent().then(data => {

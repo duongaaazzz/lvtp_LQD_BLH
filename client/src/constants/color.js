@@ -15,4 +15,5 @@ export const violetColor = '#4B1E7F'
 export const pinkColor = '#FE3B4E'
 export const darkPinkColor = '#FF6378'
 export const skyColor = '#3BFEF1'
+export const yellowColor = '#ffcc00'
 
