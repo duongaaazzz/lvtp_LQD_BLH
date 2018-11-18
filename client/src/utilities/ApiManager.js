@@ -6,6 +6,7 @@ import {apiKeyTwilio, baseUrlVerificationTwilio, urlServer} from '../constants/c
 import {getWithTimeout, patchWithTimeout, postWithTimeout, deleteWithTimeout} from './networking';
 import store from '../redux/store';
 import {GET_EVENT_USER} from '../actions/user';
+import Moment from 'moment';
 
 /**
  * Send verification phone number
@@ -271,19 +272,19 @@ export function patchUpdateUserInfor(fullname, birthday, gender, email, avatar, 
 }
 
 
-export function patchUpdateEvent(eventId, title, description, price, type, location, avatar, time_start, time_end ) {
+export function patchUpdateEvent(eventId, title, description, price, type, location, avatar, time_start, time_end) {
   return new Promise(resolve => {
-    let body = 
-    [ 
-      {"propName": "title",  "value": title},
-      {"propName": "description",  "value": description},
-      {"propName": "price",  "value": price},
-      {"propName": "type",  "value": type},
-      {"propName": "location",  "value": location},
-      {"propName": "avatar",  "value": avatar},
-      {"propName": "time_start",  "value": time_start},
-      {"propName": "time_end",  "value": time_end},
-    ]
+    let body =
+      [
+        {'propName': 'title', 'value': title},
+        {'propName': 'description', 'value': description},
+        {'propName': 'price', 'value': price},
+        {'propName': 'type', 'value': type},
+        {'propName': 'location', 'value': location},
+        {'propName': 'avatar', 'value': avatar},
+        {'propName': 'time_start', 'value': time_start},
+        {'propName': 'time_end', 'value': time_end},
+      ]
     // console.log('userid', userid)
     // console.log(body)
     patchWithTimeout(`${urlServer}/events/${eventId}`, {}, body).then(data => {
@@ -297,7 +298,11 @@ export function patchUpdateEvent(eventId, title, description, price, type, locat
 }
 
 
-
+/**
+ * Delete event
+ * @param eventId
+ * @return {Promise<any>}
+ */
 export function deleteUserEvent(eventId) {
   return new Promise(resolve => {
     deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
@@ -310,6 +315,32 @@ export function deleteUserEvent(eventId) {
 
       } else {
         resolve(false)
+      }
+    })
+  })
+}
+
+
+export function commentEvent(eventId, comment, username) {
+
+  let body = {
+    comment: {
+      username: username,
+      comment: comment,
+      at: Moment().format()
+    }
+  }
+
+  return new Promise(resolve => {
+    patchWithTimeout(`${urlServer}/events/comment/${eventId}`, {}, body).then(data => {
+      if (data.status === 'success') {
+        resolve(data.event)
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
+      } else {
+        resolve(false)
+
       }
     })
   })
