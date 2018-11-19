@@ -6,15 +6,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, StyleSheet, Dimensions, Image, TouchableOpacity} from 'react-native'
-import NavigationServices from '../../navigation/NavigationServices'
+import NavigationServices from '../../../navigation/NavigationServices'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Moment from 'moment';
 
 
-import RouteKey from '../../constants/routeKey'
-import {blackColor, grayColor, yellowColor} from '../../constants/color';
+import RouteKey from '../../../constants/routeKey'
+import {blackColor, grayColor, whiteColor, yellowColor} from '../../../constants/color';
+import randomColor from 'randomcolor';
 
 
 const {width, height} = Dimensions.get('window')
@@ -33,6 +34,42 @@ class ItemCardEvent extends React.Component {
       })
       this.rateEvent = (this.rateEvent / props.data.rates.length) || 0
     }
+
+  }
+
+
+  renderHashtag(type) {
+
+    let hashtagView = []
+
+    // console.log('as', this.state.type)
+    for (let i = 0; i < type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity>
+          <View style={{
+            marginHorizontal: 2,
+            backgroundColor: randomColor({seed: type[i]}),
+            height: 30,
+            borderRadius: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            flexDirection: 'row',
+
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11,
+              paddingHorizontal: 15
+            }]}>{type[i]}</Text>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
 
   }
 
@@ -55,7 +92,7 @@ class ItemCardEvent extends React.Component {
           borderRadius: 10,
           marginTop: 15,
           marginHorizontal: 5,
-          height: 135,
+          minHeight: 135,
           width: width * 0.93,
           backgroundColor: '#ffffff',
           justifyContent: 'center',
@@ -99,19 +136,13 @@ class ItemCardEvent extends React.Component {
                 height: '20%',
                 width: '100%',
                 flexDirection: 'row',
+                marginBottom: 5
               }}>
 
-                <FontAwesome name={'star'} size={17}
-                             color={blackColor}
-                             style={{marginHorizontal: 1}}/>
-                <Text style={[styles.textStyle, {
-                  marginRight: 5,
-                  fontSize: 10
-                }]}>{this.rateEvent.toFixed(2)}</Text>
+                <View style={{flexDirection: 'row', flexWrap: 'wrap', marginRight: 5, width: '120%'}}>
+                  {this.renderHashtag(this.props.data.type)}
 
-                <MaterialCommunityIcons name='message' size={17} color={blackColor}/>
-                <Text
-                  style={[styles.textStyle, {marginRight: 5, fontSize: 10}]}>{this.props.data.comments.length}</Text>
+                </View>
 
               </View>
             </View>

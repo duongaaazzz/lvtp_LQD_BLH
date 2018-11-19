@@ -122,7 +122,7 @@ class DetailsCardEvent extends React.Component {
                 position: 'absolute'
               }}>
                 <TouchableOpacity
-                  onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.EditEvent, {detailCardEvent: detailCardEvent})}
+                  onPress={() => NavigationServices.homeSwitchNavigate(RouteKey.EditEvent, {detailCardEvent: detailCardEvent,home:'home'})}
                   style={[styles.button, {width: 100, backgroundColor: 'gray'}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Cập
                     Nhật</Text>
@@ -160,7 +160,7 @@ class DetailsCardEvent extends React.Component {
 
             <View style={[styles.body]}>
               {this.renderInfoEvent([blueColor, darkBlueColor], detailCardEvent.userlist.length, 'Người đăng ký', 'account-supervisor')}
-              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Người thích', 'heart')}
+              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Bình chọn', 'star')}
               {/*{this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ', 'share')}*/}
             </View>
 

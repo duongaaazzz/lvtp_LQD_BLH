@@ -6,14 +6,24 @@ import {Platform} from 'react-native'
 import store from '../redux/store'
 import firebase from 'firebase'
 import RNFetchBlob from 'rn-fetch-blob'
+//
+// const config = {
+//   apiKey: 'AIzaSyAhyzgxtYkKwFrrpRyC7nTgz1O9WWDP2UE',
+//   authDomain: 'lvtn-lqd-blh-2019.firebaseapp.com',
+//   databaseURL: 'https://lvtn-lqd-blh-2019.firebaseio.com',
+//   projectId: 'lvtn-lqd-blh-2019',
+//   storageBucket: 'lvtn-lqd-blh-2019.appspot.com',
+//   messagingSenderId: '969498387501'
+// };
+
 
 const config = {
-  apiKey: 'AIzaSyAhyzgxtYkKwFrrpRyC7nTgz1O9WWDP2UE',
-  authDomain: 'lvtn-lqd-blh-2019.firebaseapp.com',
-  databaseURL: 'https://lvtn-lqd-blh-2019.firebaseio.com',
-  projectId: 'lvtn-lqd-blh-2019',
-  storageBucket: 'lvtn-lqd-blh-2019.appspot.com',
-  messagingSenderId: '969498387501'
+  apiKey: "AIzaSyAa9bwrPqhJoGw1MZHLxghQatDceUwtSgE",
+  authDomain: "lvtp-firebase.firebaseapp.com",
+  databaseURL: "https://lvtp-firebase.firebaseio.com",
+  projectId: "lvtp-firebase",
+  storageBucket: "lvtp-firebase.appspot.com",
+  messagingSenderId: "1079104942813"
 };
 
 const firebaseApp = firebase.initializeApp(config);

@@ -36,11 +36,13 @@ class SearchContainer extends React.Component {
 
 
         dataSearch = context.state.currentUserEvent.filter(i => {
-          if (
-            i.title.toUpperCase().includes(context.state.keySearch) ||
-            i.title.includes(context.state.keySearch)
-          )
-            return i;
+          if (i.title !== undefined) {
+            if (
+              i.title.toUpperCase().includes(context.state.keySearch) ||
+              i.title.includes(context.state.keySearch)
+            )
+              return i;
+          }
         });
 
         context.setState({
