@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2afdcef1-b577-467d-9e20-091c82cd5308" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/home/type/ItemCardEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/ItemCardEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/home/now/NowContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/now/NowContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/home/type/TypeContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/type/TypeContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/profile/EditEventContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/profile/EditEventContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/search/ItemSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/search/ItemSearch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/search/SearchContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/search/SearchContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/constants/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/constants/firebaseHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/firebaseHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/navigation/AppNavigator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,14 +35,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="196" column="29" lean-forward="true" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
+            <state relative-caret-position="419">
+              <caret line="138" column="3" lean-forward="true" selection-start-line="105" selection-start-column="2" selection-end-line="138" selection-end-column="3" />
               <folding>
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemSearch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/search/ItemSearch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchContainer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/search/SearchContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetailsCardEvent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -64,7 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>usersi</find>
       <find>dateTimePickerStart</find>
       <find>comso</find>
       <find>sign</find>
@@ -94,6 +114,7 @@
       <find>renderHashtag</find>
       <find>render</find>
       <find>map</find>
+      <find>has</find>
     </findStrings>
     <replaceStrings>
       <replace>eventData</replace>
@@ -111,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/App.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/ProfileSwitchContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/ItemEventProfile.js" />
         <option value="$PROJECT_DIR$/client/src/navigation/MainTabContainer.js" />
@@ -150,7 +170,6 @@
         <option value="$PROJECT_DIR$/client/src/utilities/formatDayAgo.js" />
         <option value="$PROJECT_DIR$/client/src/constants/color.js" />
         <option value="$PROJECT_DIR$/client/src/utilities/ApiManager.js" />
-        <option value="$PROJECT_DIR$/client/src/components/search/SearchContainer.js" />
         <option value="$PROJECT_DIR$/client/src/constants/firebaseHelper.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/now/NowContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/type/TypeContainer.js" />
@@ -162,6 +181,8 @@
         <option value="$PROJECT_DIR$/client/src/components/profile/EditEventContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js" />
         <option value="$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js" />
+        <option value="$PROJECT_DIR$/client/src/components/search/ItemSearch.js" />
+        <option value="$PROJECT_DIR$/client/src/components/search/SearchContainer.js" />
       </list>
     </option>
   </component>
@@ -292,6 +313,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lvtp_LQD_BLH" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lvtp_LQD_BLH" type="b2602c69:ProjectViewProjectNode" />
@@ -435,12 +464,12 @@
       <workItem from="1542519736301" duration="13340000" />
       <workItem from="1542552592276" duration="10712000" />
       <workItem from="1542565565108" duration="48000" />
-      <workItem from="1542598084445" duration="1306000" />
+      <workItem from="1542598084445" duration="2504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138354000" />
+    <option name="totallyTimeSpent" value="139552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -555,13 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/search/ItemSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -725,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/search/SearchContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/profile/CreateEventContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -831,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="241" column="26" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/home/HomeContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -847,11 +855,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/home/DetailsCardEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="196" column="29" lean-forward="true" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
+        <state relative-caret-position="419">
+          <caret line="138" column="3" lean-forward="true" selection-start-line="105" selection-start-column="2" selection-end-line="138" selection-end-column="3" />
           <folding>
             <element signature="e#45#71#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/profile/DetailsCardEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/search/ItemSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/search/SearchContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
         </state>
       </provider>
     </entry>

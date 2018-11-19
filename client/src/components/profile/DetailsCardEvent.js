@@ -79,6 +79,17 @@ class DetailsCardEvent extends React.Component {
   }
 
   renderInfoEvent(listColor, number, test, nameIcon) {
+
+    const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
+
+    let rateE = 0
+
+    detailCardEvent.rates.map(e => {
+      rateE += e.rate
+    })
+    rateE = (rateE / detailCardEvent.rates.length) || 0
+
+
     return <LinearGradient
       colors={listColor}
       start={{x: 0, y: 0}} end={{x: 1, y: 1}}
@@ -89,7 +100,11 @@ class DetailsCardEvent extends React.Component {
                                 color={whiteColor}/>
       </View>
       <View style={{flex: 0.8, marginBottom: 10}}>
-        <Text style={[styles.textStyle, {fontSize: 38, color: whiteColor}]}> {number}</Text>
+        <Text
+          style={[styles.textStyle, {
+            fontSize: 38,
+            color: whiteColor
+          }]}> {nameIcon === 'star' ? rateE.toFixed(2) : number}</Text>
         <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
       </View>
 
@@ -122,7 +137,10 @@ class DetailsCardEvent extends React.Component {
                 position: 'absolute'
               }}>
                 <TouchableOpacity
-                  onPress={() => NavigationServices.homeSwitchNavigate(RouteKey.EditEvent, {detailCardEvent: detailCardEvent,home:'home'})}
+                  onPress={() => NavigationServices.homeSwitchNavigate(RouteKey.EditEvent, {
+                    detailCardEvent: detailCardEvent,
+                    home: 'home'
+                  })}
                   style={[styles.button, {width: 100, backgroundColor: 'gray'}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Cập
                     Nhật</Text>

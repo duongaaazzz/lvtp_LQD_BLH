@@ -38,8 +38,9 @@ class SearchContainer extends React.Component {
         dataSearch = context.state.currentUserEvent.filter(i => {
           if (i.title !== undefined) {
             if (
-              i.title.toUpperCase().includes(context.state.keySearch) ||
-              i.title.includes(context.state.keySearch)
+              i.title.includes(context.state.keySearch.toLowerCase()) ||
+              i.title.includes(context.state.keySearch) ||
+              i.type.find(e => e.includes(context.state.keySearch) || e.includes(context.state.keySearch.toLowerCase()))
             )
               return i;
           }
@@ -125,18 +126,18 @@ class SearchContainer extends React.Component {
 
         </View>
 
-        <View
-          style={{
-            height: 60,
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            marginVertical: 5,
-          }}>
-          {this.renderFilter('Music', 'Type', {backgroundColor: blueColor})}
-          {this.renderFilter('Nearby', 'Sort', {backgroundColor: greenColor})}
-        </View>
+        {/*<View*/}
+        {/*style={{*/}
+        {/*height: 60,*/}
+        {/*flexDirection: 'row',*/}
+        {/*width: '100%',*/}
+        {/*justifyContent: 'flex-start',*/}
+        {/*alignItems: 'center',*/}
+        {/*marginVertical: 5,*/}
+        {/*}}>*/}
+        {/*{this.renderFilter('Music', 'Type', {backgroundColor: blueColor})}*/}
+        {/*{this.renderFilter('Nearby', 'Sort', {backgroundColor: greenColor})}*/}
+        {/*</View>*/}
 
 
         <ScrollView style={{borderRadius: 10}}>
@@ -183,7 +184,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
+    marginBottom: 10
   },
   buttonFilter: {
     marginRight: 10,

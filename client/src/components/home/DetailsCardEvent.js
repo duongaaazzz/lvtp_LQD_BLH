@@ -329,7 +329,7 @@ class DetailsCardEvent extends React.Component {
             // justifyContent: 'flex-start',
             alignItems: 'flex-start',
           }}>
-            <View style={{width: '100%', height: 210}}>
+            <View style={{width: '100%', height: 210,backgroundColor:grayColor}}>
               <ImageBackground
                 style={{
                   flex: 1,
