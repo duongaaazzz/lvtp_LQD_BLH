@@ -355,7 +355,7 @@ router.patch('/rate/:eventId', (req, res, next) => {
               console.log(err);
               res.status(500).json({ error: err });
             });
-        } else {op
+        } else {
           //update rate
           doc.rates = doc.rates.slice(index, -1);
           doc.rates = doc.rates.push(req.body.rate);
