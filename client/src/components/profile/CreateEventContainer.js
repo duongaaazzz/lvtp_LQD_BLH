@@ -369,13 +369,13 @@ export default connect(state => ({
 }), dispatch => ({}))(CreateEventContainer);
 
 const styles = StyleSheet.create({
-  textStyle: {
-    fontFamily: 'SegoeUI',
-    color: blackColor,
-  },
-  textInput: {
-    width: '90%',
-  },
+    textStyle: {
+      fontFamily: 'SegoeUI',
+      color: blackColor,
+    },
+    textInput: {
+      width: '90%',
+    },
   inputWrapper: {
     marginVertical: 5,
     borderRadius: 20,

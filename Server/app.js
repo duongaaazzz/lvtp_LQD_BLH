@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
 const app = express();
 
-mongoose.connect('mongodb+srv://builehieu:1212@cluster0-agiye.gcp.mongodb.net/test?retryWrites=true',
+mongoose.connect('mongodb+srv://builehieu:1212@cluster0-agiye.gcp.mongodb.net/test?retryWrites=true:27017',
   {
     useNewUrlParser: true
   }
