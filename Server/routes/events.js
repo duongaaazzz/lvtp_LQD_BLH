@@ -11,11 +11,11 @@ const Event = require('../models/event');
 /* GET events listing. */
 router.get('/', checkAuth, (req, res, next) => {
   Event.find()
-    .select('title description avatar type created_by userlist time_start time_end price _id location comments')
+    .select('title description avatar type created_by userlist time_start time_end price _id location comments rates')
     .limit(10)
     .exec()
     .then(docs => {
-     // console.log(docs);
+      // console.log(docs);
       const respone = {
         status: 'success',
         count: docs.length,
@@ -53,12 +53,12 @@ router.get('/:eventId', (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
-}); 
+});
 
 /* CREATE event. */
 router.post('/', (req, res, next) => {
-  const typed= req.body.type;
-  console.log (typed.split("|"));
+  const typed = req.body.type;
+  console.log(typed.split("|"));
   const event = new Event({
     _id: new mongoose.Types.ObjectId(),
     title: req.body.title,
@@ -305,8 +305,6 @@ router.patch('/delcomment/:eventId', (req, res, next) => {
     .exec()
     .then(doc => {
       let index = doc.comments.findIndex(i => i == req.body.commentid);
-      //console.log('index: ', index);
-      //console.log(doc.comments);
       doc.comments = doc.comments.slice(index);
       // console.log(doc.comments);
       if (doc) {
@@ -316,6 +314,130 @@ router.patch('/delcomment/:eventId', (req, res, next) => {
             res.status(200).json({
               status: 'success',
               message: 'commented on an event',
+              event: doc
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+          });
+      } else {
+        res.status(404).json({ message: 'event does not exist' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+
+/* rate an event. */
+router.patch('/rate/:eventId', (req, res, next) => {
+  const id = req.params.eventId;
+  Event.findById(id)
+    .exec()
+    .then(doc => {
+      if (doc) {
+        let index = doc.rates.findIndex(i => i.username === req.body.rate.username);
+        if (index === -1) {
+          Event.updateOne({ _id: id }, { $push: { rates: req.body.rate } })
+            .exec()
+            .then(result => {
+              doc.rates.push(req.body.rate);
+              res.status(200).json({
+                status: 'success',
+                message: 'rated event',
+                event: doc
+              });
+            })
+            .catch(err => {
+              console.log(err);
+              res.status(500).json({ error: err });
+            });
+        } else {op
+          //update rate
+          doc.rates = doc.rates.slice(index, -1);
+          doc.rates = doc.rates.push(req.body.rate);
+          console.log('index: ', index);
+          console.log('doc: ', doc.rates);
+          Event.updateOne({ _id: id }, { rates: req.body.rate })
+            .exec()
+            .then(result => {
+              res.status(200).json({
+                status: 'success',
+                message: 'rated event',
+                event: doc
+              });
+            })
+            .catch(err => {
+              console.log(err);
+              res.status(500).json({ error: err });
+            });
+        }
+      } else {
+        res.status(404).json({ message: 'event does not exist' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+/* update rate an event. */
+router.patch('/updateRate/:eventId', (req, res, next) => {
+  const id = req.params.eventId;
+  Event.findById(id)
+    .exec()
+    .then(doc => {
+      let index = doc.rates.findIndex(i => i == req.body.rate.username);
+      doc.rates = doc.rates.slice(index);
+      doc.rates = doc.rates.push(req.body.rate);
+      console.log('doc.rates', doc.rates);
+      if (doc) {
+        Event.updateOne({ _id: id }, { rates: doc.rates })
+          .exec()
+          .then(result => {
+            // doc.rates.push(req.body.rate);
+            res.status(200).json({
+              status: 'success',
+              message: 'update rate event',
+              event: doc
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+          });
+      } else {
+        res.status(404).json({ message: 'event does not exist' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+/* delete rate an event. */
+router.patch('/delRate/:eventId', (req, res, next) => {
+  const id = req.params.eventId;
+  Event.findById(id)
+    .exec()
+    .then(doc => {
+      let index = doc.rates.findIndex(i => i.username === req.body.username);
+      doc.rates = doc.rates.slice(index, -1);
+      console.log('index: ', index);
+      console.log('doc: ', doc.rates);
+      if (doc) {
+        Event.updateOne({ _id: id }, { rates: doc.rates })
+          .exec()
+          .then(result => {
+            // doc.rates.push(req.body.rate);
+            res.status(200).json({
+              status: 'success',
+              message: 'del rate event',
               event: doc
             });
           })
