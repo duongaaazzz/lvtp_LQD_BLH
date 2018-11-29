@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -58,6 +59,7 @@
 		BBC6905533FD4F28B8ED5C02 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B340476DFBAB488E9D4B40A8 /* Octicons.ttf */; };
 		D4A62AF54E30465E8BB3613C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 227ABF6BD0E246719F6A427E /* SimpleLineIcons.ttf */; };
 		F24F5D2A21762FD10022358F /* SegoeUIBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F24F5D2921762FD10022358F /* SegoeUIBold.ttf */; };
+		F2504B4121A5A084008AC102 /* libreact-native-maps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2504B4021A5A084008AC102 /* libreact-native-maps.a */; };
 		F26051E9218A0766009C8C70 /* libRSKImageCropper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26051E8218A0766009C8C70 /* libRSKImageCropper.a */; };
 		F26051EB218A0773009C8C70 /* libQBImagePickerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26051EA218A0773009C8C70 /* libQBImagePickerController.a */; };
 		F260520C218A0A25009C8C70 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F260520B218A0A1C009C8C70 /* libRCTCameraRoll.a */; };
@@ -436,6 +438,7 @@
 		EFBB8B78CD5345B5950EEEC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		F04DA2AD18A5423A8E222D0F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		F24F5D2921762FD10022358F /* SegoeUIBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUIBold.ttf; sourceTree = "<group>"; };
+		F2504B4021A5A084008AC102 /* libreact-native-maps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-maps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26051E8218A0766009C8C70 /* libRSKImageCropper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRSKImageCropper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26051EA218A0773009C8C70 /* libQBImagePickerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libQBImagePickerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2605206218A0A1C009C8C70 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2504B4121A5A084008AC102 /* libreact-native-maps.a in Frameworks */,
 				F260520C218A0A25009C8C70 /* libRCTCameraRoll.a in Frameworks */,
 				F26051EB218A0773009C8C70 /* libQBImagePickerController.a in Frameworks */,
 				F26051E9218A0766009C8C70 /* libRSKImageCropper.a in Frameworks */,
@@ -626,6 +630,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2504B4021A5A084008AC102 /* libreact-native-maps.a */,
 				F26051EA218A0773009C8C70 /* libQBImagePickerController.a */,
 				F26051E8218A0766009C8C70 /* libRSKImageCropper.a */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
@@ -890,6 +895,10 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = E9L849LDZ3;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1387,11 +1396,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-client/Pods-client-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 			);
@@ -1587,8 +1598,11 @@
 			baseConfigurationReference = 9D02A85647A7C8936915F69B /* Pods-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = E9L849LDZ3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1601,8 +1615,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqd.blh.lvtn;
 				PRODUCT_NAME = client;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1612,7 +1627,10 @@
 			baseConfigurationReference = D23C8C9572C5BCAD4D6041DB /* Pods-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E9L849LDZ3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1625,8 +1643,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqd.blh.lvtn;
 				PRODUCT_NAME = client;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

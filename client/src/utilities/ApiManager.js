@@ -391,7 +391,7 @@ export function rateEvent(eventId, rate, username) {
   let body = {
     rate: {
       username: username,
-      rate: rate ,
+      rate: rate,
       at: Moment().format()
     }
   }
@@ -410,3 +410,17 @@ export function rateEvent(eventId, rate, username) {
     })
   })
 }
+
+/**
+ * Search place with google map api
+ * @param place
+ * @return {Promise<any>}
+ */
+export function searchPlace(place) {
+  return new Promise(resolve => {
+    getWithTimeout(`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input=${encodeURIComponent(place)}&key=AIzaSyAuZwSOpEisbRaURDBv3IWKDUa1y3kKF2g`).then(ress => {
+
+    })
+  })
+}
+

@@ -15,6 +15,7 @@ import {postCreateEvents} from '../../utilities/ApiManager';
 import ItemImagePostEvent from './ItemImagePostEvent'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import randomColor from 'randomcolor';
+import MapView from 'react-native-maps';
 
 
 class CreateEventContainer extends React.Component {
@@ -212,6 +213,19 @@ class CreateEventContainer extends React.Component {
                   onChangeText={(text) => this.setState({location: text})}
                 />
               </View>
+
+
+              <MapView
+                style={{width:'100%',height:300}}
+                initialRegion={{
+                  latitude: 10.0451618,
+                  longitude: 105.7468535,
+                  latitudeDelta: 0.1,
+                  longitudeDelta: 0.1,
+                }}
+                showsUserLocation={true}
+              />
+
             </View>
 
             <View style={[styles.wrapper, {}]}>

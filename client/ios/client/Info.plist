@@ -37,10 +37,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSExceptionAllowsInsecureHTTPLoads</key>
+	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SegoeUI.ttf</string>
@@ -75,7 +77,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSExceptionAllowsInsecureHTTPLoads</key>
-	<true/>
 </dict>
 </plist>

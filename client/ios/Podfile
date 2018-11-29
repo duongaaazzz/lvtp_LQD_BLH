@@ -22,11 +22,14 @@ target 'client' do
     ]
     
     pod 'RNImageCropPicker', :path =>  '../node_modules/react-native-image-crop-picker'
-    
+    pod 'react-native-maps', path: '../node_modules/react-native-maps'
+    pod 'react-native-google-maps', path: '../node_modules/react-native-maps'  # Unomment this line if you want to support GoogleMaps on iOS
+    # pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
+    pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
     # Pods for client
     
     pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
-
+    
     target 'clientTests' do
         inherit! :search_paths
         # Pods for testing
