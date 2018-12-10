@@ -5,5 +5,5 @@
 export const apiKeyTwilio = 'T6V9aU6Bk8DJ90Ef3tom9rDH680DiiEB'
 export const baseUrlVerificationTwilio = 'https://api.authy.com/protected/json'
 
-export const urlServer = 'http://192.168.1.8:3000'
+export const urlServer = 'http://192.168.1.3:3000'
 // export const urlServer = 'http://lvtnlqdblh.online'
