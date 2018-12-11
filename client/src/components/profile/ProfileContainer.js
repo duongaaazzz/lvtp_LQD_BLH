@@ -222,7 +222,7 @@ class ProfileContainer extends React.Component {
             <FlatList
               data={this.state.eventData}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({item, index}) => <ItemEventProfile item={item}/>}
+              renderItem={({item, index}) => <ItemEventProfile item={item} userInfo={this.props.userInfo}/>}
             />
 
             {

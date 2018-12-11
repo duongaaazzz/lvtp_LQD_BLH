@@ -8,13 +8,15 @@ import {connect} from 'react-redux';
 import {
   Alert,
   View,
-  Text,
+  Text, TouchableWithoutFeedback,
   TouchableOpacity,
   ScrollView,
   ImageBackground,
   StyleSheet,
   Dimensions,
   TextInput,
+  Image,
+  Modal,
   FlatList
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
@@ -33,7 +35,7 @@ import {
   skyColor, violetColor, whiteColor
 } from '../../constants/color';
 import Moment from 'moment';
-import {commentEvent, deleteUserEvent} from '../../utilities/ApiManager';
+import {commentEvent, deleteUserEvent, getUserList} from '../../utilities/ApiManager';
 import NavigationServices from '../../navigation/NavigationServices';
 import formatDayAgo from '../../utilities/formatDayAgo';
 
@@ -47,11 +49,26 @@ class DetailsCardEvent extends React.Component {
     this.state = {
       commentEvent: '',
       isShowButtonSendComment: true,
-      listCommentEvent: props.navigation.state.params.detailCardEvent.comments
+      listCommentEvent: props.navigation.state.params.detailCardEvent.comments,
+      listUserInEvent: [],
+      isShowListUserInEvent: false
     }
   }
 
   componentDidMount() {
+
+    getUserList(this.props.navigation.state.params.detailCardEvent._id).then(resss => {
+      if (resss.length > 0) {
+        this.setState({
+          listUserInEvent: resss
+        })
+
+        console.log('ddd', this.state.listUserInEvent)
+
+      }
+    })
+
+
   }
 
   renderTime() {
@@ -91,25 +108,28 @@ class DetailsCardEvent extends React.Component {
     rateE = (rateE / detailCardEvent.rates.length) || 0
 
 
-    return <LinearGradient
-      colors={listColor}
-      start={{x: 0, y: 0}} end={{x: 1, y: 1}}
-      style={[styles.infoEvent]}>
+    return <TouchableOpacity disabled={nameIcon === 'star'}
+                             onPress={() => this.setState({isShowListUserInEvent: true})}>
+      <LinearGradient
+        colors={listColor}
+        start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+        style={[styles.infoEvent]}>
 
-      <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
-        <MaterialCommunityIcons name={nameIcon} size={30}
-                                color={whiteColor}/>
-      </View>
-      <View style={{flex: 0.8, marginBottom: 10}}>
-        <Text
-          style={[styles.textStyle, {
-            fontSize: 38,
-            color: whiteColor
-          }]}> {nameIcon === 'star' ? rateE.toFixed(2) : number}</Text>
-        <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
-      </View>
+        <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
+          <MaterialCommunityIcons name={nameIcon} size={30}
+                                  color={whiteColor}/>
+        </View>
+        <View style={{flex: 0.8, marginBottom: 10}}>
+          <Text
+            style={[styles.textStyle, {
+              fontSize: 38,
+              color: whiteColor
+            }]}> {nameIcon === 'star' ? rateE.toFixed(2) : number}</Text>
+          <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
+        </View>
 
-    </LinearGradient>
+      </LinearGradient>
+    </TouchableOpacity>
   }
 
   render() {
@@ -303,15 +323,71 @@ class DetailsCardEvent extends React.Component {
           <TouchableOpacity
             style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
             onPress={() => {
-              if (this.props.navigation.state.params.backHome) {
-                NavigationServices.homeSwitchNavigate('HomeTab')
-              } else {
-                NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
-              }
+              this.props.navigation.goBack()
             }}>
             <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
           </TouchableOpacity>
         </View>
+
+        <Modal
+          onRequestClose={() => {
+
+          }}
+          visible={this.state.isShowListUserInEvent}
+          transparent={true}
+          style={{flex: 1}}
+        >
+          <TouchableWithoutFeedback onPress={() => this.setState({
+            isShowListUserInEvent: false
+          })}>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: 'rgba(0,0,0,0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+
+              <View style={{
+                backgroundColor: '#fff',
+                width: '80%',
+                height: '70ß%',
+                alignItems: 'center',
+                borderRadius: 10
+              }}>
+
+                <Text style={[styles.textStyle, {marginVertical: 20, fontSize: 20}]}>Danh sách người tham gia</Text>
+
+                <View style={{borderWidth: 1, borderBottomColor: grayColor, width: '100%', marginBottom: 5}}/>
+
+                <FlatList
+                  style={{flex: 1,}}
+                  data={this.state.listUserInEvent}
+                  renderItem={({item}) => <View
+                    style={{
+                      width: '90%',
+                      height: 40,
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginVertical: 5
+                    }}>
+
+                    <Image
+                      resizeMode='cover'
+                      source={{uri: item.avatar || 'https://znews-photo-td.zadn.vn/w820/Uploaded/spuocaw/2018_08_06/spiritedawaystill4.jpg'}}
+                      style={{width: 40, height: 40, borderRadius: 20}}/>
+
+                    <Text style={[styles.textStyle, {width: '55%', marginLeft: 10}]}>{item.fullname}</Text>
+                  </View>}
+                  keyExtractor={(item, index) => index.toString()}/>
+              </View>
+
+            </View>
+          </TouchableWithoutFeedback>
+        </Modal>
+
       </View>
     )
   }

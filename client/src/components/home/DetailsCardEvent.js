@@ -540,7 +540,7 @@ class DetailsCardEvent extends React.Component {
 
           <TouchableOpacity
             style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigate('HomeTab', {name: 'Brent'})}>
+            onPress={() => this.props.navigation.goBack()}>
             <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
           </TouchableOpacity>
         </View>

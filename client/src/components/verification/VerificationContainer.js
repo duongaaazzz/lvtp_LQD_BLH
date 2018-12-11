@@ -86,7 +86,7 @@ class VerificationContainer extends React.Component {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
-              onPress={() => navigate(RouteKey.Authentication)}>
+              onPress={() => this.props.navigation.goBack()}>
               <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
             </TouchableOpacity>
 

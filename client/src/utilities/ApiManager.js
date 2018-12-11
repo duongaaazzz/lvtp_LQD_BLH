@@ -427,3 +427,18 @@ export function searchPlace(place) {
   })
 }
 
+
+/**
+ * Get user info with number phone
+ * @param {string} numberPhone
+ * @return {Promise<any>}
+ */
+export function getUserList(eventId) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}/events/registers/${eventId}`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.result)
+      } else resolve(false)
+    })
+  })
+}

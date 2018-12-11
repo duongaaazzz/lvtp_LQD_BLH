@@ -19,7 +19,18 @@ export default class ItemEventProfile extends React.Component {
   render() {
     return (
       <TouchableOpacity
-        onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.item})}>
+        onPress={() => {
+          console.log(this.props)
+
+
+          if (this.props.userInfo.username === this.props.item.created_by) {
+            NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.item})
+
+          } else {
+            NavigationServices.profileSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.item})
+          }
+
+        }}>
         <View style={{
           marginTop: 10,
           backgroundColor: whiteColor,

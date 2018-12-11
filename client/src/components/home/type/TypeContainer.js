@@ -4,12 +4,22 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, FlatList, TouchableOpacity, AsyncStorage, ActivityIndicator} from 'react-native'
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  AsyncStorage,
+  ActivityIndicator,
+  StyleSheet,
+  ScrollView
+} from 'react-native'
 
 import ItemCardEvent from './ItemCardEvent'
-import {backgroundColor, blueColor} from '../../../constants/color';
+import {backgroundColor, blackColor, blueColor, whiteColor} from '../../../constants/color';
 import {getEvent} from '../../../utilities/ApiManager';
 import {GET_EVENT_USER} from '../../../actions/user';
+import randomColor from "randomcolor";
 
 class TypeContainer extends React.Component {
 
@@ -25,20 +35,23 @@ class TypeContainer extends React.Component {
   }
 
   componentDidMount(): void {
+    let tttttt = []
     this.props.currentUserEvent.map(event => {
       event.type.map(t => {
         let indexT = this.state.listTypeEvent.findIndex(x => x === t)
+        console.log('dsds', t)
 
         if (indexT === -1) {
 
-          this.setState({
-            listTypeEvent:this.state.listTypeEvent.push(t)
-          })
+          tttttt.push(t)
 
         }
       })
     })
-
+    this.setState({
+      listTypeEvent: tttttt
+    })
+    console.log('dsds', this.state.listTypeEvent)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,7 +76,45 @@ class TypeContainer extends React.Component {
 
   }
 
+  renderHashtag(type) {
+
+    let hashtagView = []
+
+    console.log('as', type)
+    for (let i = 0; i < type.length; i++) {
+
+      hashtagView.push(
+        <TouchableOpacity>
+          <View style={{
+            marginHorizontal: 2,
+            backgroundColor: randomColor({seed: type[i]}),
+            height: 30,
+            width: 60,
+            borderRadius: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 5,
+            // flexDirection: 'row',
+
+          }}>
+            <Text style={[styles.textStyle, {
+              color: whiteColor,
+              borderRadius: 5,
+              fontSize: 11,
+              paddingHorizontal: 15
+            }]}>{type[i]}</Text>
+
+          </View>
+        </TouchableOpacity>
+      )
+    }
+    return hashtagView
+
+  }
+
   render() {
+    console.log('dsds', this.state)
+
     return (
       !this.state.currentUserEvent ?
         <ActivityIndicator size='large' color={blueColor}
@@ -74,15 +125,6 @@ class TypeContainer extends React.Component {
                            }}/>
         :
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
-
-          <View>
-
-            {/*<FlatList renderItem={<View style={{width: 50}}></View>} data={} initialNumToRender={} keyExtractor={}*/}
-                      {/*numColumns={} getItem={}*/}
-                      {/*getItemCount={} disableVirtualization={} maxToRenderPerBatch={} updateCellsBatchingPeriod={}*/}
-                      {/*windowSize={}/>*/}
-
-          </View>
 
           <View style={{elevation: 0}}>
             <FlatList
@@ -97,6 +139,15 @@ class TypeContainer extends React.Component {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  textStyle: {
+    fontFamily: 'SegoeUI',
+    fontWeight: 'bold',
+    color: blackColor
+  }
+})
 
 export default connect(state => ({
   currentUserEvent: state.userInfo.currentUserEvent

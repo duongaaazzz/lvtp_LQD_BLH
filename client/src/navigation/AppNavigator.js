@@ -36,7 +36,7 @@ import CustomMainTab from './CustomMainTab'
 import ProfileSwitchContainer from './ProfileSwitchContainer'
 
 
-export const HomeSwitch = createSwitchNavigator({
+export const HomeSwitch = createStackNavigator({
   HomeTab: {
     screen: HomeTabContainer
   },
@@ -49,9 +49,13 @@ export const HomeSwitch = createSwitchNavigator({
   [RouteKey.EditEvent]: {
     screen: EditEvent
   }
+}, {
+  navigationOptions: {
+    header: null
+  }
 })
 
-export const ProfileSwitch = createSwitchNavigator({
+export const ProfileSwitch = createStackNavigator({
   [RouteKey.ProfileScreen]: {
     screen: ProfileContainer
   },
@@ -66,6 +70,13 @@ export const ProfileSwitch = createSwitchNavigator({
   },
   [RouteKey.EditEvent]: {
     screen: EditEvent
+  },
+  [RouteKey.DetailsCardEvent]: {
+    screen: DetailsCardEvent
+  },
+}, {
+  navigationOptions: {
+    header: null
   }
 })
 

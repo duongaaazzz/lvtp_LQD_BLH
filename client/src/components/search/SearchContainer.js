@@ -38,9 +38,9 @@ class SearchContainer extends React.Component {
         dataSearch = context.state.currentUserEvent.filter(i => {
           if (i.title !== undefined) {
             if (
-              i.title.includes(context.state.keySearch.toLowerCase()) ||
+              i.title.toLowerCase().includes(context.state.keySearch.toLowerCase()) ||
               i.title.includes(context.state.keySearch) ||
-              i.type.find(e => e.includes(context.state.keySearch) || e.includes(context.state.keySearch.toLowerCase()))
+              i.type.find(e => e.includes(context.state.keySearch) || e.toLowerCase().includes(context.state.keySearch.toLowerCase()))
             )
               return i;
           }
