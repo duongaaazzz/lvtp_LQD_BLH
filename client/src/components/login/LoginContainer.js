@@ -42,7 +42,6 @@ class LoginContainer extends React.Component {
     })
 
 
-
     sendVerificationPhoneNumber('+84', this.state.numberPhone).then(resss => {
 
       if (resss) {
@@ -62,9 +61,9 @@ class LoginContainer extends React.Component {
         </View>
         <View style={styles.inputWrapper}>
           <TextInput
-            style={styles.textInput}
+            style={[styles.textInput, ]}
             keyboardType='numeric'
-            maxLength={11}  
+            maxLength={11}
             placeholder="Số điện thoại"
             returnKeyType="done"
             ref={(input) => (this.numberPhone = input)}

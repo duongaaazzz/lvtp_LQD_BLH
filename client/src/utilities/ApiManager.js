@@ -316,6 +316,9 @@ export function patchUpdateEvent(eventId, title, description, price, type, locat
     // console.log(body)
     patchWithTimeout(`${urlServer}/events/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
         resolve(data)
       } else {
         resolve(false)
@@ -333,7 +336,7 @@ export function patchUpdateEvent(eventId, title, description, price, type, locat
 export function deleteUserEvent(eventId) {
   return new Promise(resolve => {
     deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
-      if (data.status === 'success') {
+      if (data.message === "Event Deleted"  ) {
         resolve(data)
 
         getEvent().then(data => {

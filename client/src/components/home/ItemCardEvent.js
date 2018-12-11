@@ -40,14 +40,17 @@ class ItemCardEvent extends React.Component {
     return (
       <TouchableOpacity onPress={() => {
 
-        if (this.props.userInfo.username === this.props.data.created_by) {
-          NavigationServices.homeSwitchNavigate(RouteKey.DetailsEventProfile, {
-            detailCardEvent: this.props.data,
-            backHome: true
-          })
-        } else {
-          NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
-        }
+        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
+
+
+        // if (this.props.userInfo.username === this.props.data.created_by) {
+        //   NavigationServices.homeSwitchNavigate(RouteKey.DetailsEventProfile, {
+        //     detailCardEvent: this.props.data,
+        //     backHome: true
+        //   })
+        // } else {
+        //   NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.data})
+        // }
 
 
       }}>

@@ -73,7 +73,7 @@ class CustomHomeTab extends React.Component {
           index: 1,
           selectedTabIndex: selectedTabIndex,
           route: RouteKey.NearByScreen,
-          label: 'Nearby',
+          label: 'Hot',
           selected: selectedTabIndex == 1,
           icon: 'contact-phone'
         })}

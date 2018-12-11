@@ -110,6 +110,7 @@ class SearchContainer extends React.Component {
 
         <View style={styles.searchTool}>
           <TextInput
+            autoCapitalize={'none'}
             style={[styles.textInput, styles.textStyle, {fontSize: 16, color: grayColor}]}
             placeholder={'Search event'}
             onChangeText={text => {

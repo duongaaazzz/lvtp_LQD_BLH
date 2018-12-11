@@ -4,8 +4,8 @@
 
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Dimensions, Image } from 'react-native'
+import {connect} from 'react-redux';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Dimensions, Image} from 'react-native'
 import {
   blackColor,
   blueColor,
@@ -23,10 +23,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import ItemEventProfile from './ItemEventProfile'
 import NavigationServices from '../../navigation/NavigationServices';
 import RouteKey from '../../constants/routeKey';
-import { getUserEvents, getUserSignedEvents } from '../../utilities/ApiManager';
+import {getUserEvents, getUserSignedEvents} from '../../utilities/ApiManager';
 
 
-const { width, height } = Dimensions.get('window')
+const {width, height} = Dimensions.get('window')
 const tabSelectName = {
   signed: 'Signed',
   manage: 'Manage'
@@ -60,12 +60,34 @@ class ProfileContainer extends React.Component {
     getUserSignedEvents(this.props.userInfo._id).then(data => {
       //this.setState({eventData: data })
       this.dataEventS = data
-      this.setState({ eventData: data })
+      this.setState({eventData: data})
       //console.log('dataEventM', this.dataEventS)
     })
 
   }
 
+  componentWillReceiveProps(nextProps): void {
+
+    if (this.props.currentUserEvent !== nextProps.currentUserEvent) {
+      getUserEvents(this.props.userInfo.username).then(data => {
+        //this.setState({eventData: data })
+        this.dataEventM = data
+        //console.log('dataEventM', this.dataEventM)
+
+        if (!!this.props.navigation.state && !!this.props.navigation.state.params && this.props.navigation.state.params.createEvent) {
+          this.changeTabEvent(tabSelectName.manage)
+        }
+
+      })
+      getUserSignedEvents(this.props.userInfo._id).then(data => {
+        //this.setState({eventData: data })
+        this.dataEventS = data
+        this.setState({eventData: data})
+        //console.log('dataEventM', this.dataEventS)
+      })
+    }
+
+  }
 
   changeTabEvent(tabName) {
 
@@ -96,7 +118,7 @@ class ProfileContainer extends React.Component {
   render() {
 
 
-    const renderHeaderProfile = () => <View style={{ width: '100%', backgroundColor: 'white' }}>
+    const renderHeaderProfile = () => <View style={{width: '100%', backgroundColor: 'white'}}>
       <View
         style={{
           width: '100%',
@@ -107,23 +129,23 @@ class ProfileContainer extends React.Component {
           justifyContent: 'space-evenly'
         }}>
 
-        <View />
+        <View/>
 
         <Image
           resizeMode='cover'
-          source={{ uri: this.props.userInfo.avatar || 'https://znews-photo-td.zadn.vn/w820/Uploaded/spuocaw/2018_08_06/spiritedawaystill4.jpg' }}
-          style={{ width: 62, height: 62, borderRadius: 31 }} />
+          source={{uri: this.props.userInfo.avatar || 'https://znews-photo-td.zadn.vn/w820/Uploaded/spuocaw/2018_08_06/spiritedawaystill4.jpg'}}
+          style={{width: 62, height: 62, borderRadius: 31}}/>
 
-        <View style={{ width: '50%' }}>
-          <Text style={[styles.textStyle, { fontSize: 21, fontWeight: 'bold', }]}>{this.props.userInfo.fullname}</Text>
-          <Text style={[styles.textStyle, { fontSize: 16, fontWeight: '400', }]}>@{this.props.userInfo.username}</Text>
+        <View style={{width: '50%'}}>
+          <Text style={[styles.textStyle, {fontSize: 21, fontWeight: 'bold',}]}>{this.props.userInfo.fullname}</Text>
+          <Text style={[styles.textStyle, {fontSize: 16, fontWeight: '400',}]}>@{this.props.userInfo.username}</Text>
         </View>
 
         <TouchableOpacity onPress={() => NavigationServices.profileSwitchNavigate(RouteKey.EditUserInfor)}>
-          <Ionicons name={'md-settings'} size={23} color={grayColor} />
+          <Ionicons name={'md-settings'} size={23} color={grayColor}/>
         </TouchableOpacity>
 
-        <View />
+        <View/>
 
 
       </View>
@@ -144,7 +166,7 @@ class ProfileContainer extends React.Component {
               backgroundColor: this.state.tabSelect === tabSelectName.signed ? redColor : whiteColor
             }]}>
             <MaterialCommunityIcons name={'fire'} size={23}
-              color={this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor} />
+                                    color={this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor}/>
             <Text style={[styles.textStyle, {
               fontSize: 15,
               color: this.state.tabSelect === tabSelectName.signed ? whiteColor : redColor,
@@ -164,7 +186,7 @@ class ProfileContainer extends React.Component {
               backgroundColor: this.state.tabSelect === tabSelectName.manage ? blueColor : whiteColor
             }]}>
             <MaterialCommunityIcons name={'view-grid'} size={23}
-              color={this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor} />
+                                    color={this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor}/>
             <Text style={[styles.textStyle, {
               fontSize: 15,
               color: this.state.tabSelect === tabSelectName.manage ? whiteColor : blueColor,
@@ -191,16 +213,16 @@ class ProfileContainer extends React.Component {
       }
 
 
-      return <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
-        colors={colorLinearGradient} style={{ flex: 1 }}>
+      return <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+                             colors={colorLinearGradient} style={{flex: 1}}>
 
-        <ScrollView style={{ backgroundColor: 'transparent' }}>
+        <ScrollView style={{backgroundColor: 'transparent'}}>
 
           <View style={styles.bodyContent}>
             <FlatList
               data={this.state.eventData}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item, index }) => <ItemEventProfile item={item} />}
+              renderItem={({item, index}) => <ItemEventProfile item={item}/>}
             />
 
             {
@@ -217,10 +239,10 @@ class ProfileContainer extends React.Component {
                   flexDirection: 'row',
                 }}>
                   <MaterialCommunityIcons name={'plus'} size={50}
-                    color={grayColor} />
+                                          color={grayColor}/>
 
                   <Text
-                    style={[styles.textStyle, { fontSize: 24, marginTop: -7, color: grayColor, fontWeight: 'bold' }]}>
+                    style={[styles.textStyle, {fontSize: 24, marginTop: -7, color: grayColor, fontWeight: 'bold'}]}>
                     Tạo Event
                   </Text>
 
@@ -235,7 +257,7 @@ class ProfileContainer extends React.Component {
 
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
 
         {renderHeaderProfile()}
         {renderBodyProfile()}

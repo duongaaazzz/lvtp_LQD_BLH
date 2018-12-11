@@ -20,8 +20,11 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 import RouteKey from '../../constants/routeKey'
 import {blackColor, blueColor} from '../../constants/color';
-import { sendVerificationPhoneNumber, validateVerificationCode} from '../../utilities/ApiManager';
+import {sendVerificationPhoneNumber, validateVerificationCode} from '../../utilities/ApiManager';
 import {USER_LOGIN} from '../../actions/user';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import VeriS from './VerifyPhoneNumberScreen'
+
 
 class VerificationContainer extends React.Component {
 
@@ -48,7 +51,7 @@ class VerificationContainer extends React.Component {
     validateVerificationCode('+84', numberPhone, this.state.code).then(resss => {
       // if (resss.success) {
       if (true) {
-         console.log(numberPhone)
+        console.log(numberPhone)
         NavigationServices.navigate(RouteKey.Authentication, {success: true, numberPhone: numberPhone})
       } else {
         Alert.alert(
@@ -63,17 +66,45 @@ class VerificationContainer extends React.Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation
+    // const numberPhone = this.props.navigation.state !== undefined && this.props.navigation.state.params !== undefined && this.props.navigation.state.params.numberPhone
+    const numberPhone = '0939808386'
+
     return (
 
-      <KeyboardAvoidingView style={styles.root} behavior="padding" enabled>
+
+      <View style={styles.root} behavior="padding" enabled>
 
 
         <View style={styles.titileWrapper}>
-          <Text style={styles.text}>Xác minh số điện thoại</Text>
+
+          <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 10}}>
+            <TouchableOpacity
+              style={{
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => navigate(RouteKey.Authentication)}>
+              <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
+            </TouchableOpacity>
+
+            <Text style={[styles.text, {fontSize: 26, fontWeight: 'bold', marginLeft: 10}]}>Xác minh số
+              điện thoại</Text>
+          </View>
+
+          <Text style={[styles.text, {fontWeight: '400', marginHorizontal: 10}]}>
+            Vui lòng nhập 4 mã xác nhận đả được gửi đến số điện thoại (+84)
+            <Text
+              style={styles.text}>{numberPhone}
+            </Text>
+          </Text>
+
         </View>
         <View style={styles.inputWrapper}>
           <TextInput
-            style={styles.textInput}
+            style={[styles.textInput, {height: 30}]}
             keyboardType='numeric'
             maxLength={4}
             placeholder="Mã xác nhận"
@@ -84,6 +115,17 @@ class VerificationContainer extends React.Component {
             onChangeText={(text) => this.setState({code: text})}
           />
         </View>
+
+        <View>
+          <Text style={[styles.text, {marginHorizontal: 10, fontSize: 14}]}>
+            Bạn gặp vấn đề với mả xác nhận?
+          </Text>
+          <Text>
+            Vui lòng
+          </Text>
+        </View>
+
+
         <View style={styles.buttonsWrapper}>
 
           <View style={{flexDirection: 'row', alignContent: 'center'}}>
@@ -100,9 +142,10 @@ class VerificationContainer extends React.Component {
         </View>
         <View style={{flex: 0.1, alignItems: 'center',}}>
         </View>
-      </KeyboardAvoidingView>
+      </View>
     )
   }
+
 }
 
 
@@ -113,9 +156,9 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   titileWrapper: {
-    flex: 0.55,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 0.15,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     // backgroundColor: 'pink'
   },
   inputWrapper: {
@@ -172,5 +215,4 @@ const styles = StyleSheet.create({
 
 export default connect(state => ({
   token: state
-}), dispatch => ({
-}))(VerificationContainer);
+}), dispatch => ({}))(VerificationContainer);

@@ -6,6 +6,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
+  Alert,
   View,
   Text,
   TouchableOpacity,
@@ -51,12 +52,12 @@ class DetailsCardEvent extends React.Component {
   }
 
   componentDidMount() {
-
   }
 
   renderTime() {
     const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
-    const dateStart = Moment(detailCardEvent.date_start).format('DD-MM')
+    const dateStart = Moment(detailCardEvent.time_start).format('DD-MM')
+
     const month = dateStart.slice(3, 5)
     const day = dateStart.slice(0, 2)
     return <View style={{width: '25%', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
@@ -137,19 +138,33 @@ class DetailsCardEvent extends React.Component {
                 position: 'absolute'
               }}>
                 <TouchableOpacity
-                  onPress={() => NavigationServices.homeSwitchNavigate(RouteKey.EditEvent, {
-                    detailCardEvent: detailCardEvent,
-                    home: 'home'
-                  })}
+                  onPress={() => {
+                    NavigationServices.profileSwitchNavigate(RouteKey.EditEvent, {
+                      detailCardEvent: detailCardEvent,
+                      home: 'Profile'
+                    })
+                  }}
                   style={[styles.button, {width: 100, backgroundColor: 'gray'}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Cập
                     Nhật</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => deleteUserEvent(detailCardEvent._id).then(resss => {
-                  if (resss) {
-                    NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {})
-                  }
-                })}
+                <TouchableOpacity onPress={() => {
+                  Alert.alert('Cảnh báo', 'Bạn có chắc muốn xoá sự kiện này', [
+                    {
+                      text: 'Huỷ bỏ',
+                      style: 'cancel'
+                    },
+                    {
+                      text: 'Xác nhận',
+                      onPress: () => deleteUserEvent(detailCardEvent._id).then(resss => {
+                        if (resss) {
+                          NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {})
+                        }
+                      }),
+                      style: 'ok'
+                    }
+                  ]);
+                }}
                                   style={[styles.button, {width: 100, backgroundColor: redColor}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Xóa
                     Event</Text>
@@ -163,7 +178,7 @@ class DetailsCardEvent extends React.Component {
                 <Text
                   numberOfLines={4}
                   style={[styles.textStyle, {fontSize: 20,}]}>
-                  {detailCardEvent.description}
+                  {detailCardEvent.title}
                 </Text>
                 <View style={{borderWidth: 1, marginTop: 10, width: '90%',}}/>
               </View>
@@ -178,7 +193,7 @@ class DetailsCardEvent extends React.Component {
 
             <View style={[styles.body]}>
               {this.renderInfoEvent([blueColor, darkBlueColor], detailCardEvent.userlist.length, 'Người đăng ký', 'account-supervisor')}
-              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Bình chọn', 'star')}
+              {this.renderInfoEvent([pinkColor, darkPinkColor], 1, 'Bình chọn', 'star')}
               {/*{this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ', 'share')}*/}
             </View>
 
@@ -214,8 +229,10 @@ class DetailsCardEvent extends React.Component {
                   <TextInput
                     style={[styles.textInput, {
                       justifyContent: 'flex-start',
-                      alignItems: 'flex-start',
-                      paddingLeft: 10
+                      alignItems: 'center',
+                      paddingLeft: 10,
+                      height: 35,
+                      textJustify: 'center'
                     }]}
                     autoCorrect={false}
                     value={this.state.commentEvent}

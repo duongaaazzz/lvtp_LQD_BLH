@@ -18,8 +18,27 @@ class TypeContainer extends React.Component {
 
     this.state = {
       isFetching: false,
-      currentUserEvent: props.currentUserEvent
+      currentUserEvent: props.currentUserEvent,
+      listTypeEvent: []
     }
+
+  }
+
+  componentDidMount(): void {
+    this.props.currentUserEvent.map(event => {
+      event.type.map(t => {
+        let indexT = this.state.listTypeEvent.findIndex(x => x === t)
+
+        if (indexT === -1) {
+
+          this.setState({
+            listTypeEvent:this.state.listTypeEvent.push(t)
+          })
+
+        }
+      })
+    })
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -55,6 +74,16 @@ class TypeContainer extends React.Component {
                            }}/>
         :
         <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundColor}}>
+
+          <View>
+
+            {/*<FlatList renderItem={<View style={{width: 50}}></View>} data={} initialNumToRender={} keyExtractor={}*/}
+                      {/*numColumns={} getItem={}*/}
+                      {/*getItemCount={} disableVirtualization={} maxToRenderPerBatch={} updateCellsBatchingPeriod={}*/}
+                      {/*windowSize={}/>*/}
+
+          </View>
+
           <View style={{elevation: 0}}>
             <FlatList
               onRefresh={() => this.onRefresh()}

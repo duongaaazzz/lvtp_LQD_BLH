@@ -55,7 +55,10 @@ export default class ItemSearch extends React.Component {
   render() {
     console.log(this.props.infoEvent)
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+        NavigationServices.mainTabNavigate(RouteKey.HomeScreen)
+        NavigationServices.homeSwitchNavigate(RouteKey.DetailsCardEvent, {data: this.props.infoEvent})
+      }}>
         <View style={{
           width: width * 0.8,
           height: 50,
