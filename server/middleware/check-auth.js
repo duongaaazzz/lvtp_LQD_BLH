@@ -5,7 +5,7 @@ const jwt= require('jsonwebtoken');
 module.exports = (req, res, next) => {
     //Get auth header value
     const bearerHeader = req.headers['authorization'];
-    console.log('header', req.headers )
+    //console.log('header', req.headers )
     //check if bearer is undefined
     if(typeof bearerHeader !== 'undefined'){
         //Slipt at  the space

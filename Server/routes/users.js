@@ -93,7 +93,7 @@ router.patch('/:userId', (req, res, next) => {
                 status: 'success',
                 message: 'user Edited',
                 result: result,
-            });  
+            });
         })
         .catch(err => {
             console.log(err);
@@ -146,14 +146,13 @@ router.get('/checkPhonenumber/:phone', (req, res, next) => {
 });
 
 
-
 /* GET check username exist. */
 router.get('/checkUsername/:username', (req, res, next) => {
     const username = req.params.username;
     User.findOne({ username: username })
         .exec()
         .then(doc => {
-          //  console.log(doc);
+            //  console.log(doc);
             if (doc) {
                 res.status(200).json({
                     status: 'success',
@@ -236,10 +235,10 @@ router.get('/avatar/:username', (req, res, next) => {
         .then(function (data) {
             if (data) {
                 res.status(201)
-                .json({
-                    status: 'succ',
-                    avatar: data.avatar
-                });
+                    .json({
+                        status: 'succ',
+                        avatar: data.avatar
+                    });
             }
             else {
                 res.status(404)
