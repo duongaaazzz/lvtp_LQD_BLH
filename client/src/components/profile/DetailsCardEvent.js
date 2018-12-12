@@ -6,14 +6,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
+  Alert,
   View,
-  Text,
+  Text, TouchableWithoutFeedback,
   TouchableOpacity,
   ScrollView,
   ImageBackground,
   StyleSheet,
   Dimensions,
   TextInput,
+  Image,
+  Modal,
   FlatList
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
@@ -32,7 +35,7 @@ import {
   skyColor, violetColor, whiteColor
 } from '../../constants/color';
 import Moment from 'moment';
-import {commentEvent, deleteUserEvent} from '../../utilities/ApiManager';
+import {commentEvent, deleteUserEvent, getUserList} from '../../utilities/ApiManager';
 import NavigationServices from '../../navigation/NavigationServices';
 import formatDayAgo from '../../utilities/formatDayAgo';
 
@@ -46,17 +49,32 @@ class DetailsCardEvent extends React.Component {
     this.state = {
       commentEvent: '',
       isShowButtonSendComment: true,
-      listCommentEvent: props.navigation.state.params.detailCardEvent.comments
+      listCommentEvent: props.navigation.state.params.detailCardEvent.comments,
+      listUserInEvent: [],
+      isShowListUserInEvent: false
     }
   }
 
   componentDidMount() {
 
+    getUserList(this.props.navigation.state.params.detailCardEvent._id).then(resss => {
+      if (resss.length > 0) {
+        this.setState({
+          listUserInEvent: resss
+        })
+
+        console.log('ddd', this.state.listUserInEvent)
+
+      }
+    })
+
+
   }
 
   renderTime() {
     const detailCardEvent = this.props.navigation.state.params.detailCardEvent;
-    const dateStart = Moment(detailCardEvent.date_start).format('DD-MM')
+    const dateStart = Moment(detailCardEvent.time_start).format('DD-MM')
+
     const month = dateStart.slice(3, 5)
     const day = dateStart.slice(0, 2)
     return <View style={{width: '25%', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
@@ -90,25 +108,28 @@ class DetailsCardEvent extends React.Component {
     rateE = (rateE / detailCardEvent.rates.length) || 0
 
 
-    return <LinearGradient
-      colors={listColor}
-      start={{x: 0, y: 0}} end={{x: 1, y: 1}}
-      style={[styles.infoEvent]}>
+    return <TouchableOpacity disabled={nameIcon === 'star'}
+                             onPress={() => this.setState({isShowListUserInEvent: true})}>
+      <LinearGradient
+        colors={listColor}
+        start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+        style={[styles.infoEvent]}>
 
-      <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
-        <MaterialCommunityIcons name={nameIcon} size={30}
-                                color={whiteColor}/>
-      </View>
-      <View style={{flex: 0.8, marginBottom: 10}}>
-        <Text
-          style={[styles.textStyle, {
-            fontSize: 38,
-            color: whiteColor
-          }]}> {nameIcon === 'star' ? rateE.toFixed(2) : number}</Text>
-        <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
-      </View>
+        <View style={{width: 30, height: 30, marginTop: 10, marginLeft: 10}}>
+          <MaterialCommunityIcons name={nameIcon} size={30}
+                                  color={whiteColor}/>
+        </View>
+        <View style={{flex: 0.8, marginBottom: 10}}>
+          <Text
+            style={[styles.textStyle, {
+              fontSize: 38,
+              color: whiteColor
+            }]}> {nameIcon === 'star' ? rateE.toFixed(2) : number}</Text>
+          <Text style={[styles.textStyle, {fontSize: 17, color: whiteColor, marginLeft: 7}]}> {test}</Text>
+        </View>
 
-    </LinearGradient>
+      </LinearGradient>
+    </TouchableOpacity>
   }
 
   render() {
@@ -137,19 +158,33 @@ class DetailsCardEvent extends React.Component {
                 position: 'absolute'
               }}>
                 <TouchableOpacity
-                  onPress={() => NavigationServices.homeSwitchNavigate(RouteKey.EditEvent, {
-                    detailCardEvent: detailCardEvent,
-                    home: 'home'
-                  })}
+                  onPress={() => {
+                    NavigationServices.profileSwitchNavigate(RouteKey.EditEvent, {
+                      detailCardEvent: detailCardEvent,
+                      home: 'Profile'
+                    })
+                  }}
                   style={[styles.button, {width: 100, backgroundColor: 'gray'}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Cập
                     Nhật</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => deleteUserEvent(detailCardEvent._id).then(resss => {
-                  if (resss) {
-                    NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {})
-                  }
-                })}
+                <TouchableOpacity onPress={() => {
+                  Alert.alert('Cảnh báo', 'Bạn có chắc muốn xoá sự kiện này', [
+                    {
+                      text: 'Huỷ bỏ',
+                      style: 'cancel'
+                    },
+                    {
+                      text: 'Xác nhận',
+                      onPress: () => deleteUserEvent(detailCardEvent._id).then(resss => {
+                        if (resss) {
+                          NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {})
+                        }
+                      }),
+                      style: 'ok'
+                    }
+                  ]);
+                }}
                                   style={[styles.button, {width: 100, backgroundColor: redColor}]}>
                   <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Xóa
                     Event</Text>
@@ -163,7 +198,7 @@ class DetailsCardEvent extends React.Component {
                 <Text
                   numberOfLines={4}
                   style={[styles.textStyle, {fontSize: 20,}]}>
-                  {detailCardEvent.description}
+                  {detailCardEvent.title}
                 </Text>
                 <View style={{borderWidth: 1, marginTop: 10, width: '90%',}}/>
               </View>
@@ -178,7 +213,7 @@ class DetailsCardEvent extends React.Component {
 
             <View style={[styles.body]}>
               {this.renderInfoEvent([blueColor, darkBlueColor], detailCardEvent.userlist.length, 'Người đăng ký', 'account-supervisor')}
-              {this.renderInfoEvent([pinkColor, darkPinkColor], 200, 'Bình chọn', 'star')}
+              {this.renderInfoEvent([pinkColor, darkPinkColor], 1, 'Bình chọn', 'star')}
               {/*{this.renderInfoEvent([lightBlueColor, darkBlueColor], 17, 'Người chia sẻ', 'share')}*/}
             </View>
 
@@ -214,8 +249,10 @@ class DetailsCardEvent extends React.Component {
                   <TextInput
                     style={[styles.textInput, {
                       justifyContent: 'flex-start',
-                      alignItems: 'flex-start',
-                      paddingLeft: 10
+                      alignItems: 'center',
+                      paddingLeft: 10,
+                      height: 35,
+                      textJustify: 'center'
                     }]}
                     autoCorrect={false}
                     value={this.state.commentEvent}
@@ -286,15 +323,71 @@ class DetailsCardEvent extends React.Component {
           <TouchableOpacity
             style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
             onPress={() => {
-              if (this.props.navigation.state.params.backHome) {
-                NavigationServices.homeSwitchNavigate('HomeTab')
-              } else {
-                NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
-              }
+              this.props.navigation.goBack()
             }}>
             <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
           </TouchableOpacity>
         </View>
+
+        <Modal
+          onRequestClose={() => {
+
+          }}
+          visible={this.state.isShowListUserInEvent}
+          transparent={true}
+          style={{flex: 1}}
+        >
+          <TouchableWithoutFeedback onPress={() => this.setState({
+            isShowListUserInEvent: false
+          })}>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: 'rgba(0,0,0,0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+
+              <View style={{
+                backgroundColor: '#fff',
+                width: '80%',
+                height: '70%',
+                alignItems: 'center',
+                borderRadius: 10
+              }}>
+
+                <Text style={[styles.textStyle, {marginVertical: 20, fontSize: 20}]}>Danh sách người tham gia</Text>
+
+                <View style={{borderWidth: 1, borderBottomColor: grayColor, width: '100%', marginBottom: 5}}/>
+
+                <FlatList
+                  style={{flex: 1,}}
+                  data={this.state.listUserInEvent}
+                  renderItem={({item}) => <View
+                    style={{
+                      width: '90%',
+                      height: 40,
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginVertical: 5
+                    }}>
+
+                    <Image
+                      resizeMode='cover'
+                      source={{uri: item.avatar || 'https://znews-photo-td.zadn.vn/w820/Uploaded/spuocaw/2018_08_06/spiritedawaystill4.jpg'}}
+                      style={{width: 40, height: 40, borderRadius: 20}}/>
+
+                    <Text style={[styles.textStyle, {width: '55%', marginLeft: 10}]}>{item.fullname}</Text>
+                  </View>}
+                  keyExtractor={(item, index) => index.toString()}/>
+              </View>
+
+            </View>
+          </TouchableWithoutFeedback>
+        </Modal>
+
       </View>
     )
   }

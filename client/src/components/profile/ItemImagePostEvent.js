@@ -30,12 +30,14 @@ export default class ItemImagePostEvent extends React.Component {
 
     if (this.props.imageInfo.sourceURL === undefined && this.props.imageInfo.path === undefined) {
       this.setState({isUploadImageSuccess: true})
+      this.props.setUploadImageSuccess()
     } else {
       this.setState({isUploadImageSuccess: false})
       setTimeout(() => {
         upLoadImageFirebase(nameEvent, Platform.OS === 'ios' ? imageInfo.sourceURL : imageInfo.path, imageInfo.mime).then(data => {
           if (!!data) {
             this.setState({isUploadImageSuccess: true})
+            this.props.setUploadImageSuccess()
             this.props.upLoadImageEventSuccess(data)
           }
         })
@@ -51,7 +53,7 @@ export default class ItemImagePostEvent extends React.Component {
 
   render() {
 
-   // console.log('image info', this.props.imageInfo)
+    // console.log('image info', this.props.imageInfo)
     return (
       <View style={{width: 110, height: 110, backgroundColor: 'gray', margin: 5}}>
         <ImageBackground

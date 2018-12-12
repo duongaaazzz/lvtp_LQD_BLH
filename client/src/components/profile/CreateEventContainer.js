@@ -15,6 +15,7 @@ import {postCreateEvents} from '../../utilities/ApiManager';
 import ItemImagePostEvent from './ItemImagePostEvent'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import randomColor from 'randomcolor';
+import MapView from 'react-native-maps';
 
 
 class CreateEventContainer extends React.Component {
@@ -33,19 +34,22 @@ class CreateEventContainer extends React.Component {
       linkImageEvent: '',
       listImagePostEvent: '',
       type: [],
-      eventInput: ''
+      eventInput: '',
+      isUploadImageSuccess: false
     }
     this.isDateTimePickerEnd = false
     this.taggggg = ''
 
   }
 
+  setUploadImageSuccess = () => this.setState({isUploadImageSuccess: true})
+
   componentWillMount() {
 
   }
 
   upLoadImageEventSuccess = (linkImage) => {
-   this.setState({linkImageEvent: linkImage})
+    this.setState({linkImageEvent: linkImage})
   }
 
   renderHashtag() {
@@ -212,6 +216,19 @@ class CreateEventContainer extends React.Component {
                   onChangeText={(text) => this.setState({location: text})}
                 />
               </View>
+
+
+              {/*<MapView*/}
+              {/*style={{width:'100%',height:300}}*/}
+              {/*initialRegion={{*/}
+              {/*latitude: 10.0451618,*/}
+              {/*longitude: 105.7468535,*/}
+              {/*latitudeDelta: 0.1,*/}
+              {/*longitudeDelta: 0.1,*/}
+              {/*}}*/}
+              {/*showsUserLocation={true}*/}
+              {/*/>*/}
+
             </View>
 
             <View style={[styles.wrapper, {}]}>
@@ -292,6 +309,7 @@ class CreateEventContainer extends React.Component {
                   !!this.state.listImagePostEvent && <ItemImagePostEvent imageInfo={this.state.listImagePostEvent}
                                                                          nameEvent={this.state.eventTittle}
                                                                          upLoadImageEventSuccess={this.upLoadImageEventSuccess}
+                                                                         setUploadImageSuccess={this.setUploadImageSuccess}
                   />
                 }
 
@@ -316,32 +334,34 @@ class CreateEventContainer extends React.Component {
 
             <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
-              <TouchableOpacity style={styles.button} onPress={() => {
-                var type = ''
-                this.state.type.forEach((value => {
-                  value = value.trim()
-                  type = type + value + '|'
-                }))
+              <TouchableOpacity
+                disabled={!this.state.isUploadImageSuccess}
+                style={[styles.button, {backgroundColor: !this.state.isUploadImageSuccess ? grayColor : blueColor}]}
+                onPress={() => {
+                  var type = ''
+                  this.state.type.forEach((value => {
+                    value = value.trim()
+                    type = type + value + '|'
+                  }))
 
-                type = type.substring(0, type.length - 1)
+                  type = type.substring(0, type.length - 1)
 
-                console.log(type)
-                postCreateEvents(
-                  this.props.userInfo.username,
-                  this.state.eventTittle,
-                  this.state.description,
-                  this.state.price,
-                  this.state.location,
-                  this.state.dateTimePickerStart,
-                  this.state.dateTimePickerEnd,
-                  this.state.linkImageEvent,
-                  type
-                ).then(resss => {
-                  if (resss) {
-                    navigate(RouteKey.ProfileScreen, {createEvent: true})
-                  }
-                })
-              }}>
+                  postCreateEvents(
+                    this.props.userInfo.username,
+                    this.state.eventTittle,
+                    this.state.description,
+                    this.state.price,
+                    this.state.location,
+                    this.state.dateTimePickerStart,
+                    this.state.dateTimePickerEnd,
+                    this.state.linkImageEvent,
+                    type
+                  ).then(resss => {
+                    if (resss) {
+                      navigate(RouteKey.ProfileScreen, {createEvent: true})
+                    }
+                  })
+                }}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Lưu</Text>
 
               </TouchableOpacity>
@@ -369,13 +389,13 @@ export default connect(state => ({
 }), dispatch => ({}))(CreateEventContainer);
 
 const styles = StyleSheet.create({
-    textStyle: {
-      fontFamily: 'SegoeUI',
-      color: blackColor,
-    },
-    textInput: {
-      width: '90%',
-    },
+  textStyle: {
+    fontFamily: 'SegoeUI',
+    color: blackColor,
+  },
+  textInput: {
+    width: '90%',
+  },
   inputWrapper: {
     marginVertical: 5,
     borderRadius: 20,

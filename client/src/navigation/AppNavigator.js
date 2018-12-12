@@ -3,12 +3,17 @@
  */
 
 import React from 'react';
-import {createSwitchNavigator, createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-navigation';
+import {
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator,
+  createStackNavigator
+} from 'react-navigation';
 import RouteKey from '../constants/routeKey';
 
 import LoginContainer from '../components/login/LoginContainer'
 import RegisterUserScreen from '../components/registerUser/RegisterUserContainer'
-import VerificationContainer from '../components/verification/VerificationContainer'
+import VerificationContainer from '../components/verification/VerifyPhoneNumberScreen'
 import HomeContainer from '../components/home/HomeContainer'
 import HomeTabContainer from './HomeTabContainer'
 import ProfileContainer from '../components/profile/ProfileContainer'
@@ -31,7 +36,7 @@ import CustomMainTab from './CustomMainTab'
 import ProfileSwitchContainer from './ProfileSwitchContainer'
 
 
-export const HomeSwitch = createSwitchNavigator({
+export const HomeSwitch = createStackNavigator({
   HomeTab: {
     screen: HomeTabContainer
   },
@@ -44,9 +49,13 @@ export const HomeSwitch = createSwitchNavigator({
   [RouteKey.EditEvent]: {
     screen: EditEvent
   }
+}, {
+  navigationOptions: {
+    header: null
+  }
 })
 
-export const ProfileSwitch = createSwitchNavigator({
+export const ProfileSwitch = createStackNavigator({
   [RouteKey.ProfileScreen]: {
     screen: ProfileContainer
   },
@@ -61,6 +70,13 @@ export const ProfileSwitch = createSwitchNavigator({
   },
   [RouteKey.EditEvent]: {
     screen: EditEvent
+  },
+  [RouteKey.DetailsCardEvent]: {
+    screen: DetailsCardEvent
+  },
+}, {
+  navigationOptions: {
+    header: null
   }
 })
 
@@ -124,23 +140,34 @@ export const MainTab = createBottomTabNavigator({
 
 })
 
-
-export const AppNavigator = createSwitchNavigator({
-  // [RouteKey.DetailsCardEvent]: {
-  //   screen: CreateEvent
-  // },
-  [RouteKey.Authentication]: {
-    screen: AuthenticationContainer
-  },
+const loginStack = createStackNavigator({
 
   [RouteKey.RegisterUserScreen]: {
-    screen: RegisterUserScreen
+    screen: RegisterUserScreen,
+    navigationOptions: {
+      header: null
+    }
   },
   [RouteKey.LoginScreen]: {
-    screen: LoginContainer
+    screen: LoginContainer,
+    navigationOptions: {
+      header: null
+    }
   },
   [RouteKey.VerificationContainer]: {
     screen: VerificationContainer
+  },
+}, {})
+
+export const AppNavigator = createSwitchNavigator({
+  // [RouteKey.DetailsCardEvent]: {
+  //   screen: VerificationContainer
+  // },
+  [RouteKey.Authentication]: {
+    screen: AuthenticationContainer,
+  },
+  LoginStack: {
+    screen: loginStack
   },
   MainTab: {
     screen: MainTabContainer

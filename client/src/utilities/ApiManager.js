@@ -316,6 +316,9 @@ export function patchUpdateEvent(eventId, title, description, price, type, locat
     // console.log(body)
     patchWithTimeout(`${urlServer}/events/${eventId}`, {}, body).then(data => {
       if (data.status === 'success') {
+        getEvent().then(data => {
+          store.dispatch({type: GET_EVENT_USER, currentUserEvent: data.events})
+        })
         resolve(data)
       } else {
         resolve(false)
@@ -333,7 +336,7 @@ export function patchUpdateEvent(eventId, title, description, price, type, locat
 export function deleteUserEvent(eventId) {
   return new Promise(resolve => {
     deleteWithTimeout(`${urlServer}/events/${eventId}`, {},).then(data => {
-      if (data.status === 'success') {
+      if (data.message === "Event Deleted"  ) {
         resolve(data)
 
         getEvent().then(data => {
@@ -391,7 +394,7 @@ export function rateEvent(eventId, rate, username) {
   let body = {
     rate: {
       username: username,
-      rate: rate ,
+      rate: rate,
       at: Moment().format()
     }
   }
@@ -407,6 +410,35 @@ export function rateEvent(eventId, rate, username) {
         resolve(false)
 
       }
+    })
+  })
+}
+
+/**
+ * Search place with google map api
+ * @param place
+ * @return {Promise<any>}
+ */
+export function searchPlace(place) {
+  return new Promise(resolve => {
+    getWithTimeout(`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input=${encodeURIComponent(place)}&key=AIzaSyAuZwSOpEisbRaURDBv3IWKDUa1y3kKF2g`).then(ress => {
+
+    })
+  })
+}
+
+
+/**
+ * Get user info with number phone
+ * @param {string} numberPhone
+ * @return {Promise<any>}
+ */
+export function getUserList(eventId) {
+  return new Promise(resolve => {
+    getWithTimeout(`${urlServer}/events/registers/${eventId}`, {}).then(response => {
+      if (response.status === 'success') {
+        resolve(response.result)
+      } else resolve(false)
     })
   })
 }

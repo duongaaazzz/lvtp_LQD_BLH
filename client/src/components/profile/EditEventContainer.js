@@ -4,7 +4,18 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, FlatList, Picker} from 'react-native'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  StyleSheet,
+  FlatList,
+  Picker,
+  Alert
+} from 'react-native'
 import {backgroundColor, blackColor, blueColor, grayColor, redColor, whiteColor} from '../../constants/color';
 import ImagePicker from 'react-native-image-crop-picker';
 import RouteKey from '../../constants/routeKey';
@@ -248,8 +259,19 @@ class EditEventContainer extends React.Component {
                   detailCardEvent._id, this.state.title, this.state.description, this.state.price, this.state.type, this.state.location, this.state.avatar, this.state.time_start, this.state.time_end
                 ).then(res => {
                   console.log('update event result: ', res)
-                  if (res.status == 'success')
-                    NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen)
+                  if (res.status == 'success') {
+
+                    Alert.alert(
+                      'Thông báo',
+                      'Thông tin sự kiện đả được cập nhât!', [
+                        {
+                          text: 'OK', style: 'cancel', onPress: () => {
+
+                            NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.navigation.state.params.detailCardEvent,})
+                          }
+                        },
+                      ])
+                  }
                 })
               }}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Lưu</Text>
@@ -257,11 +279,10 @@ class EditEventContainer extends React.Component {
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => {
-                if (this.props.navigation.state.params.home === 'home') {
-                  NavigationServices.homeSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.navigation.state.params.detailCardEvent})
-                } else {
-                  NavigationServices.profileSwitchNavigate(RouteKey.ProfileScreen, {createEvent: true})
-                }
+                NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {
+                  detailCardEvent: this.props.navigation.state.params.detailCardEvent,
+                  currentUserEvent: this.props.currentUserEvent
+                })
               }}
                                 style={[styles.button, {width: 100, backgroundColor: redColor}]}>
                 <Text style={[styles.textStyle, {alignSelf: 'center', fontWeight: '500', color: whiteColor}]}>Huỷ</Text>
@@ -275,7 +296,9 @@ class EditEventContainer extends React.Component {
 }
 
 export default connect(state => ({
-  userInfo: state.userInfo
+  userInfo: state.userInfo,
+  currentUserEvent: state.userInfo.currentUserEvent
+
 }), dispatch => ({
   logoutUser: () => dispatch({type: USER_LOGOUT})
 }))(EditEventContainer);

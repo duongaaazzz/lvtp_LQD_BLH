@@ -242,7 +242,6 @@ class EditUserInforContainer extends React.Component {
             <View style={{
               width: 200,
               height: 50,
-              backgroundColor: 'red',
               marginBottom: 10,
               justifyContent: 'center',
               alignItems: 'center',

@@ -82,6 +82,7 @@ class AuthenticationContainer extends React.Component {
     }
   }
 
+
   checkToken() {
     return new Promise(resolve => {
       let token = AsyncStorage.getItem('@yolo:token').then(token => {
@@ -101,14 +102,19 @@ class AuthenticationContainer extends React.Component {
     return (
       <View style={{
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'space-between',
       }}>
-        <Text>check token done</Text>
+        <View/>
+        <Text style={{
+          fontSize: 50,
+          fontWeight: 'bold',
+          paddingTop: 10,
+          paddingBottom: 10,
+        }}>Yolo</Text>
 
         <ActivityIndicator size="small" color={grayColor}/>
-
-
+        <View/>
       </View>
     )
   }

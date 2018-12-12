@@ -25,7 +25,9 @@ class NearByContainer extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.currentUserEvent !== nextProps.currentUserEvent) {
       this.setState({
-        currentUserEvent: nextProps.currentUserEvent
+        currentUserEvent: nextProps.currentUserEvent.sort(function (a, b) {
+          return b.comments.length - a.comments.length;
+        })
       })
     }
   }

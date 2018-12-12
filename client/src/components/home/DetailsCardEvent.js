@@ -48,7 +48,7 @@ class DetailsCardEvent extends React.Component {
 
       let rateE = this.props.navigation.state.params.data.rates[indexRate].rate
 
-      let start = [-1, -1, -1, -1, -1]
+      let start = [-1, -1, -1, -1, -1];
 
       if (rateE >= 1) start[0] = 1
 
@@ -188,7 +188,7 @@ class DetailsCardEvent extends React.Component {
       }}>
 
       <Text style={[styles.textStyle, {fontSize: 30, color: whiteColor}]}>
-        {rateE.toFixed(2)}
+        {!!rateE ? rateE.toFixed(2) : '0.00'}
       </Text>
 
       <View style={{flexDirection: 'row', marginTop: -2}}>
@@ -329,7 +329,7 @@ class DetailsCardEvent extends React.Component {
             // justifyContent: 'flex-start',
             alignItems: 'flex-start',
           }}>
-            <View style={{width: '100%', height: 210,backgroundColor:grayColor}}>
+            <View style={{width: '100%', height: 210, backgroundColor: grayColor}}>
               <ImageBackground
                 style={{
                   flex: 1,
@@ -406,7 +406,8 @@ class DetailsCardEvent extends React.Component {
               <View style={{height: 25, width: 20, alignItems: 'center', justifyContent: 'center'}}>
                 <MaterialIcons name='location-on' size={20} color={blackColor}/>
               </View>
-              <Text style={[styles.textStyle, {fontSize: 15, marginLeft: 3, fontWeight: '400'}]}>
+              <Text numberOfLines={2}
+                    style={[styles.textStyle, {fontSize: 15, marginLeft: 3, fontWeight: '400', width: '90%'}]}>
                 {data.location}
               </Text>
             </View>
@@ -416,7 +417,7 @@ class DetailsCardEvent extends React.Component {
                 <MaterialCommunityIcons name='ticket-confirmation' size={19} color={blackColor}/>
               </View>
               <Text style={[styles.textStyle, {fontSize: 15, marginLeft: 3, fontWeight: '400'}]}>
-                {data.price}
+                {data.price === 0 ? 'Miển phí' : data.price + ' đồng'}
               </Text>
             </View>
 
@@ -427,7 +428,7 @@ class DetailsCardEvent extends React.Component {
 
             <View style={[styles.viewInfo, {flexDirection: 'row', alignItems: 'flex-end'}]}>
               <Text style={[styles.textStyle, {fontWeight: '400', marginTop: 15,}]}>
-                Description
+                Mô tả sự kiện
               </Text>
 
               <View
@@ -465,6 +466,7 @@ class DetailsCardEvent extends React.Component {
 
                 <TextInput
                   style={[styles.textInput, {
+                    height: 30,
                     justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                     paddingLeft: 10
@@ -538,7 +540,7 @@ class DetailsCardEvent extends React.Component {
 
           <TouchableOpacity
             style={{height: 40, width: 40, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigate('HomeTab', {name: 'Brent'})}>
+            onPress={() => this.props.navigation.goBack()}>
             <Ionicons name={'ios-arrow-back'} size={34} color={blueColor}/>
           </TouchableOpacity>
         </View>
