@@ -23,7 +23,7 @@ export default class ItemEventProfile extends React.Component {
           console.log(this.props)
 
 
-          if (this.props.userInfo.username === this.props.item.created_by) {
+          if (this.props.tabSelect !== 'Signed') {
             NavigationServices.profileSwitchNavigate(RouteKey.DetailsEventProfile, {detailCardEvent: this.props.item})
 
           } else {

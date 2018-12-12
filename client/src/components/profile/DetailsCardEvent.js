@@ -352,7 +352,7 @@ class DetailsCardEvent extends React.Component {
               <View style={{
                 backgroundColor: '#fff',
                 width: '80%',
-                height: '70ß%',
+                height: '70%',
                 alignItems: 'center',
                 borderRadius: 10
               }}>

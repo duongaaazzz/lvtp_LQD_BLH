@@ -23,7 +23,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ItemEventProfile from './ItemEventProfile'
 import NavigationServices from '../../navigation/NavigationServices';
 import RouteKey from '../../constants/routeKey';
-import {getUserEvents, getUserSignedEvents} from '../../utilities/ApiManager';
+import {getEvent, getUserEvents, getUserSignedEvents} from '../../utilities/ApiManager';
 
 
 const {width, height} = Dimensions.get('window')
@@ -39,14 +39,16 @@ class ProfileContainer extends React.Component {
 
     this.state = {
       tabSelect: tabSelectName.signed,
-      eventData: []
+      eventData: [],
+      isFetching: false
     }
     this.dataEventS = []
     this.dataEventM = []
   }
 
   componentDidMount() {
-    // console.log('aaa', this.props.userInfo)
+
+    // setInterval(() => {
     getUserEvents(this.props.userInfo.username).then(data => {
       //this.setState({eventData: data })
       this.dataEventM = data
@@ -63,12 +65,14 @@ class ProfileContainer extends React.Component {
       this.setState({eventData: data})
       //console.log('dataEventM', this.dataEventS)
     })
+    // }, 2000)
 
   }
 
   componentWillReceiveProps(nextProps): void {
 
-    if (this.props.currentUserEvent !== nextProps.currentUserEvent) {
+    if (this.props !== nextProps) {
+      console.log('co chay khong')
       getUserEvents(this.props.userInfo.username).then(data => {
         //this.setState({eventData: data })
         this.dataEventM = data
@@ -114,6 +118,15 @@ class ProfileContainer extends React.Component {
 
   }
 
+  onRefresh = () => {
+
+    this.setState({isFetching: true}, function () {
+
+
+    });
+
+
+  }
 
   render() {
 
@@ -220,9 +233,12 @@ class ProfileContainer extends React.Component {
 
           <View style={styles.bodyContent}>
             <FlatList
+              onRefresh={() => this.onRefresh()}
+              refreshing={this.state.isFetching}
               data={this.state.eventData}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({item, index}) => <ItemEventProfile item={item} userInfo={this.props.userInfo}/>}
+              renderItem={({item, index}) => <ItemEventProfile item={item} userInfo={this.props.userInfo}
+                                                               tabSelect={this.state.tabSelect}/>}
             />
 
             {
